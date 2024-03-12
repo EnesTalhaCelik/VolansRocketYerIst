@@ -22,7 +22,11 @@ namespace VolansYerIstasyonu
 
             pnl_AnaSayfa.Controls.Add(anaSayfaEkrani);
             anaSayfaEkrani.Dock = DockStyle.Fill;
+
+
         }
+
+        
 
         private void UygulamaForm_Load(object sender, EventArgs e)
         {
