@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static GMap.NET.Entity.OpenStreetMapGraphHopperGeocodeEntity;
 
 namespace VolansYerIstasyonu.UserControls
 {
@@ -52,9 +53,9 @@ namespace VolansYerIstasyonu.UserControls
 
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.anasayfaHarita = new GMap.NET.WindowsForms.GMapControl();
             this.gboxVeriler = new System.Windows.Forms.GroupBox();
             this.chartGeiger = new System.Windows.Forms.DataVisualization.Charting.Chart();
@@ -228,17 +229,17 @@ namespace VolansYerIstasyonu.UserControls
             // chartGeiger
             // 
             this.chartGeiger.BackColor = System.Drawing.Color.WhiteSmoke;
-            chartArea4.Name = "ChartArea1";
-            this.chartGeiger.ChartAreas.Add(chartArea4);
-            legend4.Name = "Legend1";
-            this.chartGeiger.Legends.Add(legend4);
+            chartArea1.Name = "ChartArea1";
+            this.chartGeiger.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.chartGeiger.Legends.Add(legend1);
             this.chartGeiger.Location = new System.Drawing.Point(13, 438);
             this.chartGeiger.Name = "chartGeiger";
             this.chartGeiger.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.SeaGreen;
-            series4.ChartArea = "ChartArea1";
-            series4.Legend = "Legend1";
-            series4.Name = "Rad";
-            this.chartGeiger.Series.Add(series4);
+            series1.ChartArea = "ChartArea1";
+            series1.Legend = "Legend1";
+            series1.Name = "Rad";
+            this.chartGeiger.Series.Add(series1);
             this.chartGeiger.Size = new System.Drawing.Size(288, 158);
             this.chartGeiger.TabIndex = 11;
             this.chartGeiger.Text = "Geiger Verileri";
@@ -861,7 +862,16 @@ namespace VolansYerIstasyonu.UserControls
 
         private void btnKonumaGit_Click(object sender, EventArgs e)
         {
-            anasayfaHarita.Position = new PointLatLng(Double.Parse(konumaGit_Enlem.Text), Double.Parse(konumaGit_Boylam.Text));
+
+            try
+            {
+                anasayfaHarita.Position = new PointLatLng(Double.Parse(konumaGit_Enlem.Text), Double.Parse(konumaGit_Boylam.Text));
+            }
+            catch (Exception)
+            {
+                MessageBox.Show($"Geçerli bir konum giriniz.");
+            }
+            
         }
     }
 }
