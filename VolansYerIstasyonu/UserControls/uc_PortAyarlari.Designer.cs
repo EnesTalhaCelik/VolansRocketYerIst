@@ -29,48 +29,48 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
-            this.comboBox4 = new System.Windows.Forms.ComboBox();
-            this.label3 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.btnLoraBaglan = new System.Windows.Forms.Button();
+            this.btnLoraBağlantiKes = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
-            this.comboBox5 = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.cboxLoraParity = new System.Windows.Forms.ComboBox();
+            this.cboxLoraStopBit = new System.Windows.Forms.ComboBox();
+            this.cboxLoraDataBit = new System.Windows.Forms.ComboBox();
+            this.cboxLoraBaudRate = new System.Windows.Forms.ComboBox();
+            this.cboxLoraSP = new System.Windows.Forms.ComboBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
+            this.label12 = new System.Windows.Forms.Label();
+            this.btnHYIBaglan = new System.Windows.Forms.Button();
+            this.btnHYIBaglantiKes = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
-            this.comboBox6 = new System.Windows.Forms.ComboBox();
-            this.comboBox7 = new System.Windows.Forms.ComboBox();
-            this.comboBox8 = new System.Windows.Forms.ComboBox();
-            this.comboBox9 = new System.Windows.Forms.ComboBox();
-            this.comboBox10 = new System.Windows.Forms.ComboBox();
+            this.cboxHYIParity = new System.Windows.Forms.ComboBox();
+            this.cboxHYIStopBit = new System.Windows.Forms.ComboBox();
+            this.cboxHYIDataBit = new System.Windows.Forms.ComboBox();
+            this.cboxHYIBaudRate = new System.Windows.Forms.ComboBox();
+            this.cboxHYISP = new System.Windows.Forms.ComboBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
-            this.button5 = new System.Windows.Forms.Button();
+            this.label17 = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.comboBox11 = new System.Windows.Forms.ComboBox();
+            this.button10 = new System.Windows.Forms.Button();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.button9 = new System.Windows.Forms.Button();
+            this.button8 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
-            this.button8 = new System.Windows.Forms.Button();
-            this.button9 = new System.Windows.Forms.Button();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.button10 = new System.Windows.Forms.Button();
-            this.comboBox11 = new System.Windows.Forms.ComboBox();
-            this.label13 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
-            this.label16 = new System.Windows.Forms.Label();
-            this.label17 = new System.Windows.Forms.Label();
+            this.button5 = new System.Windows.Forms.Button();
+            this.logSeriPort = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -79,82 +79,53 @@
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.label11);
-            this.groupBox1.Controls.Add(this.button1);
-            this.groupBox1.Controls.Add(this.button2);
+            this.groupBox1.Controls.Add(this.btnLoraBaglan);
+            this.groupBox1.Controls.Add(this.btnLoraBağlantiKes);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Controls.Add(this.comboBox4);
-            this.groupBox1.Controls.Add(this.comboBox3);
-            this.groupBox1.Controls.Add(this.comboBox5);
-            this.groupBox1.Controls.Add(this.comboBox2);
-            this.groupBox1.Controls.Add(this.comboBox1);
+            this.groupBox1.Controls.Add(this.cboxLoraParity);
+            this.groupBox1.Controls.Add(this.cboxLoraStopBit);
+            this.groupBox1.Controls.Add(this.cboxLoraDataBit);
+            this.groupBox1.Controls.Add(this.cboxLoraBaudRate);
+            this.groupBox1.Controls.Add(this.cboxLoraSP);
             this.groupBox1.Location = new System.Drawing.Point(3, 3);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(332, 344);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             // 
-            // comboBox1
+            // label11
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(31, 65);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(212, 21);
-            this.comboBox1.TabIndex = 0;
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label11.Location = new System.Drawing.Point(27, 16);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(133, 15);
+            this.label11.TabIndex = 6;
+            this.label11.Text = "Lora Port Ayarları";
             // 
-            // comboBox2
+            // btnLoraBaglan
             // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(187, 146);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(113, 21);
-            this.comboBox2.TabIndex = 1;
+            this.btnLoraBaglan.Location = new System.Drawing.Point(31, 261);
+            this.btnLoraBaglan.Name = "btnLoraBaglan";
+            this.btnLoraBaglan.Size = new System.Drawing.Size(107, 23);
+            this.btnLoraBaglan.TabIndex = 5;
+            this.btnLoraBaglan.Text = "Bağlan";
+            this.btnLoraBaglan.UseVisualStyleBackColor = true;
+            this.btnLoraBaglan.Click += new System.EventHandler(this.btnLoraBaglan_Click);
             // 
-            // label1
+            // btnLoraBağlantiKes
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(28, 46);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(47, 13);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "Seri Port";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(184, 130);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(52, 13);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "Baud Hızı";
-            // 
-            // comboBox3
-            // 
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(31, 206);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(107, 21);
-            this.comboBox3.TabIndex = 0;
-            // 
-            // comboBox4
-            // 
-            this.comboBox4.FormattingEnabled = true;
-            this.comboBox4.Location = new System.Drawing.Point(187, 206);
-            this.comboBox4.Name = "comboBox4";
-            this.comboBox4.Size = new System.Drawing.Size(113, 21);
-            this.comboBox4.TabIndex = 1;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(28, 190);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(44, 13);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "Stop Bit";
+            this.btnLoraBağlantiKes.Enabled = false;
+            this.btnLoraBağlantiKes.Location = new System.Drawing.Point(187, 261);
+            this.btnLoraBağlantiKes.Name = "btnLoraBağlantiKes";
+            this.btnLoraBağlantiKes.Size = new System.Drawing.Size(113, 23);
+            this.btnLoraBağlantiKes.TabIndex = 5;
+            this.btnLoraBağlantiKes.Text = "Bağlantıyı Kes";
+            this.btnLoraBağlantiKes.UseVisualStyleBackColor = true;
             // 
             // label4
             // 
@@ -165,15 +136,6 @@
             this.label4.TabIndex = 3;
             this.label4.Text = "Parity Metodu";
             // 
-            // comboBox5
-            // 
-            this.comboBox5.FormattingEnabled = true;
-            this.comboBox5.Location = new System.Drawing.Point(31, 146);
-            this.comboBox5.Name = "comboBox5";
-            this.comboBox5.Size = new System.Drawing.Size(107, 21);
-            this.comboBox5.TabIndex = 1;
-            this.comboBox5.SelectedIndexChanged += new System.EventHandler(this.comboBox5_SelectedIndexChanged);
-            // 
             // label5
             // 
             this.label5.AutoSize = true;
@@ -183,62 +145,124 @@
             this.label5.TabIndex = 3;
             this.label5.Text = "Data Bit";
             // 
-            // button2
+            // label2
             // 
-            this.button2.Location = new System.Drawing.Point(187, 261);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(113, 23);
-            this.button2.TabIndex = 5;
-            this.button2.Text = "Bağlantıyı Kes";
-            this.button2.UseVisualStyleBackColor = true;
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(184, 130);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(52, 13);
+            this.label2.TabIndex = 3;
+            this.label2.Text = "Baud Hızı";
             // 
-            // button1
+            // label3
             // 
-            this.button1.Location = new System.Drawing.Point(31, 261);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(107, 23);
-            this.button1.TabIndex = 5;
-            this.button1.Text = "Bağlan";
-            this.button1.UseVisualStyleBackColor = true;
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(28, 190);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(44, 13);
+            this.label3.TabIndex = 2;
+            this.label3.Text = "Stop Bit";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(28, 46);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(47, 13);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "Seri Port";
+            // 
+            // cboxLoraParity
+            // 
+            this.cboxLoraParity.FormattingEnabled = true;
+            this.cboxLoraParity.Location = new System.Drawing.Point(187, 206);
+            this.cboxLoraParity.Name = "cboxLoraParity";
+            this.cboxLoraParity.Size = new System.Drawing.Size(113, 21);
+            this.cboxLoraParity.TabIndex = 1;
+            // 
+            // cboxLoraStopBit
+            // 
+            this.cboxLoraStopBit.FormattingEnabled = true;
+            this.cboxLoraStopBit.Location = new System.Drawing.Point(31, 206);
+            this.cboxLoraStopBit.Name = "cboxLoraStopBit";
+            this.cboxLoraStopBit.Size = new System.Drawing.Size(107, 21);
+            this.cboxLoraStopBit.TabIndex = 0;
+            // 
+            // cboxLoraDataBit
+            // 
+            this.cboxLoraDataBit.FormattingEnabled = true;
+            this.cboxLoraDataBit.Location = new System.Drawing.Point(31, 146);
+            this.cboxLoraDataBit.Name = "cboxLoraDataBit";
+            this.cboxLoraDataBit.Size = new System.Drawing.Size(107, 21);
+            this.cboxLoraDataBit.TabIndex = 1;
+            this.cboxLoraDataBit.SelectedIndexChanged += new System.EventHandler(this.comboBox5_SelectedIndexChanged);
+            // 
+            // cboxLoraBaudRate
+            // 
+            this.cboxLoraBaudRate.FormattingEnabled = true;
+            this.cboxLoraBaudRate.Location = new System.Drawing.Point(187, 146);
+            this.cboxLoraBaudRate.Name = "cboxLoraBaudRate";
+            this.cboxLoraBaudRate.Size = new System.Drawing.Size(113, 21);
+            this.cboxLoraBaudRate.TabIndex = 1;
+            // 
+            // cboxLoraSP
+            // 
+            this.cboxLoraSP.FormattingEnabled = true;
+            this.cboxLoraSP.Location = new System.Drawing.Point(31, 65);
+            this.cboxLoraSP.Name = "cboxLoraSP";
+            this.cboxLoraSP.Size = new System.Drawing.Size(212, 21);
+            this.cboxLoraSP.TabIndex = 0;
+            this.cboxLoraSP.SelectedIndexChanged += new System.EventHandler(this.cboxLoraSP_SelectedIndexChanged);
+            this.cboxLoraSP.Click += new System.EventHandler(this.cboxLoraSP_Click);
             // 
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.label12);
-            this.groupBox2.Controls.Add(this.button3);
-            this.groupBox2.Controls.Add(this.button4);
+            this.groupBox2.Controls.Add(this.btnHYIBaglan);
+            this.groupBox2.Controls.Add(this.btnHYIBaglantiKes);
             this.groupBox2.Controls.Add(this.label6);
             this.groupBox2.Controls.Add(this.label7);
             this.groupBox2.Controls.Add(this.label8);
             this.groupBox2.Controls.Add(this.label9);
             this.groupBox2.Controls.Add(this.label10);
-            this.groupBox2.Controls.Add(this.comboBox6);
-            this.groupBox2.Controls.Add(this.comboBox7);
-            this.groupBox2.Controls.Add(this.comboBox8);
-            this.groupBox2.Controls.Add(this.comboBox9);
-            this.groupBox2.Controls.Add(this.comboBox10);
+            this.groupBox2.Controls.Add(this.cboxHYIParity);
+            this.groupBox2.Controls.Add(this.cboxHYIStopBit);
+            this.groupBox2.Controls.Add(this.cboxHYIDataBit);
+            this.groupBox2.Controls.Add(this.cboxHYIBaudRate);
+            this.groupBox2.Controls.Add(this.cboxHYISP);
             this.groupBox2.Location = new System.Drawing.Point(341, 3);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(352, 344);
             this.groupBox2.TabIndex = 0;
             this.groupBox2.TabStop = false;
             // 
-            // button3
+            // label12
             // 
-            this.button3.Location = new System.Drawing.Point(31, 261);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(107, 23);
-            this.button3.TabIndex = 5;
-            this.button3.Text = "Bağlan";
-            this.button3.UseVisualStyleBackColor = true;
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label12.Location = new System.Drawing.Point(28, 16);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(126, 15);
+            this.label12.TabIndex = 6;
+            this.label12.Text = "HYI Port Ayarları";
             // 
-            // button4
+            // btnHYIBaglan
             // 
-            this.button4.Location = new System.Drawing.Point(187, 261);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(113, 23);
-            this.button4.TabIndex = 5;
-            this.button4.Text = "Bağlantıyı Kes";
-            this.button4.UseVisualStyleBackColor = true;
+            this.btnHYIBaglan.Location = new System.Drawing.Point(31, 261);
+            this.btnHYIBaglan.Name = "btnHYIBaglan";
+            this.btnHYIBaglan.Size = new System.Drawing.Size(107, 23);
+            this.btnHYIBaglan.TabIndex = 5;
+            this.btnHYIBaglan.Text = "Bağlan";
+            this.btnHYIBaglan.UseVisualStyleBackColor = true;
+            // 
+            // btnHYIBaglantiKes
+            // 
+            this.btnHYIBaglantiKes.Location = new System.Drawing.Point(187, 261);
+            this.btnHYIBaglantiKes.Name = "btnHYIBaglantiKes";
+            this.btnHYIBaglantiKes.Size = new System.Drawing.Size(113, 23);
+            this.btnHYIBaglantiKes.TabIndex = 5;
+            this.btnHYIBaglantiKes.Text = "Bağlantıyı Kes";
+            this.btnHYIBaglantiKes.UseVisualStyleBackColor = true;
             // 
             // label6
             // 
@@ -285,46 +309,47 @@
             this.label10.TabIndex = 2;
             this.label10.Text = "Seri Port";
             // 
-            // comboBox6
+            // cboxHYIParity
             // 
-            this.comboBox6.FormattingEnabled = true;
-            this.comboBox6.Location = new System.Drawing.Point(187, 206);
-            this.comboBox6.Name = "comboBox6";
-            this.comboBox6.Size = new System.Drawing.Size(113, 21);
-            this.comboBox6.TabIndex = 1;
+            this.cboxHYIParity.FormattingEnabled = true;
+            this.cboxHYIParity.Location = new System.Drawing.Point(187, 206);
+            this.cboxHYIParity.Name = "cboxHYIParity";
+            this.cboxHYIParity.Size = new System.Drawing.Size(113, 21);
+            this.cboxHYIParity.TabIndex = 1;
             // 
-            // comboBox7
+            // cboxHYIStopBit
             // 
-            this.comboBox7.FormattingEnabled = true;
-            this.comboBox7.Location = new System.Drawing.Point(31, 206);
-            this.comboBox7.Name = "comboBox7";
-            this.comboBox7.Size = new System.Drawing.Size(107, 21);
-            this.comboBox7.TabIndex = 0;
+            this.cboxHYIStopBit.FormattingEnabled = true;
+            this.cboxHYIStopBit.Location = new System.Drawing.Point(31, 206);
+            this.cboxHYIStopBit.Name = "cboxHYIStopBit";
+            this.cboxHYIStopBit.Size = new System.Drawing.Size(107, 21);
+            this.cboxHYIStopBit.TabIndex = 0;
             // 
-            // comboBox8
+            // cboxHYIDataBit
             // 
-            this.comboBox8.FormattingEnabled = true;
-            this.comboBox8.Location = new System.Drawing.Point(31, 146);
-            this.comboBox8.Name = "comboBox8";
-            this.comboBox8.Size = new System.Drawing.Size(107, 21);
-            this.comboBox8.TabIndex = 1;
-            this.comboBox8.SelectedIndexChanged += new System.EventHandler(this.comboBox5_SelectedIndexChanged);
+            this.cboxHYIDataBit.FormattingEnabled = true;
+            this.cboxHYIDataBit.Location = new System.Drawing.Point(31, 146);
+            this.cboxHYIDataBit.Name = "cboxHYIDataBit";
+            this.cboxHYIDataBit.Size = new System.Drawing.Size(107, 21);
+            this.cboxHYIDataBit.TabIndex = 1;
+            this.cboxHYIDataBit.SelectedIndexChanged += new System.EventHandler(this.comboBox5_SelectedIndexChanged);
             // 
-            // comboBox9
+            // cboxHYIBaudRate
             // 
-            this.comboBox9.FormattingEnabled = true;
-            this.comboBox9.Location = new System.Drawing.Point(187, 146);
-            this.comboBox9.Name = "comboBox9";
-            this.comboBox9.Size = new System.Drawing.Size(113, 21);
-            this.comboBox9.TabIndex = 1;
+            this.cboxHYIBaudRate.FormattingEnabled = true;
+            this.cboxHYIBaudRate.Location = new System.Drawing.Point(187, 146);
+            this.cboxHYIBaudRate.Name = "cboxHYIBaudRate";
+            this.cboxHYIBaudRate.Size = new System.Drawing.Size(113, 21);
+            this.cboxHYIBaudRate.TabIndex = 1;
             // 
-            // comboBox10
+            // cboxHYISP
             // 
-            this.comboBox10.FormattingEnabled = true;
-            this.comboBox10.Location = new System.Drawing.Point(31, 65);
-            this.comboBox10.Name = "comboBox10";
-            this.comboBox10.Size = new System.Drawing.Size(212, 21);
-            this.comboBox10.TabIndex = 0;
+            this.cboxHYISP.FormattingEnabled = true;
+            this.cboxHYISP.Location = new System.Drawing.Point(31, 65);
+            this.cboxHYISP.Name = "cboxHYISP";
+            this.cboxHYISP.Size = new System.Drawing.Size(212, 21);
+            this.cboxHYISP.TabIndex = 0;
+            this.cboxHYISP.Click += new System.EventHandler(this.cboxHYISP_Click);
             // 
             // groupBox3
             // 
@@ -348,48 +373,92 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Lora Ağ Ayarları";
             // 
-            // textBox1
+            // label17
             // 
-            this.textBox1.BackColor = System.Drawing.SystemColors.Desktop;
-            this.textBox1.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.textBox1.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.textBox1.Location = new System.Drawing.Point(700, 4);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.textBox1.Size = new System.Drawing.Size(283, 536);
-            this.textBox1.TabIndex = 2;
-            this.textBox1.Text = "Heir Kommt die Sonne";
-            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(123, 55);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(13, 13);
+            this.label17.TabIndex = 10;
+            this.label17.Text = "0";
             // 
-            // label11
+            // label16
             // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label11.Location = new System.Drawing.Point(27, 16);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(133, 15);
-            this.label11.TabIndex = 6;
-            this.label11.Text = "Lora Port Ayarları";
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(7, 55);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(85, 13);
+            this.label16.TabIndex = 9;
+            this.label16.Text = "Bağlantı Durumu";
             // 
-            // label12
+            // label15
             // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label12.Location = new System.Drawing.Point(28, 16);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(126, 15);
-            this.label12.TabIndex = 6;
-            this.label12.Text = "HYI Port Ayarları";
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(123, 26);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(80, 13);
+            this.label15.TabIndex = 8;
+            this.label15.Text = "Kanal 0 433 Hz";
             // 
-            // button5
+            // label14
             // 
-            this.button5.Location = new System.Drawing.Point(335, 26);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(95, 23);
-            this.button5.TabIndex = 0;
-            this.button5.Text = "Ping Pong Test";
-            this.button5.UseVisualStyleBackColor = true;
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(7, 26);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(83, 13);
+            this.label14.TabIndex = 7;
+            this.label14.Text = "Kanal / Frekans";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(449, 36);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(171, 13);
+            this.label13.TabIndex = 6;
+            this.label13.Text = "Mesaj Gönderilecek Lora\'yı Seçiniz";
+            // 
+            // comboBox11
+            // 
+            this.comboBox11.FormattingEnabled = true;
+            this.comboBox11.Location = new System.Drawing.Point(452, 55);
+            this.comboBox11.Name = "comboBox11";
+            this.comboBox11.Size = new System.Drawing.Size(121, 21);
+            this.comboBox11.TabIndex = 5;
+            // 
+            // button10
+            // 
+            this.button10.Location = new System.Drawing.Point(452, 113);
+            this.button10.Name = "button10";
+            this.button10.Size = new System.Drawing.Size(103, 23);
+            this.button10.TabIndex = 4;
+            this.button10.Text = "Mesaj Gönder";
+            this.button10.UseVisualStyleBackColor = true;
+            // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(452, 82);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(121, 20);
+            this.textBox2.TabIndex = 3;
+            // 
+            // button9
+            // 
+            this.button9.Location = new System.Drawing.Point(238, 113);
+            this.button9.Name = "button9";
+            this.button9.Size = new System.Drawing.Size(75, 23);
+            this.button9.TabIndex = 2;
+            this.button9.Text = "Ağ Ayarları";
+            this.button9.UseVisualStyleBackColor = true;
+            // 
+            // button8
+            // 
+            this.button8.Location = new System.Drawing.Point(335, 113);
+            this.button8.Name = "button8";
+            this.button8.Size = new System.Drawing.Size(95, 23);
+            this.button8.TabIndex = 1;
+            this.button8.Text = "Ping Görev Y.";
+            this.button8.UseVisualStyleBackColor = true;
             // 
             // button6
             // 
@@ -409,98 +478,34 @@
             this.button7.Text = "Ping Yedek Av.";
             this.button7.UseVisualStyleBackColor = true;
             // 
-            // button8
+            // button5
             // 
-            this.button8.Location = new System.Drawing.Point(335, 113);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(95, 23);
-            this.button8.TabIndex = 1;
-            this.button8.Text = "Ping Görev Y.";
-            this.button8.UseVisualStyleBackColor = true;
+            this.button5.Location = new System.Drawing.Point(335, 26);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(95, 23);
+            this.button5.TabIndex = 0;
+            this.button5.Text = "Ping Pong Test";
+            this.button5.UseVisualStyleBackColor = true;
             // 
-            // button9
+            // logSeriPort
             // 
-            this.button9.Location = new System.Drawing.Point(238, 113);
-            this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(75, 23);
-            this.button9.TabIndex = 2;
-            this.button9.Text = "Ağ Ayarları";
-            this.button9.UseVisualStyleBackColor = true;
-            // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(452, 82);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(121, 20);
-            this.textBox2.TabIndex = 3;
-            // 
-            // button10
-            // 
-            this.button10.Location = new System.Drawing.Point(452, 113);
-            this.button10.Name = "button10";
-            this.button10.Size = new System.Drawing.Size(103, 23);
-            this.button10.TabIndex = 4;
-            this.button10.Text = "Mesaj Gönder";
-            this.button10.UseVisualStyleBackColor = true;
-            // 
-            // comboBox11
-            // 
-            this.comboBox11.FormattingEnabled = true;
-            this.comboBox11.Location = new System.Drawing.Point(452, 55);
-            this.comboBox11.Name = "comboBox11";
-            this.comboBox11.Size = new System.Drawing.Size(121, 21);
-            this.comboBox11.TabIndex = 5;
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(449, 36);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(171, 13);
-            this.label13.TabIndex = 6;
-            this.label13.Text = "Mesaj Gönderilecek Lora\'yı Seçiniz";
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(7, 26);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(83, 13);
-            this.label14.TabIndex = 7;
-            this.label14.Text = "Kanal / Frekans";
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(123, 26);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(80, 13);
-            this.label15.TabIndex = 8;
-            this.label15.Text = "Kanal 0 433 Hz";
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(7, 55);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(85, 13);
-            this.label16.TabIndex = 9;
-            this.label16.Text = "Bağlantı Durumu";
-            // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(123, 55);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(13, 13);
-            this.label17.TabIndex = 10;
-            this.label17.Text = "0";
+            this.logSeriPort.BackColor = System.Drawing.SystemColors.Desktop;
+            this.logSeriPort.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.logSeriPort.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.logSeriPort.Location = new System.Drawing.Point(700, 4);
+            this.logSeriPort.Multiline = true;
+            this.logSeriPort.Name = "logSeriPort";
+            this.logSeriPort.ScrollBars = System.Windows.Forms.ScrollBars.Both;
+            this.logSeriPort.Size = new System.Drawing.Size(283, 536);
+            this.logSeriPort.TabIndex = 2;
+            this.logSeriPort.Text = "Heir Kommt die Sonne";
+            this.logSeriPort.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // uc_PortAyarlari
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.logSeriPort);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
@@ -524,29 +529,29 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox comboBox4;
-        private System.Windows.Forms.ComboBox comboBox3;
-        private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cboxLoraParity;
+        private System.Windows.Forms.ComboBox cboxLoraStopBit;
+        private System.Windows.Forms.ComboBox cboxLoraBaudRate;
+        private System.Windows.Forms.ComboBox cboxLoraSP;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.ComboBox comboBox5;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.ComboBox cboxLoraDataBit;
+        private System.Windows.Forms.Button btnLoraBağlantiKes;
+        private System.Windows.Forms.Button btnLoraBaglan;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button btnHYIBaglan;
+        private System.Windows.Forms.Button btnHYIBaglantiKes;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.ComboBox comboBox6;
-        private System.Windows.Forms.ComboBox comboBox7;
-        private System.Windows.Forms.ComboBox comboBox8;
-        private System.Windows.Forms.ComboBox comboBox9;
-        private System.Windows.Forms.ComboBox comboBox10;
+        private System.Windows.Forms.ComboBox cboxHYIParity;
+        private System.Windows.Forms.ComboBox cboxHYIStopBit;
+        private System.Windows.Forms.ComboBox cboxHYIDataBit;
+        private System.Windows.Forms.ComboBox cboxHYIBaudRate;
+        private System.Windows.Forms.ComboBox cboxHYISP;
         private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox logSeriPort;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label13;
