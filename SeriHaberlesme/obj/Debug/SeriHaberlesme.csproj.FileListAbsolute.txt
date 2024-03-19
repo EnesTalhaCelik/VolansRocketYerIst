@@ -1,0 +1,6 @@
+C:\Users\Talha\Desktop\yer istasyonu\YerIstasyonuVolans\SeriHaberlesme\bin\Debug\SeriHaberlesme.dll
+C:\Users\Talha\Desktop\yer istasyonu\YerIstasyonuVolans\SeriHaberlesme\bin\Debug\SeriHaberlesme.pdb
+C:\Users\Talha\Desktop\yer istasyonu\YerIstasyonuVolans\SeriHaberlesme\obj\Debug\SeriHaberlesme.csproj.AssemblyReference.cache
+C:\Users\Talha\Desktop\yer istasyonu\YerIstasyonuVolans\SeriHaberlesme\obj\Debug\SeriHaberlesme.csproj.CoreCompileInputs.cache
+C:\Users\Talha\Desktop\yer istasyonu\YerIstasyonuVolans\SeriHaberlesme\obj\Debug\SeriHaberlesme.dll
+C:\Users\Talha\Desktop\yer istasyonu\YerIstasyonuVolans\SeriHaberlesme\obj\Debug\SeriHaberlesme.pdb
