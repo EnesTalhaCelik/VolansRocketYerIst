@@ -352,6 +352,7 @@
             this.cboxHYISP.Name = "cboxHYISP";
             this.cboxHYISP.Size = new System.Drawing.Size(212, 21);
             this.cboxHYISP.TabIndex = 0;
+            this.cboxHYISP.SelectedIndexChanged += new System.EventHandler(this.cboxHYISP_SelectedIndexChanged);
             this.cboxHYISP.Click += new System.EventHandler(this.cboxHYISP_Click);
             // 
             // groupBox3
@@ -477,6 +478,7 @@
             this.btnLoraPingRoket.TabIndex = 1;
             this.btnLoraPingRoket.Text = "Ping Roket";
             this.btnLoraPingRoket.UseVisualStyleBackColor = true;
+            this.btnLoraPingRoket.Click += new System.EventHandler(this.btnLoraPingRoket_Click);
             // 
             // btnLoraPingYedekAv
             // 
@@ -497,6 +499,7 @@
             this.btnLoraPingPong.TabIndex = 0;
             this.btnLoraPingPong.Text = "Ping Pong Test";
             this.btnLoraPingPong.UseVisualStyleBackColor = true;
+            this.btnLoraPingPong.Click += new System.EventHandler(this.btnLoraPingPong_Click);
             // 
             // logSeriPort
             // 

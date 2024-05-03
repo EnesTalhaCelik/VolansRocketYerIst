@@ -9,6 +9,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO.Ports;
 using SeriHaberlesme;
+using static GMap.NET.Entity.OpenStreetMapGeocodeEntity;
+using System.Runtime.Remoting.Channels;
 namespace VolansYerIstasyonu.UserControls
 {
     public partial class uc_PortAyarlari : UserControl
@@ -17,7 +19,7 @@ namespace VolansYerIstasyonu.UserControls
         //seri portları burada tanımlıyorum
         SerialPort loraSerialPort = new SerialPort();
         SerialPort HYISerialPort = new SerialPort();
-
+        string receivedData;
 
 
         static string[] ports = SerialPort.GetPortNames();
@@ -26,8 +28,8 @@ namespace VolansYerIstasyonu.UserControls
         public uc_PortAyarlari()
         {
             InitializeComponent();
-         
-            
+            loraSerialPort.DataReceived += loraSerialPort_DataReceived;
+
             foreach (int i in boudRates)            //sp dışında kalan yerleri hazırlıyoruz
             {
                 cboxHYIBaudRate.Items.Add(i);
@@ -44,10 +46,36 @@ namespace VolansYerIstasyonu.UserControls
             cboxHYIDataBit.Items.Add(8);
             cboxHYIStopBit.Items.Add(1);
             cboxHYIStopBit.Items.Add(2);
+
+            cboxLoraParity.SelectedIndex = 0;
+            cboxLoraDataBit.SelectedIndex = 0;
+            cboxLoraBaudRate.SelectedIndex = 0;
+            cboxLoraStopBit.SelectedIndex = 0;
+
+            cboxHYIParity.SelectedIndex = 0;
+            cboxHYIDataBit.SelectedIndex = 0;
+            cboxHYIBaudRate.SelectedIndex = 1;
+            cboxHYIStopBit.SelectedIndex = 0;
+
+        }
+
+        private void loraSerialPort_DataReceived(object sender, SerialDataReceivedEventArgs e)
+        {
+
+            try
+            {
+                receivedData = loraSerialPort.ReadLine();
+                MessageBox.Show($"mesaj geldi", "Port Başarıyla Açıldı", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Bir Hata Meydana Geldi.: {ex.Message}", "Hata!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
         }
 
 
-        private void cboxLoraSP_Click(object sender, EventArgs e)
+            private void cboxLoraSP_Click(object sender, EventArgs e)
         {
             ports = SerialPort.GetPortNames();
             cboxLoraSP.Items.Clear();
@@ -198,6 +226,23 @@ namespace VolansYerIstasyonu.UserControls
 
         }
 
-        
+        private void cboxHYISP_SelectedIndexChanged(object sender, EventArgs e)
+        {
+        }
+
+        private void btnLoraPingPong_Click(object sender, EventArgs e)
+        {
+
+            byte[] bytestosend = {0xc0, 0x0, 0x3f, 0x1a, 0x17, 0xc7 };
+            loraSerialPort.Write(bytestosend, 0, bytestosend.Length);
+
+        }
+
+        private void btnLoraPingRoket_Click(object sender, EventArgs e)
+        {
+            byte[] bytestosend = { 0x2c, 0x17, 0x68, 0x65, 0x6C, 0x6C, 0x6F, 0x20, 0x77, 0x6F, 0x72, 0x6C, 0x64 };
+                       loraSerialPort.Write(bytestosend, 0, bytestosend.Length);
+            
+        }
     }
 }
