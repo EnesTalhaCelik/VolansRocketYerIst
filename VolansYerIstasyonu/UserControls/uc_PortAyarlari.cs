@@ -274,7 +274,7 @@ namespace VolansYerIstasyonu.UserControls
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
-
+            TeknofestVeriler.Veriler.Aci = 15;
         }
 
         private void cboxLoraSP_SelectedIndexChanged(object sender, EventArgs e)
