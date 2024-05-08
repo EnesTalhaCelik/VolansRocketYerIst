@@ -1,4 +1,6 @@
 ﻿using ClosedXML.Excel;
+using DocumentFormat.OpenXml.Bibliography;
+using DocumentFormat.OpenXml.Spreadsheet;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -166,6 +168,7 @@ namespace VolansYerIstasyonu.UserControls
         {
             try
             {
+                
                 string connectionString = $"Data Source={databaseDosyaYolu};Version=3;";
 
                 using (SQLiteConnection connection = new SQLiteConnection(connectionString))
@@ -188,9 +191,11 @@ namespace VolansYerIstasyonu.UserControls
         }
 
         public void veriAciTablosunaYansit(string databaseDosyaYolu)
-        {
+        {   
+
             try
             {
+                
                 string connectionString = $"Data Source={databaseDosyaYolu};Version=3;";
 
                 using (SQLiteConnection connection = new SQLiteConnection(connectionString))
@@ -214,7 +219,8 @@ namespace VolansYerIstasyonu.UserControls
 
         private void databaseComboboxDoldur()
         {
-            string[] dbFiles = Directory.GetFiles(Path.Combine(Application.StartupPath, "UcusVeri"), "*.db");
+            string ucusVeriPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "..", "..", "UcusVeri");
+            string[] dbFiles = Directory.GetFiles(ucusVeriPath, "*.db");
 
             cbox_analizTabloUcus.Items.Clear();
 
@@ -234,7 +240,8 @@ namespace VolansYerIstasyonu.UserControls
 
             if (selectedDataType != null)
             {
-                string[] dbFiles = Directory.GetFiles(Path.Combine(Application.StartupPath, "UcusVeri"), "*.db");
+                string ucusVeriPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "..", "..", "UcusVeri");
+                string[] dbFiles = Directory.GetFiles(ucusVeriPath, "*.db");
 
                 foreach (string dbFile in dbFiles)
                 {
@@ -273,7 +280,8 @@ namespace VolansYerIstasyonu.UserControls
 
         private void veriTablosunaYansit(string selectedDatabase)
         {
-            string veritabanıYolu = Path.Combine(Application.StartupPath, "UcusVeri", selectedDatabase);
+            string veritabanıYolu = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "..", "..", "UcusVeri", selectedDatabase);
+
 
             if (rbtn_Basinc.Checked)
             {
@@ -319,7 +327,8 @@ namespace VolansYerIstasyonu.UserControls
                 return;
             }
 
-            string databasePath = Path.Combine(Application.StartupPath, "UcusVeri", selectedDatabase);
+            string databasePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "..", "..", "UcusVeri",selectedDatabase);
+            
             string selectQuery = "";
 
             if (rbtn_Basinc.Checked)

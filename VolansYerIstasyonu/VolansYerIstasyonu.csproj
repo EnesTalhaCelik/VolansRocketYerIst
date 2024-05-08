@@ -243,6 +243,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Entities\" />
+    <Folder Include="UcusVeri\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="images\pc_gy.png" />
