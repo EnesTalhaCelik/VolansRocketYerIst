@@ -30,6 +30,9 @@ namespace VolansYerIstasyonu.UserControls
         {
             InitializeComponent();
             baslangicCalistir();
+           
+            aciDatabaseOlustur();
+            aciVeriEkle(3, 5, 7, true, DateTime.Now);
 
         }
 
@@ -39,18 +42,18 @@ namespace VolansYerIstasyonu.UserControls
             try
             {
                 string ucusDatabaseAdi = $"basinc{DateTime.Now:yyyyMMdd_HHmmss}.db";
-                string ucusDatabaseYolu = Path.Combine(Path.GetDirectoryName(basincDatabaseDosyaYolu), ucusDatabaseAdi);
-
+                string ucusVeriPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "..", "..", "UcusVeri", ucusDatabaseAdi);
+                
                 if (!Directory.Exists(Path.GetDirectoryName(basincDatabaseDosyaYolu)))
                 {
                     Directory.CreateDirectory(Path.GetDirectoryName(basincDatabaseDosyaYolu));
                 }
 
-                basincConnectionString = $"Data Source={ucusDatabaseYolu};Version=3;";
+                basincConnectionString = $"Data Source={ucusVeriPath};Version=3;";
 
-                if (!File.Exists(ucusDatabaseYolu))
+                if (!File.Exists(ucusVeriPath))
                 {
-                    SQLiteConnection.CreateFile(ucusDatabaseYolu);
+                    SQLiteConnection.CreateFile(ucusVeriPath);
 
                     using (SQLiteConnection connection = new SQLiteConnection(basincConnectionString))
                     {
@@ -77,18 +80,18 @@ namespace VolansYerIstasyonu.UserControls
             try
             {
                 string ucusDatabaseAdi = $"aci{DateTime.Now:yyyyMMdd_HHmmss}.db";
-                string ucusDatabaseYolu = Path.Combine(Path.GetDirectoryName(aciDatabaseDosyaYolu), ucusDatabaseAdi);
+                string ucusVeriPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "..", "..", "UcusVeri", ucusDatabaseAdi);
 
                 if (!Directory.Exists(Path.GetDirectoryName(aciDatabaseDosyaYolu)))
                 {
                     Directory.CreateDirectory(Path.GetDirectoryName(aciDatabaseDosyaYolu));
                 }
 
-                aciConnectionString = $"Data Source={ucusDatabaseYolu};Version=3;";
+                aciConnectionString = $"Data Source={ucusVeriPath};Version=3;";
 
-                if (!File.Exists(ucusDatabaseYolu))
+                if (!File.Exists(ucusVeriPath))
                 {
-                    SQLiteConnection.CreateFile(ucusDatabaseYolu);
+                    SQLiteConnection.CreateFile(ucusVeriPath);
 
                     using (SQLiteConnection connection = new SQLiteConnection(aciConnectionString))
                     {
