@@ -81,28 +81,29 @@ namespace VolansYerIstasyonu.UserControls
             
             try
             {
+                byte[] buffere = new byte[60];
                 SerialPort serialPort = (SerialPort)sender;
                 string data = serialPort.ReadExisting(); // Read all available bytes from the serial port
-                Console.WriteLine("Received data: " + data);
+                int a = serialPort.Read( buffere,  0,  buffere.Length);
+                Console.WriteLine(a);
+                char[] ee = data.ToCharArray();
+
+                foreach(char c in ee )
+                {
+                    Console.Write(c);
+                }
+                Console.WriteLine();
+
+
             }
             catch (Exception ex)
             {
                 MessageBox.Show($"veri geliyordu bro.: {ex.Message}", "broo!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
+            
 
-            SerialPort sp = (SerialPort)sender;
-            int bytesToRead = sp.BytesToRead;
-            byte[] buffer = new byte[bytesToRead];
-            sp.Read(buffer, 0, bytesToRead);
 
-            // Display received bytes in hexadecimal format
-            Console.Write("Received: ");
-            foreach (byte b in buffer)
-            {
-                Console.Write($"{b:X2} "); // Display each byte as a two-digit hexadecimal number
-            }
-            Console.WriteLine(); // Move to next line
 
 
         }
