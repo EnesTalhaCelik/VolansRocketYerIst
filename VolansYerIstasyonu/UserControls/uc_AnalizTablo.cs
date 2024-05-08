@@ -30,10 +30,7 @@ namespace VolansYerIstasyonu.UserControls
         {
             InitializeComponent();
             baslangicCalistir();
-           
-            aciDatabaseOlustur();
-            aciVeriEkle(3, 5, 7, true, DateTime.Now);
-
+            
         }
 
         public string basincDatabaseOlustur()
@@ -136,7 +133,33 @@ namespace VolansYerIstasyonu.UserControls
             {
                 MessageBox.Show("Basınç veri eklemesinde hata: " + ex.Message);
             }
-        }   
+        }
+
+        public void basincVeriEkle(double basinc, bool durum)
+        {
+            string connectionString = basincDatabaseOlustur();
+
+            try
+            {
+                using (SQLiteConnection connection = new SQLiteConnection(connectionString))
+                {
+                    connection.Open();
+
+                    string insertQuery = "INSERT INTO [Basinc Tablosu] (basinc, durum, zaman) VALUES (@basinc, @durum, @zaman)";
+                    SQLiteCommand basincVeriEkleme = new SQLiteCommand(insertQuery, connection);
+                    basincVeriEkleme.Parameters.AddWithValue("@basinc", basinc);
+                    basincVeriEkleme.Parameters.AddWithValue("@durum", durum);
+                    basincVeriEkleme.Parameters.AddWithValue("@zaman", DateTime.Now);
+                    basincVeriEkleme.ExecuteNonQuery();
+
+                    connection.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Basınç veri eklemesinde hata: " + ex.Message);
+            }
+        }
 
         public void aciVeriEkle(double x, double y, double z, bool durum, DateTime zaman)
         {
@@ -156,6 +179,35 @@ namespace VolansYerIstasyonu.UserControls
                     aciVeriEkleme.Parameters.AddWithValue("@z", z);
                     aciVeriEkleme.Parameters.AddWithValue("@durum", durum);
                     aciVeriEkleme.Parameters.AddWithValue("@zaman", zaman);
+                    aciVeriEkleme.ExecuteNonQuery();
+
+                    connection.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Açı veri eklemesinde hata: " + ex.Message);
+            }
+        }
+
+        public void aciVeriEkle(double x, double y, double z, bool durum)
+        {
+            string aciConnectionString = aciDatabaseOlustur();
+
+            try
+            {
+
+                using (SQLiteConnection connection = new SQLiteConnection(aciConnectionString))
+                {
+                    connection.Open();
+
+                    string insertQuery = "INSERT INTO [Aci Tablosu] (X, Y, Z, durum, zaman) VALUES (@x, @y, @z, @durum, @zaman)";
+                    SQLiteCommand aciVeriEkleme = new SQLiteCommand(insertQuery, connection);
+                    aciVeriEkleme.Parameters.AddWithValue("@x", x);
+                    aciVeriEkleme.Parameters.AddWithValue("@y", y);
+                    aciVeriEkleme.Parameters.AddWithValue("@z", z);
+                    aciVeriEkleme.Parameters.AddWithValue("@durum", durum);
+                    aciVeriEkleme.Parameters.AddWithValue("@zaman", DateTime.Now);
                     aciVeriEkleme.ExecuteNonQuery();
 
                     connection.Close();
