@@ -9,25 +9,38 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO.Ports;
 using SeriHaberlesme;
+using static GMap.NET.Entity.OpenStreetMapGeocodeEntity;
+using System.Runtime.Remoting.Channels;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 namespace VolansYerIstasyonu.UserControls
 {
     public partial class uc_PortAyarlari : UserControl
     {
+        
+        
 
         //seri portları burada tanımlıyorum
-        SerialPort loraSerialPort = new SerialPort();
-        SerialPort HYISerialPort = new SerialPort();
 
 
 
         static string[] ports = SerialPort.GetPortNames();
-        static int[] boudRates = { 9600, 19200 };
+        static int[] boudRates = { 9600, 19200,115200 };
         static System.IO.Ports.Parity[] pairityTypes = { Parity.None, Parity.Odd, Parity.Even, Parity.Mark, Parity.Space };
+
+        SerialPort loraSerialPort = new SerialPort();
+        SerialPort HYISerialPort = new SerialPort();
         public uc_PortAyarlari()
         {
             InitializeComponent();
-         
-            
+            Console.WriteLine("live a glorius life or die");
+
+            loraSerialPort.RtsEnable = true;
+            HYISerialPort.RtsEnable = true;
+            loraSerialPort.DtrEnable = true;
+            HYISerialPort.DtrEnable = true;
+
+            loraSerialPort.DataReceived += loraSerialPort_DataReceived;
+            HYISerialPort.DataReceived += HYISerialPort_DataReceived;
             foreach (int i in boudRates)            //sp dışında kalan yerleri hazırlıyoruz
             {
                 cboxHYIBaudRate.Items.Add(i);
@@ -44,7 +57,73 @@ namespace VolansYerIstasyonu.UserControls
             cboxHYIDataBit.Items.Add(8);
             cboxHYIStopBit.Items.Add(1);
             cboxHYIStopBit.Items.Add(2);
+
+            cboxLoraParity.SelectedIndex = 0;
+            cboxLoraDataBit.SelectedIndex = 0;
+            cboxLoraBaudRate.SelectedIndex = 0;
+            cboxLoraStopBit.SelectedIndex = 0;
+
+            cboxHYIParity.SelectedIndex = 0;
+            cboxHYIDataBit.SelectedIndex = 0;
+            cboxHYIBaudRate.SelectedIndex = 1;
+            cboxHYIStopBit.SelectedIndex = 0;
+
         }
+        private void displayToTxt(string Data)
+        {
+            BeginInvoke(new EventHandler(delegate
+            {
+                MessageBox.Show($"mesaj geldi"+ Data, "Port Başarıyla Açıldı" + Data, MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }));
+        }
+        private void loraSerialPort_DataReceived(object sender, SerialDataReceivedEventArgs e)
+        {
+            
+            try
+            {
+                SerialPort serialPort = (SerialPort)sender;
+                string data = serialPort.ReadExisting(); // Read all available bytes from the serial port
+                Console.WriteLine("Received data: " + data);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"veri geliyordu bro.: {ex.Message}", "broo!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+
+            SerialPort sp = (SerialPort)sender;
+            int bytesToRead = sp.BytesToRead;
+            byte[] buffer = new byte[bytesToRead];
+            sp.Read(buffer, 0, bytesToRead);
+
+            // Display received bytes in hexadecimal format
+            Console.Write("Received: ");
+            foreach (byte b in buffer)
+            {
+                Console.Write($"{b:X2} "); // Display each byte as a two-digit hexadecimal number
+            }
+            Console.WriteLine(); // Move to next line
+
+
+        }
+
+        private void HYISerialPort_DataReceived(object sender, SerialDataReceivedEventArgs e)
+        {
+                try
+                {
+                    string receivedData = HYISerialPort.ReadLine();
+
+
+                    displayToTxt(receivedData);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"HYI veri geliyordu bro.: {ex.Message}", "HYI broo!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+           
+
+        }
+
 
 
         private void cboxLoraSP_Click(object sender, EventArgs e)
@@ -90,6 +169,8 @@ namespace VolansYerIstasyonu.UserControls
                 btnLoraMesajGonder.Enabled = true;
                 cboxLoraSec.Enabled = true;
                 txtboxLoraMesaj.Enabled = true;
+                btnLoraParamGet.Enabled = true;
+                btnLoraTstVeriGondr.Enabled = true;
 
             }
             catch (Exception ex)
@@ -119,6 +200,7 @@ namespace VolansYerIstasyonu.UserControls
                 cboxHYIDataBit.Enabled = false;
                 cboxHYIStopBit.Enabled = false;
                 cboxHYIParity.Enabled = false;
+
             }
             catch (Exception ex)
             {
@@ -147,7 +229,8 @@ namespace VolansYerIstasyonu.UserControls
                 btnLoraMesajGonder.Enabled = false;
                 cboxLoraSec.Enabled = false;
                 txtboxLoraMesaj.Enabled = false;
-
+                btnLoraParamGet.Enabled = false;
+                btnLoraTstVeriGondr.Enabled = false;
             }
             catch (Exception ex)
             {
@@ -180,11 +263,6 @@ namespace VolansYerIstasyonu.UserControls
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-
-        }
-
 
 
 
@@ -203,6 +281,60 @@ namespace VolansYerIstasyonu.UserControls
 
         }
 
-        
+        private void cboxHYISP_SelectedIndexChanged(object sender, EventArgs e)
+        {
+        }
+
+        private void btnLoraPingPong_Click(object sender, EventArgs e)
+        {
+
+            byte[] bytestosend = {  0xc1, 0xc1, 0xc1 };
+            //byte[] bytestosend = {0xc0, 0x0, 0x3f, 0x1a, 0x17, 0xc7 };
+            loraSerialPort.Write(bytestosend, 0, bytestosend.Length);
+
+        }
+
+        private void btnLoraPingRoket_Click(object sender, EventArgs e)
+        {
+            byte[] bytestosend = {0x0, 0x2c, 0x17, 0x76, 0x6F, 0x6C, 0x61, 0x6E, 0x73 };
+                       loraSerialPort.Write(bytestosend, 0, bytestosend.Length);
+            
+        }
+
+        private void label18_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnLoraParamGet_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                byte[] bytestosend = { 0xc1, 0xc1, 0xc1 };
+                loraSerialPort.Write(bytestosend, 0, bytestosend.Length);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Bir Hata Meydana Geldi!: {ex.Message}", "Hata!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
+
+        }
+
+        private void btnLoraTstVeriGondr_Click(object sender, EventArgs e)
+        {
+
+
+            try
+            {
+                byte[] bytestosend = { 0x0, 0x2c, 0x17, 0x76, 0x6F, 0x6C, 0x61, 0x6E, 0x73 };
+                loraSerialPort.Write(bytestosend, 0, bytestosend.Length);
+            }
+             catch (Exception ex)
+            {
+                MessageBox.Show($"Bir Hata Meydana Geldi!: {ex.Message}", "Hata!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
+        }
     }
 }

@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnLoraTstVeriGondr = new System.Windows.Forms.Button();
             this.label11 = new System.Windows.Forms.Label();
             this.btnLoraBaglan = new System.Windows.Forms.Button();
             this.btnLoraBaglantiKes = new System.Windows.Forms.Button();
@@ -57,9 +58,28 @@
             this.cboxHYIBaudRate = new System.Windows.Forms.ComboBox();
             this.cboxHYISP = new System.Windows.Forms.ComboBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.label35 = new System.Windows.Forms.Label();
+            this.label34 = new System.Windows.Forms.Label();
+            this.label33 = new System.Windows.Forms.Label();
+            this.label32 = new System.Windows.Forms.Label();
+            this.label31 = new System.Windows.Forms.Label();
+            this.label30 = new System.Windows.Forms.Label();
+            this.label27 = new System.Windows.Forms.Label();
+            this.label29 = new System.Windows.Forms.Label();
+            this.label26 = new System.Windows.Forms.Label();
+            this.label28 = new System.Windows.Forms.Label();
+            this.label25 = new System.Windows.Forms.Label();
+            this.label24 = new System.Windows.Forms.Label();
+            this.label23 = new System.Windows.Forms.Label();
+            this.label22 = new System.Windows.Forms.Label();
+            this.label21 = new System.Windows.Forms.Label();
+            this.btnLoraParamGet = new System.Windows.Forms.Button();
+            this.label20 = new System.Windows.Forms.Label();
+            this.label19 = new System.Windows.Forms.Label();
+            this.label18 = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.cboxLoraSec = new System.Windows.Forms.ComboBox();
@@ -71,7 +91,6 @@
             this.btnLoraPingYedekAv = new System.Windows.Forms.Button();
             this.btnLoraPingPong = new System.Windows.Forms.Button();
             this.logSeriPort = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -79,7 +98,7 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.button1);
+            this.groupBox1.Controls.Add(this.btnLoraTstVeriGondr);
             this.groupBox1.Controls.Add(this.label11);
             this.groupBox1.Controls.Add(this.btnLoraBaglan);
             this.groupBox1.Controls.Add(this.btnLoraBaglantiKes);
@@ -98,6 +117,17 @@
             this.groupBox1.Size = new System.Drawing.Size(332, 344);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
+            // 
+            // btnLoraTstVeriGondr
+            // 
+            this.btnLoraTstVeriGondr.Enabled = false;
+            this.btnLoraTstVeriGondr.Location = new System.Drawing.Point(187, 290);
+            this.btnLoraTstVeriGondr.Name = "btnLoraTstVeriGondr";
+            this.btnLoraTstVeriGondr.Size = new System.Drawing.Size(113, 23);
+            this.btnLoraTstVeriGondr.TabIndex = 7;
+            this.btnLoraTstVeriGondr.Text = "Test Verisi Gönder";
+            this.btnLoraTstVeriGondr.UseVisualStyleBackColor = true;
+            this.btnLoraTstVeriGondr.Click += new System.EventHandler(this.btnLoraTstVeriGondr_Click);
             // 
             // label11
             // 
@@ -354,13 +384,33 @@
             this.cboxHYISP.Name = "cboxHYISP";
             this.cboxHYISP.Size = new System.Drawing.Size(212, 21);
             this.cboxHYISP.TabIndex = 0;
+            this.cboxHYISP.SelectedIndexChanged += new System.EventHandler(this.cboxHYISP_SelectedIndexChanged);
             this.cboxHYISP.Click += new System.EventHandler(this.cboxHYISP_Click);
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.label35);
+            this.groupBox3.Controls.Add(this.label34);
+            this.groupBox3.Controls.Add(this.label33);
+            this.groupBox3.Controls.Add(this.label32);
+            this.groupBox3.Controls.Add(this.label31);
+            this.groupBox3.Controls.Add(this.label30);
+            this.groupBox3.Controls.Add(this.label27);
+            this.groupBox3.Controls.Add(this.label29);
+            this.groupBox3.Controls.Add(this.label26);
+            this.groupBox3.Controls.Add(this.label28);
+            this.groupBox3.Controls.Add(this.label25);
+            this.groupBox3.Controls.Add(this.label24);
+            this.groupBox3.Controls.Add(this.label23);
+            this.groupBox3.Controls.Add(this.label22);
+            this.groupBox3.Controls.Add(this.label21);
+            this.groupBox3.Controls.Add(this.btnLoraParamGet);
+            this.groupBox3.Controls.Add(this.label20);
+            this.groupBox3.Controls.Add(this.label19);
+            this.groupBox3.Controls.Add(this.label18);
+            this.groupBox3.Controls.Add(this.label15);
             this.groupBox3.Controls.Add(this.label17);
             this.groupBox3.Controls.Add(this.label16);
-            this.groupBox3.Controls.Add(this.label15);
             this.groupBox3.Controls.Add(this.label14);
             this.groupBox3.Controls.Add(this.label13);
             this.groupBox3.Controls.Add(this.cboxLoraSec);
@@ -378,10 +428,193 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Lora Ağ Ayarları";
             // 
+            // label35
+            // 
+            this.label35.AutoSize = true;
+            this.label35.Location = new System.Drawing.Point(105, 102);
+            this.label35.Name = "label35";
+            this.label35.Size = new System.Drawing.Size(41, 13);
+            this.label35.TabIndex = 23;
+            this.label35.Text = "label32";
+            // 
+            // label34
+            // 
+            this.label34.AutoSize = true;
+            this.label34.Location = new System.Drawing.Point(105, 83);
+            this.label34.Name = "label34";
+            this.label34.Size = new System.Drawing.Size(41, 13);
+            this.label34.TabIndex = 23;
+            this.label34.Text = "label32";
+            // 
+            // label33
+            // 
+            this.label33.AutoSize = true;
+            this.label33.Location = new System.Drawing.Point(105, 64);
+            this.label33.Name = "label33";
+            this.label33.Size = new System.Drawing.Size(41, 13);
+            this.label33.TabIndex = 23;
+            this.label33.Text = "label32";
+            // 
+            // label32
+            // 
+            this.label32.AutoSize = true;
+            this.label32.Location = new System.Drawing.Point(105, 45);
+            this.label32.Name = "label32";
+            this.label32.Size = new System.Drawing.Size(41, 13);
+            this.label32.TabIndex = 23;
+            this.label32.Text = "label32";
+            // 
+            // label31
+            // 
+            this.label31.AutoSize = true;
+            this.label31.Location = new System.Drawing.Point(270, 83);
+            this.label31.Name = "label31";
+            this.label31.Size = new System.Drawing.Size(59, 13);
+            this.label31.TabIndex = 22;
+            this.label31.Text = "I/O Mode :";
+            // 
+            // label30
+            // 
+            this.label30.AutoSize = true;
+            this.label30.Location = new System.Drawing.Point(261, 45);
+            this.label30.Name = "label30";
+            this.label30.Size = new System.Drawing.Size(68, 13);
+            this.label30.TabIndex = 21;
+            this.label30.Text = "Fixed Mode :";
+            // 
+            // label27
+            // 
+            this.label27.AutoSize = true;
+            this.label27.Location = new System.Drawing.Point(170, 83);
+            this.label27.Name = "label27";
+            this.label27.Size = new System.Drawing.Size(59, 13);
+            this.label27.TabIndex = 22;
+            this.label27.Text = "I/O Mode :";
+            // 
+            // label29
+            // 
+            this.label29.AutoSize = true;
+            this.label29.Location = new System.Drawing.Point(255, 64);
+            this.label29.Name = "label29";
+            this.label29.Size = new System.Drawing.Size(74, 13);
+            this.label29.TabIndex = 20;
+            this.label29.Text = "WOR Timing :";
+            // 
+            // label26
+            // 
+            this.label26.AutoSize = true;
+            this.label26.Location = new System.Drawing.Point(170, 45);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(68, 13);
+            this.label26.TabIndex = 21;
+            this.label26.Text = "Fixed Mode :";
+            // 
+            // label28
+            // 
+            this.label28.AutoSize = true;
+            this.label28.Location = new System.Drawing.Point(296, 26);
+            this.label28.Name = "label28";
+            this.label28.Size = new System.Drawing.Size(33, 13);
+            this.label28.TabIndex = 19;
+            this.label28.Text = "FEC :";
+            // 
+            // label25
+            // 
+            this.label25.AutoSize = true;
+            this.label25.Location = new System.Drawing.Point(170, 64);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(74, 13);
+            this.label25.TabIndex = 20;
+            this.label25.Text = "WOR Timing :";
+            // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.Location = new System.Drawing.Point(170, 26);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(33, 13);
+            this.label24.TabIndex = 19;
+            this.label24.Text = "FEC :";
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Location = new System.Drawing.Point(7, 83);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(73, 13);
+            this.label23.TabIndex = 18;
+            this.label23.Text = "Power (dBm) :";
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Location = new System.Drawing.Point(7, 102);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(39, 13);
+            this.label22.TabIndex = 17;
+            this.label22.Text = "Parity :";
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Location = new System.Drawing.Point(7, 45);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(59, 13);
+            this.label21.TabIndex = 16;
+            this.label21.Text = "Uart Rate :";
+            // 
+            // btnLoraParamGet
+            // 
+            this.btnLoraParamGet.Enabled = false;
+            this.btnLoraParamGet.Location = new System.Drawing.Point(187, 142);
+            this.btnLoraParamGet.Name = "btnLoraParamGet";
+            this.btnLoraParamGet.Size = new System.Drawing.Size(127, 23);
+            this.btnLoraParamGet.TabIndex = 15;
+            this.btnLoraParamGet.Text = "Parametreleri Çek";
+            this.btnLoraParamGet.UseVisualStyleBackColor = true;
+            this.btnLoraParamGet.Click += new System.EventHandler(this.btnLoraParamGet_Click);
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Location = new System.Drawing.Point(7, 64);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(51, 13);
+            this.label20.TabIndex = 14;
+            this.label20.Text = "Air Rate :";
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Location = new System.Drawing.Point(126, 26);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(12, 13);
+            this.label19.TabIndex = 13;
+            this.label19.Text = "/";
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(141, 26);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(19, 13);
+            this.label18.TabIndex = 12;
+            this.label18.Text = "25";
+            this.label18.Click += new System.EventHandler(this.label18_Click);
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(105, 26);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(19, 13);
+            this.label15.TabIndex = 11;
+            this.label15.Text = "15";
+            // 
             // label17
             // 
             this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(123, 55);
+            this.label17.Location = new System.Drawing.Point(111, 123);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(13, 13);
             this.label17.TabIndex = 10;
@@ -390,29 +623,20 @@
             // label16
             // 
             this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(7, 55);
+            this.label16.Location = new System.Drawing.Point(7, 121);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(85, 13);
+            this.label16.Size = new System.Drawing.Size(91, 13);
             this.label16.TabIndex = 9;
-            this.label16.Text = "Bağlantı Durumu";
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(123, 26);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(80, 13);
-            this.label15.TabIndex = 8;
-            this.label15.Text = "Kanal 0 433 Hz";
+            this.label16.Text = "Bağlantı Durumu :";
             // 
             // label14
             // 
             this.label14.AutoSize = true;
             this.label14.Location = new System.Drawing.Point(7, 26);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(83, 13);
+            this.label14.Size = new System.Drawing.Size(89, 13);
             this.label14.TabIndex = 7;
-            this.label14.Text = "Kanal / Frekans";
+            this.label14.Text = "Kanal / Frekans :";
             // 
             // label13
             // 
@@ -453,7 +677,7 @@
             // btnLoraAgAyarlari
             // 
             this.btnLoraAgAyarlari.Enabled = false;
-            this.btnLoraAgAyarlari.Location = new System.Drawing.Point(238, 113);
+            this.btnLoraAgAyarlari.Location = new System.Drawing.Point(345, 142);
             this.btnLoraAgAyarlari.Name = "btnLoraAgAyarlari";
             this.btnLoraAgAyarlari.Size = new System.Drawing.Size(75, 23);
             this.btnLoraAgAyarlari.TabIndex = 2;
@@ -479,6 +703,7 @@
             this.btnLoraPingRoket.TabIndex = 1;
             this.btnLoraPingRoket.Text = "Ping Roket";
             this.btnLoraPingRoket.UseVisualStyleBackColor = true;
+            this.btnLoraPingRoket.Click += new System.EventHandler(this.btnLoraPingRoket_Click);
             // 
             // btnLoraPingYedekAv
             // 
@@ -499,6 +724,7 @@
             this.btnLoraPingPong.TabIndex = 0;
             this.btnLoraPingPong.Text = "Ping Pong Test";
             this.btnLoraPingPong.UseVisualStyleBackColor = true;
+            this.btnLoraPingPong.Click += new System.EventHandler(this.btnLoraPingPong_Click);
             // 
             // logSeriPort
             // 
@@ -513,16 +739,6 @@
             this.logSeriPort.TabIndex = 2;
             this.logSeriPort.Text = "Heir Kommt die Sonne";
             this.logSeriPort.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(187, 290);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(113, 23);
-            this.button1.TabIndex = 7;
-            this.button1.Text = "Test Verisi Gönder";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // uc_PortAyarlari
             // 
@@ -588,8 +804,27 @@
         private System.Windows.Forms.Button btnLoraPingPong;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnLoraTstVeriGondr;
+        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.Label label27;
+        private System.Windows.Forms.Label label26;
+        private System.Windows.Forms.Label label25;
+        private System.Windows.Forms.Label label24;
+        private System.Windows.Forms.Label label23;
+        private System.Windows.Forms.Label label22;
+        private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.Button btnLoraParamGet;
+        private System.Windows.Forms.Label label35;
+        private System.Windows.Forms.Label label34;
+        private System.Windows.Forms.Label label33;
+        private System.Windows.Forms.Label label32;
+        private System.Windows.Forms.Label label31;
+        private System.Windows.Forms.Label label30;
+        private System.Windows.Forms.Label label29;
+        private System.Windows.Forms.Label label28;
     }
 }
