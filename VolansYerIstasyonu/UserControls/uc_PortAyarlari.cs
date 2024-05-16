@@ -22,7 +22,7 @@ namespace VolansYerIstasyonu.UserControls
         //seri portları burada tanımlıyorum
 
 
-
+        
         static string[] ports = SerialPort.GetPortNames();
         static int[] boudRates = { 9600, 19200,115200 };
         static System.IO.Ports.Parity[] pairityTypes = { Parity.None, Parity.Odd, Parity.Even, Parity.Mark, Parity.Space };
@@ -32,7 +32,7 @@ namespace VolansYerIstasyonu.UserControls
         public uc_PortAyarlari()
         {
             InitializeComponent();
-            Console.WriteLine("live a glorius life or die");
+            Console.WriteLine("Mr. House always wins");
 
             loraSerialPort.RtsEnable = true;
             HYISerialPort.RtsEnable = true;
@@ -81,24 +81,47 @@ namespace VolansYerIstasyonu.UserControls
             
             try
             {
-                byte[] buffere = new byte[60];
+                byte[] buffer = new byte[60];
                 SerialPort serialPort = (SerialPort)sender;
-                string data = serialPort.ReadExisting(); // Read all available bytes from the serial port
-                int a = serialPort.Read( buffere,  0,  buffere.Length);
-                Console.WriteLine(a);
-                char[] ee = data.ToCharArray();
+                string receivedData = serialPort.ReadExisting(); // Read all available bytes from the serial port
 
-                foreach(char c in ee )
+                string[] responseContainer = receivedData.Split('/');
+                //gerekirse bit converter çak
+                double[] dataArray = new double[6];
+                int dataIndex = 0;
+                foreach (String c in responseContainer)
                 {
-                    Console.Write(c);
+                    
+                    try
+                    {
+                        Console.Write(c + " ");
+                        dataArray[dataIndex] = double.Parse(c);//bu işlem sonrasında elimizde 6 veri olmalı bu veriler basınç , açılar , tetiklenmeler şeklindedir.
+                        Console.Write(dataArray[dataIndex] + " ");
+                        
+                    }
+                    catch (Exception ex)
+                    {
+                        serialPort.DiscardInBuffer();
+                        MessageBox.Show($"Veri çevirme işlemi sırasında bir hata meydana geldi: {ex.Message}", "Fuck this shit!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    dataIndex++;
                 }
+                try
+                {
+                    uc_AnalizTablo.aciVeriEkle(dataArray[1], dataArray[2], dataArray[3], dataArray[5] == 1);
+                    uc_AnalizTablo.basincVeriEkle(dataArray[0], dataArray[4] == 1);//veriler bu indexlerde olacak
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Büyük ihtimalle Veri çevirme işlemi sırasında bir hata meydana geldi ve veri tabanına veriler eklenemedi: {ex.Message}", "Fuck this shit!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+               
                 Console.WriteLine();
-
-
+                //shit works
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"veri geliyordu bro.: {ex.Message}", "broo!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"Bir hata meydana geldi: {ex.Message}", "HATA! ", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
             
@@ -328,10 +351,24 @@ namespace VolansYerIstasyonu.UserControls
 
             try
             {
-                byte[] bytestosend = { 0x0, 0x2c, 0x17, 0x76, 0x6F, 0x6C, 0x61, 0x6E, 0x73 };
+                byte[] bytestosend = { 0x0, 0x01, 0x17, 0x76, 0x6F, 0x6C, 0x61, 0x6E, 0x73 };
                 loraSerialPort.Write(bytestosend, 0, bytestosend.Length);
             }
              catch (Exception ex)
+            {
+                MessageBox.Show($"Bir Hata Meydana Geldi!: {ex.Message}", "Hata!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)//patlatma kodu
+        {
+            try
+            {
+                byte[] bytestosend = { 0x00, 0x01, 0x17, 0x6D, 0x61, 0x68, 0x6D, 0x75, 0x74, 0x20, 0x63, 0x61, 0x6E };
+                loraSerialPort.Write(bytestosend, 0, bytestosend.Length);
+            }
+            catch (Exception ex)
             {
                 MessageBox.Show($"Bir Hata Meydana Geldi!: {ex.Message}", "Hata!", MessageBoxButtons.OK, MessageBoxIcon.Error);
 

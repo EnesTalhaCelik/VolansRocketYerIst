@@ -5,6 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.IO.Ports;
 using System.Windows.Forms;
+using DocumentFormat.OpenXml.InkML;
+using static GMap.NET.Entity.OpenStreetMapGeocodeEntity;
 namespace VolansYerIstasyonu
 {
     internal class geciciLoraSinifi
@@ -22,20 +24,20 @@ namespace VolansYerIstasyonu
         mod switchleri ?
         şimdilik yeterli daha devamı gelecek
         */
-        void getLoraParams()
+        static void getLoraParams()
         {
 
         }
 
 
-        void setLoraParams(SerialPort LoraSP, int baudRate, byte channel, int address, int addh, int AirDataRate,Parity parity)
+        static void setLoraParams(SerialPort LoraSP, int baudRate, byte channel, int address, int addh, int AirDataRate,Parity parity)
         {
 
         }
 
         //burada metotları farklı durumlar için overlaod ediyorum.
         //string gönder
-        void sendFixedMessage(SerialPort LoraSP,String message,byte address,byte channel,byte header)
+        static void sendFixedMessage(SerialPort LoraSP,String message,byte address,byte channel,byte header)
         {
             try
             {
@@ -51,7 +53,7 @@ namespace VolansYerIstasyonu
             }
         }
         //int gönder
-        void sendFixedMessage(SerialPort LoraSP, int message, byte address, byte channel, byte header)
+        static void sendFixedMessage(SerialPort LoraSP, int message, byte address, byte channel, byte header)
         {
             try
             {
@@ -67,7 +69,7 @@ namespace VolansYerIstasyonu
             }
         }
         //int array gönder
-        void sendFixedMessage(SerialPort LoraSP, int[] message, byte address, byte channel, byte header)
+        static void sendFixedMessage(SerialPort LoraSP, int[] message, byte address, byte channel, byte header)
         {
             try
             {
@@ -88,7 +90,7 @@ namespace VolansYerIstasyonu
             }
         }
         //fixed float gönder
-        void sendFixedMessage(SerialPort LoraSP, float message, byte address, byte channel, byte header)
+        static void sendFixedMessage(SerialPort LoraSP, float message, byte address, byte channel, byte header)
         {
             try
             {
@@ -103,6 +105,82 @@ namespace VolansYerIstasyonu
                 Console.WriteLine(x);
             }
         }
+
+        static string loraRecivePackage(SerialPort LoraSP)
+        {
+            try
+            {
+                String cevapKutusu = LoraSP.ReadLine();
+                return (cevapKutusu);
+            }
+            catch (Exception x)
+            {
+
+                Console.Write("Bir Hata meydana geldi! : ");
+                Console.WriteLine(x);
+                return ("MESAJ ALINIRKEN BİR HATA MEYDANA GELDİ : " + x);
+
+            }
+
+        }
+        static void paketAyikla(string gelenMesaj, string[] AyrilacakYer,char ayiklanacakKarakter )
+        {
+            try
+            {
+                AyrilacakYer = gelenMesaj.Split(ayiklanacakKarakter);
+            }
+            catch (Exception x)
+            { 
+                Console.Write("Bir Hata meydana geldi! : ");
+                Console.WriteLine(x);
+            }
+
+        }
+        static int paketKontrol( byte[] gelenMesaj)
+        {
+            try
+            {
+                
+                if (gelenMesaj[0] == 0x7B && gelenMesaj[gelenMesaj.Length - 1] == 0x7D && (gelenMesaj[1] != 0x7B ))
+                {
+                    byte girisKodu = gelenMesaj[1];
+                    switch (girisKodu)
+                    {
+                        case 0x75:
+
+
+                            //şuanda test yapılıyor.
+                            TeknofestVeriler.Veriler.BasincIrtifa = BitConverter.ToSingle(gelenMesaj, 2);
+                            TeknofestVeriler.Veriler.JiroskopX = BitConverter.ToSingle(gelenMesaj, 6);
+                            TeknofestVeriler.Veriler.JiroskopY = BitConverter.ToSingle(gelenMesaj, 10);
+                            TeknofestVeriler.Veriler.JiroskopZ = BitConverter.ToSingle(gelenMesaj, 14);
+
+
+
+                            break;
+
+                        
+
+                    }
+
+
+
+
+                }
+                return 1;
+            }
+            catch (Exception x)
+            {
+                Console.Write("Bir Hata meydana geldi! : ");
+                Console.WriteLine(x);
+                return 0;
+            }
+
+        }
+
+
+
+
 
     }
 }

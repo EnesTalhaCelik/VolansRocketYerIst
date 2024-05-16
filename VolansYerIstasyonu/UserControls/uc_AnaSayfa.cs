@@ -765,6 +765,7 @@ namespace VolansYerIstasyonu.UserControls
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(32, 20);
             this.textBox1.TabIndex = 1;
+            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // lbl_takimID
             // 
@@ -873,6 +874,11 @@ namespace VolansYerIstasyonu.UserControls
                 MessageBox.Show($"Geçerli bir konum giriniz.");
             }
             
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

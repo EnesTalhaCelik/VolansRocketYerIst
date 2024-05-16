@@ -20,20 +20,28 @@ namespace VolansYerIstasyonu.UserControls
 
 
     {
-        private Dictionary<string, List<string>> databaseFiles = new Dictionary<string, List<string>>();
+        //private Dictionary<string, List<string>> databaseFiles = new Dictionary<string, List<string>>();
 
-        private string basincDatabaseDosyaYolu = "UcusVeri/BasincTablosu.db";
-        private string aciDatabaseDosyaYolu = "UcusVeri/AciTablosu.db";
+        private static string basincDatabaseDosyaYolu = "UcusVeri/BasincTablosu.db"; //veri ekleme metotları ve database yolları static yapıldı
+        private static string aciDatabaseDosyaYolu = "UcusVeri/AciTablosu.db";
+        private static string aciTableConnectionString;
+        private static string basincTableConnectionString;
 
 
         public uc_AnalizTablo()
         {
             InitializeComponent();
             baslangicCalistir();
-            
+            basincDatabaseOlustur();
+            aciDatabaseOlustur();    
+
+
+           
+
+
         }
 
-        public string basincDatabaseOlustur()
+        public static string basincDatabaseOlustur()
         {
             string basincConnectionString = string.Empty;
             try
@@ -68,10 +76,12 @@ namespace VolansYerIstasyonu.UserControls
             {
                 MessageBox.Show("Basınç veritabanı oluşturmada hata: " + ex.Message);
             }
+            basincTableConnectionString = basincConnectionString;
             return basincConnectionString;
+            
         }
 
-        public string aciDatabaseOlustur()
+        public static string aciDatabaseOlustur()
         {
             string aciConnectionString = string.Empty;
             try
@@ -106,12 +116,14 @@ namespace VolansYerIstasyonu.UserControls
             {
                 MessageBox.Show("Açı veritabanı oluşturmada hata: " + ex.Message);
             }
+            aciTableConnectionString = aciConnectionString; // zaten oluşturulan key yine
+                                                            // kullanılacak database ile beraber çalıştırılacak
             return aciConnectionString;
         }
 
-        public void basincVeriEkle(double basinc, bool durum, DateTime zaman)
+        public static void basincVeriEkle(double basinc, bool durum, DateTime zaman)
         {
-            string connectionString = basincDatabaseOlustur();
+            string connectionString = basincTableConnectionString;
 
             try
             {
@@ -135,9 +147,9 @@ namespace VolansYerIstasyonu.UserControls
             }
         }
 
-        public void basincVeriEkle(double basinc, bool durum)
+        public static void basincVeriEkle(double basinc, bool durum)
         {
-            string connectionString = basincDatabaseOlustur();
+            string connectionString = basincTableConnectionString;
 
             try
             {
@@ -161,9 +173,9 @@ namespace VolansYerIstasyonu.UserControls
             }
         }
 
-        public void aciVeriEkle(double x, double y, double z, bool durum, DateTime zaman)
+        public static void aciVeriEkle(double x, double y, double z, bool durum, DateTime zaman)
         {
-            string aciConnectionString = aciDatabaseOlustur();
+            string aciConnectionString = aciTableConnectionString;
 
             try
             {
@@ -190,9 +202,9 @@ namespace VolansYerIstasyonu.UserControls
             }
         }
 
-        public void aciVeriEkle(double x, double y, double z, bool durum)
+        public static void aciVeriEkle(double x, double y, double z, bool durum)
         {
-            string aciConnectionString = aciDatabaseOlustur();
+            string aciConnectionString = aciTableConnectionString;
 
             try
             {
@@ -472,6 +484,27 @@ namespace VolansYerIstasyonu.UserControls
         {
             secilenDatabaseYansit();
         }
+
+        private void tbl_Aci_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void btn_aciDbOlustur_Click(object sender, EventArgs e)
+        {
+            aciDatabaseOlustur();
+
+
+        }
+        private void btn_basincDbOlustur_Click(object sender, EventArgs e)
+        {
+
+            basincDatabaseOlustur();
+
+
+        }
+
+
 
     }
 
