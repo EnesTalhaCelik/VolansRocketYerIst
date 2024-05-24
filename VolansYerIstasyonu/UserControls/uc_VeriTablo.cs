@@ -88,38 +88,36 @@ namespace VolansYerIstasyonu.UserControls
 
                     
                     Dictionary<string, string> columnHeaders = new Dictionary<string, string>
-    {
-        { "durum", "Durum" },
-        { "roket_irtifa_basinc", "Roket İrtifa Basınç" },
-        { "dogrulama_kodu", "Doğrulama Kodu" },
-        { "paket_sayaci", "Paket Sayacı" },
-        { "roket_basinc", "Roket Basınç" },
-        { "roket_sicaklik", "Roket Sıcaklık" },
-        { "roket_hiz_x", "Roket Hız X" },
-        { "roket_hiz_y", "Roket Hız Y" },
-        { "roket_hiz_z", "Roket Hız Z" },
-        { "roket_acisal_hiz_x", "Roket Açısal Hız X" },
-        { "roket_acisal_hiz_y", "Roket Açısal Hız Y" },
-        { "roket_acisal_hiz_z", "Roket Açısal Hız Z" },
-        { "jiroskop_x", "Jiroskop X" },
-        { "jiroskop_y", "Jiroskop Y" },
-        { "jiroskop_z", "Jiroskop Z" },
-        { "ivme_x", "İvme X" },
-        { "ivme_y", "İvme Y" },
-        { "ivme_z", "İvme Z" },
-        { "aci", "Açı" },
-        { "roket_gps_enlem", "Roket GPS Enlem" },
-        { "roket_gps_boylam", "Roket GPS Boylam" },
-        { "roket_gps_yukseklik", "Roket GPS Yükseklik" },
-        { "zaman", "Zaman" },
-        { "roket_irtifa_gps", "Roket İrtifa GPS" },
-        { "gps_yukseklik", "GPS Yükseklik" },
-        { "gps_enlem", "GPS Enlem" },
-        { "gps_boylam", "GPS Boylam" },
-        { "geiger_veri", "Geiger Veri" }
-
-
-    };
+            {
+                { "durum", "Durum" },
+                { "roket_irtifa_basinc", "Roket İrtifa Basınç" },
+                { "dogrulama_kodu", "Doğrulama Kodu" },
+                { "paket_sayaci", "Paket Sayacı" },
+                { "roket_basinc", "Roket Basınç" },
+                { "roket_sicaklik", "Roket Sıcaklık" },
+                { "roket_hiz_x", "Roket Hız X" },
+                { "roket_hiz_y", "Roket Hız Y" },
+                { "roket_hiz_z", "Roket Hız Z" },
+                { "roket_acisal_hiz_x", "Roket Açısal Hız X" },
+                { "roket_acisal_hiz_y", "Roket Açısal Hız Y" },
+                { "roket_acisal_hiz_z", "Roket Açısal Hız Z" },
+                { "jiroskop_x", "Jiroskop X" },
+                { "jiroskop_y", "Jiroskop Y" },
+                { "jiroskop_z", "Jiroskop Z" },
+                { "ivme_x", "İvme X" },
+                { "ivme_y", "İvme Y" },
+                { "ivme_z", "İvme Z" },
+                { "aci", "Açı" },
+                { "roket_gps_enlem", "Roket GPS Enlem" },
+                { "roket_gps_boylam", "Roket GPS Boylam" },
+                { "roket_gps_yukseklik", "Roket GPS Yükseklik" },
+                { "zaman", "Zaman" },
+                { "gps_irtifa", "GPS İrtifa" },
+                { "basinc_irtifa", "Basınç İrtifa" },
+                { "gps_enlem", "GPS Enlem" },
+                { "gps_boylam", "GPS Boylam" },
+                { "geiger_veri", "Geiger Veri" }
+            };
 
                     
                     foreach (DataColumn column in dataTable.Columns)
@@ -127,6 +125,19 @@ namespace VolansYerIstasyonu.UserControls
                         if (columnHeaders.ContainsKey(column.ColumnName))
                         {
                             column.ColumnName = columnHeaders[column.ColumnName];
+                        }
+                    }
+
+                    
+                    foreach (DataRow row in dataTable.Rows)
+                    {
+                        if (dataTable.Columns.Contains("Zaman"))
+                        {
+                            DateTime zaman;
+                            if (DateTime.TryParse(row["Zaman"].ToString(), out zaman))
+                            {
+                                row["Zaman"] = new DateTime(zaman.Year, zaman.Month, zaman.Day, zaman.Hour, zaman.Minute, zaman.Second);
+                            }
                         }
                     }
 
@@ -144,7 +155,15 @@ namespace VolansYerIstasyonu.UserControls
                     }
 
                     
-                    foreach (DataGridViewColumn column in currentTable.Columns)
+                    foreach (DataGridViewColumn column in tbl_anaAviyonik.Columns)
+                    {
+                        column.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+                    }
+                    foreach (DataGridViewColumn column in tbl_yedekAviyonik.Columns)
+                    {
+                        column.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+                    }
+                    foreach (DataGridViewColumn column in tbl_gorevYuku.Columns)
                     {
                         column.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
                     }
@@ -153,6 +172,7 @@ namespace VolansYerIstasyonu.UserControls
                 connection.Close();
             }
         }
+
 
 
 
@@ -192,7 +212,7 @@ namespace VolansYerIstasyonu.UserControls
                             CREATE TABLE IF NOT EXISTS [AnaAviyonikTablosu] (
                                 durum INTEGER, 
                                 roket_irtifa_basinc REAL, 
-                                dogrulama_kodu TEXT, 
+                                dogrulama_kodu INTEGER, 
                                 paket_sayaci INTEGER, 
                                 roket_basinc REAL, 
                                 roket_sicaklik REAL, 
@@ -233,7 +253,7 @@ namespace VolansYerIstasyonu.UserControls
 
 
 
-        public static void anaAviyonikVeriEkle(int durum, float roket_irtifa_basinc, string dogrulama_kodu, int paket_sayaci,
+        public static void anaAviyonikVeriEkle(int durum, float roket_irtifa_basinc, int dogrulama_kodu, int paket_sayaci,
             float roket_basinc, float roket_sicaklik, float roket_hiz_x, float roket_hiz_y, float roket_hiz_z, float roket_acisal_hiz_x,
             float roket_acisal_hiz_y, float roket_acisal_hiz_z, float jiroskop_x, float jiroskop_y, float jiroskop_z, float ivme_x,
             float ivme_y, float ivme_z, float aci, float roket_gps_enlem, float roket_gps_boylam, float roket_gps_yukseklik, DateTime zaman)
@@ -291,7 +311,7 @@ namespace VolansYerIstasyonu.UserControls
 
 
 
-        public static void anaAviyonikVeriEkle(int durum, float roket_irtifa_basinc, string dogrulama_kodu, int paket_sayaci,
+        public static void anaAviyonikVeriEkle(int durum, float roket_irtifa_basinc, int dogrulama_kodu, int paket_sayaci,
             float roket_basinc, float roket_sicaklik, float roket_hiz_x, float roket_hiz_y, float roket_hiz_z, float roket_acisal_hiz_x,
             float roket_acisal_hiz_y, float roket_acisal_hiz_z, float jiroskop_x, float jiroskop_y, float jiroskop_z, float ivme_x,
             float ivme_y, float ivme_z, float aci, float roket_gps_enlem, float roket_gps_boylam, float roket_gps_yukseklik)
@@ -383,7 +403,7 @@ namespace VolansYerIstasyonu.UserControls
                             CREATE TABLE IF NOT EXISTS [YedekAviyonikTablosu] (
                                 durum INTEGER, 
                                 roket_irtifa_basinc REAL, 
-                                dogrulama_kodu TEXT, 
+                                dogrulama_kodu INTEGER, 
                                 paket_sayaci INTEGER, 
                                 roket_basinc REAL, 
                                 roket_sicaklik REAL, 
@@ -424,7 +444,7 @@ namespace VolansYerIstasyonu.UserControls
 
 
 
-        public static void yedekAviyonikVeriEkle(int durum, float roket_irtifa_basinc, string dogrulama_kodu, int paket_sayaci,
+        public static void yedekAviyonikVeriEkle(int durum, float roket_irtifa_basinc, int dogrulama_kodu, int paket_sayaci,
             float roket_basinc, float roket_sicaklik, float roket_hiz_x, float roket_hiz_y, float roket_hiz_z, float roket_acisal_hiz_x,
             float roket_acisal_hiz_y, float roket_acisal_hiz_z, float jiroskop_x, float jiroskop_y, float jiroskop_z, float ivme_x,
             float ivme_y, float ivme_z, float aci, float roket_gps_enlem, float roket_gps_boylam, float roket_gps_yukseklik, DateTime zaman)
@@ -484,7 +504,7 @@ namespace VolansYerIstasyonu.UserControls
 
 
 
-        public static void yedekAviyonikVeriEkle(int durum, float roket_irtifa_basinc, string dogrulama_kodu, int paket_sayaci,
+        public static void yedekAviyonikVeriEkle(int durum, float roket_irtifa_basinc, int dogrulama_kodu, int paket_sayaci,
             float roket_basinc, float roket_sicaklik, float roket_hiz_x, float roket_hiz_y, float roket_hiz_z, float roket_acisal_hiz_x,
             float roket_acisal_hiz_y, float roket_acisal_hiz_z, float jiroskop_x, float jiroskop_y, float jiroskop_z, float ivme_x,
             float ivme_y, float ivme_z, float aci, float roket_gps_enlem, float roket_gps_boylam, float roket_gps_yukseklik)
@@ -577,13 +597,13 @@ namespace VolansYerIstasyonu.UserControls
 
                         string table = @"
                             CREATE TABLE IF NOT EXISTS [GorevYukuTablosu] (
-                                roket_irtifa_gps REAL, 
-                                gps_yukseklik REAL, 
+                                gps_irtifa REAL, 
+                                basinc_irtifa REAL, 
                                 gps_enlem REAL, 
                                 gps_boylam REAL, 
                                 geiger_veri REAL,
                                 paket_sayaci INTEGER,
-                                dogrulama_kodu TEXT,
+                                dogrulama_kodu INTEGER,
                                 zaman TEXT
                             )";
                         SQLiteCommand command = new SQLiteCommand(table, connection);
@@ -606,8 +626,8 @@ namespace VolansYerIstasyonu.UserControls
 
 
 
-        public static void gorevYukuVeriEkle(float roket_irtifa_gps, float gps_yukseklik, float gps_enlem, float gps_boylam,
-            float geiger_veri, int paket_sayaci, string dogrulama_kodu, DateTime zaman)
+        public static void gorevYukuVeriEkle(float gps_irtifa, float basinc_irtifa, float gps_enlem, float gps_boylam,
+            float geiger_veri, int paket_sayaci, int dogrulama_kodu, DateTime zaman)
         {
             string connectionString = gorevYukuTableConnectionString;
 
@@ -617,12 +637,12 @@ namespace VolansYerIstasyonu.UserControls
                 {
                     connection.Open();
 
-                    string insertQuery = "INSERT INTO [GorevYukuTablosu] (roket_irtifa_gps, gps_yukseklik, gps_enlem, gps_boylam," +
-                        " geiger_veri, paket_sayaci, dogrulama_kodu, zaman) VALUES (@roket_irtifa_gps, @gps_yukseklik, @gps_enlem," +
+                    string insertQuery = "INSERT INTO [GorevYukuTablosu] (gps_irtifa, basinc_irtifa, gps_enlem, gps_boylam," +
+                        " geiger_veri, paket_sayaci, dogrulama_kodu, zaman) VALUES (@gps_irtifa, @basinc_irtifa, @gps_enlem," +
                         " @gps_boylam, @geiger_veri, @paket_sayaci, @dogrulama_kodu, @zaman)";
                     SQLiteCommand gorevYukuVeriEkleme = new SQLiteCommand(insertQuery, connection);
-                    gorevYukuVeriEkleme.Parameters.AddWithValue("@roket_irtifa_gps", roket_irtifa_gps);
-                    gorevYukuVeriEkleme.Parameters.AddWithValue("@gps_yukseklik", gps_yukseklik);
+                    gorevYukuVeriEkleme.Parameters.AddWithValue("@gps_irtifa", gps_irtifa);
+                    gorevYukuVeriEkleme.Parameters.AddWithValue("@basinc_irtifa", basinc_irtifa);
                     gorevYukuVeriEkleme.Parameters.AddWithValue("@gps_enlem", gps_enlem);
                     gorevYukuVeriEkleme.Parameters.AddWithValue("@gps_boylam", gps_boylam);
                     gorevYukuVeriEkleme.Parameters.AddWithValue("@geiger_veri", geiger_veri);
@@ -644,8 +664,8 @@ namespace VolansYerIstasyonu.UserControls
 
 
 
-        public static void gorevYukuVeriEkle(float roket_irtifa_gps, float gps_yukseklik, float gps_enlem, float gps_boylam,
-            float geiger_veri, int paket_sayaci, string dogrulama_kodu)
+        public static void gorevYukuVeriEkle(float gps_irtifa, float basinc_irtifa, float gps_enlem, float gps_boylam,
+            float geiger_veri, int paket_sayaci, int dogrulama_kodu)
         {
             string connectionString = gorevYukuTableConnectionString;
 
@@ -655,12 +675,12 @@ namespace VolansYerIstasyonu.UserControls
                 {
                     connection.Open();
 
-                    string insertQuery = "INSERT INTO [GorevYukuTablosu] (roket_irtifa_gps, gps_yukseklik, gps_enlem, gps_boylam," +
-                        " geiger_veri, paket_sayaci, dogrulama_kodu, zaman) VALUES (@roket_irtifa_gps, @gps_yukseklik, @gps_enlem," +
+                    string insertQuery = "INSERT INTO [GorevYukuTablosu] (gps_irtifa, basinc_irtifa, gps_enlem, gps_boylam," +
+                        " geiger_veri, paket_sayaci, dogrulama_kodu, zaman) VALUES (@gps_irtifa, @basinc_irtifa, @gps_enlem," +
                         " @gps_boylam, @geiger_veri, @paket_sayaci, @dogrulama_kodu, @zaman)";
                     SQLiteCommand gorevYukuVeriEkleme = new SQLiteCommand(insertQuery, connection);
-                    gorevYukuVeriEkleme.Parameters.AddWithValue("@roket_irtifa_gps", roket_irtifa_gps);
-                    gorevYukuVeriEkleme.Parameters.AddWithValue("@gps_yukseklik", gps_yukseklik);
+                    gorevYukuVeriEkleme.Parameters.AddWithValue("@gps_irtifa", gps_irtifa);
+                    gorevYukuVeriEkleme.Parameters.AddWithValue("@basinc_irtifa", basinc_irtifa);
                     gorevYukuVeriEkleme.Parameters.AddWithValue("@gps_enlem", gps_enlem);
                     gorevYukuVeriEkleme.Parameters.AddWithValue("@gps_boylam", gps_boylam);
                     gorevYukuVeriEkleme.Parameters.AddWithValue("@geiger_veri", geiger_veri);
