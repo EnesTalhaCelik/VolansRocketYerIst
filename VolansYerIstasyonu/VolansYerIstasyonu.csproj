@@ -197,6 +197,12 @@
     <Compile Include="UserControls\uc_VerilerinGrafikleri.Designer.cs">
       <DependentUpon>uc_VerilerinGrafikleri.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\uc_VeriTablo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\uc_VeriTablo.Designer.cs">
+      <DependentUpon>uc_VeriTablo.cs</DependentUpon>
+    </Compile>
     <Compile Include="UygulamaForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -224,6 +230,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\uc_VerilerinGrafikleri.resx">
       <DependentUpon>uc_VerilerinGrafikleri.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\uc_VeriTablo.resx">
+      <DependentUpon>uc_VeriTablo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UygulamaForm.resx">
       <DependentUpon>UygulamaForm.cs</DependentUpon>

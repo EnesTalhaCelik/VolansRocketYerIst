@@ -17,9 +17,11 @@ namespace VolansYerIstasyonu
         private UserControls.uc_PortAyarlari portAyarEkrani = new UserControls.uc_PortAyarlari();
         private UserControls.uc_VerilerinGrafikleri veriGrafikEkrani = new UserControls.uc_VerilerinGrafikleri();
         private UserControls.uc_AnalizTablo veriAnalizTabloEkrani = new UserControls.uc_AnalizTablo();
+        private UserControls.uc_VeriTablo veriVeriTabloEkrani = new UserControls.uc_VeriTablo();
         public UygulamaForm()
         {
             InitializeComponent();
+            pnl_AnaSayfa.Controls.Add(veriVeriTabloEkrani);
             pnl_AnaSayfa.Controls.Add(veriAnalizTabloEkrani);
             pnl_AnaSayfa.Controls.Add(anaSayfaEkrani);
             pnl_AnaSayfa.Controls.Add(portAyarEkrani);
@@ -53,7 +55,7 @@ namespace VolansYerIstasyonu
 
         private void btn_AnalizTablo_Click(object sender, EventArgs e)
         {
-            veriAnalizTabloEkrani.BringToFront();  
+            veriVeriTabloEkrani.BringToFront();  
         }
     }
 }
