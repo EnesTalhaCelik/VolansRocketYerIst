@@ -12,6 +12,8 @@ using SeriHaberlesme;
 using static GMap.NET.Entity.OpenStreetMapGeocodeEntity;
 using System.Runtime.Remoting.Channels;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using DocumentFormat.OpenXml.Wordprocessing;
+using TeknofestVeriler;
 namespace VolansYerIstasyonu.UserControls
 {
     public partial class uc_PortAyarlari : UserControl
@@ -27,8 +29,8 @@ namespace VolansYerIstasyonu.UserControls
         static int[] boudRates = { 9600, 19200,115200 };
         static System.IO.Ports.Parity[] pairityTypes = { Parity.None, Parity.Odd, Parity.Even, Parity.Mark, Parity.Space };
 
-        SerialPort loraSerialPort = new SerialPort();
-        SerialPort HYISerialPort = new SerialPort();
+        static public SerialPort loraSerialPort = new SerialPort();
+        static public SerialPort HYISerialPort = new SerialPort(); 
         public uc_PortAyarlari()
         {
             InitializeComponent();
@@ -76,59 +78,142 @@ namespace VolansYerIstasyonu.UserControls
                 MessageBox.Show($"mesaj geldi"+ Data, "Port Başarıyla Açıldı" + Data, MessageBoxButtons.OK, MessageBoxIcon.Information);
             }));
         }
+
+        static int GetFirstTwoDigitsOfFractionalPart(float number)
+        {
+            string numberString = number.ToString("F");
+            int decimalPointIndex = numberString.IndexOf('.');
+            if (decimalPointIndex == -1 || decimalPointIndex + 2 >= numberString.Length)
+            {
+                return 0; // If there are no fractional digits, return 0
+            }
+
+            string fractionalPartString = numberString.Substring(decimalPointIndex + 1, 2);
+            int firstTwoDigits = int.Parse(fractionalPartString);
+            return firstTwoDigits;
+        }
+
+        static float RoundToDecimalPlaces(float number, int decimalPlaces)
+        {
+            float factor = (float)Math.Pow(10, decimalPlaces);
+            return (float)Math.Round(number * factor) / factor;
+        }
+
         private void loraSerialPort_DataReceived(object sender, SerialDataReceivedEventArgs e)
         {
-            
+
+
+
+            SerialPort serialPort = (SerialPort)sender;
+
+
+            //string[] responseContainer = receivedData.Split('/');
             try
             {
-                byte[] buffer = new byte[60];
-                SerialPort serialPort = (SerialPort)sender;
-                string receivedData = serialPort.ReadExisting(); // Read all available bytes from the serial port
+                string receivedData = serialPort.ReadLine();
+                DateTime now = DateTime.Now;
 
-                string[] responseContainer = receivedData.Split('/');
-                //gerekirse bit converter çak
-                double[] dataArray = new double[6];
-                int dataIndex = 0;
-                foreach (String c in responseContainer)
-                {
-                    
-                    try
-                    {
-                        Console.Write(c + " ");
-                        dataArray[dataIndex] = double.Parse(c);//bu işlem sonrasında elimizde 6 veri olmalı bu veriler basınç , açılar , tetiklenmeler şeklindedir.
-                        Console.Write(dataArray[dataIndex] + " ");
-                        
-                    }
-                    catch (Exception ex)
-                    {
-                        serialPort.DiscardInBuffer();
-                        MessageBox.Show($"Veri çevirme işlemi sırasında bir hata meydana geldi: {ex.Message}", "Fuck this shit!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
-                    dataIndex++;
-                }
-                try
-                {
-                    uc_AnalizTablo.aciVeriEkle(dataArray[1], dataArray[2], dataArray[3], dataArray[5] == 1);
-                    uc_AnalizTablo.basincVeriEkle(dataArray[0], dataArray[4] == 1);//veriler bu indexlerde olacak
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show($"Büyük ihtimalle Veri çevirme işlemi sırasında bir hata meydana geldi ve veri tabanına veriler eklenemedi: {ex.Message}", "Fuck this shit!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-               
-                Console.WriteLine();
-                //shit works
+                Console.WriteLine(receivedData );
+
+                //uc_AnalizTablo.aciVeriEkle(Double.Parse(responseContainer[0]), Double.Parse(responseContainer[1]), Double.Parse(responseContainer[2]), Double.Parse(responseContainer[2]) > 0);
+                //Console.WriteLine((responseContainer[0])+" "+ (responseContainer[1]) + " " + (responseContainer[2]));
+                //uc_AnalizTablo.aciVeriEkle(Double.Parse(responseContainer[0]), Double.Parse(responseContainer[1]), Double.Parse(responseContainer[2]), Double.Parse(responseContainer[2]) < 0);
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Bir hata meydana geldi: {ex.Message}", "HATA! ", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                serialPort.DiscardInBuffer();
+                MessageBox.Show($" bir hata meydana geldi: {ex.Message}", "Fuck this shit!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+            /*
+            try
+            {
 
-            
+                SerialPort serialPort = (SerialPort)sender;
+                int bytesToRead = serialPort.BytesToRead;
+                byte[] buffer = new byte[2048];
+                serialPort.Read(buffer, 0, bytesToRead);
+
+                string receivedData = serialPort.ReadExisting(); // Read all available bytes from the serial port
+                /*
+                char[] receivedDataCharArray = receivedData.ToCharArray();
+                string[] responseContainer = receivedData.Split('/');
+                //gerekirse bit converter çak
+                double[] dataArray = new double[6];*/
+            /*
+            foreach (byte b in buffer)
+            {
+                // Console.Write($"{b:X2} "+ " ");
+
+
+                Console.WriteLine(b);// Display each byte as a two-digit hexadecimal number
+            }*//*
+            float BasincIrtifa = RoundToDecimalPlaces(BitConverter.ToSingle(buffer,0),2);
+            float JiroskopX = RoundToDecimalPlaces(BitConverter.ToSingle(buffer, 4),2);
+            float JiroskopY = RoundToDecimalPlaces(BitConverter.ToSingle(buffer, 8),2);
+            float JiroskopZ = RoundToDecimalPlaces(BitConverter.ToSingle(buffer, 12),2);
+            float KademeEnlem = RoundToDecimalPlaces(buffer[16],1);
+            float KademeBoylam = RoundToDecimalPlaces(buffer[17],1);
+            uc_AnalizTablo.basincVeriEkle((double)(BasincIrtifa), KademeEnlem==1);
+            uc_AnalizTablo.aciVeriEkle((double)(JiroskopX), (double)(JiroskopY),(double)(JiroskopZ),KademeBoylam == 1);
+            Console.WriteLine(BasincIrtifa + " " + BasincIrtifa + " " + BasincIrtifa + " " + BasincIrtifa + " " + BasincIrtifa + " " );
+            /*
+
+            foreach (String c in responseContainer)
+            {
+                char mesaj = char.Parse(c);
+
+                try
+                {
+                    /*
+                    Console.Write($"{c:X2} ");
+                    Console.Write(mesaj + " ");
+                    Console.Write(c + " ");
+                    */
+
+
+
+            // dataArray[dataIndex] = Parse ;//bu işlem sonrasında elimizde 6 veri olmalı bu veriler basınç , açılar , tetiklenmeler şeklindedir.
+            // Console.Write(dataArray[dataIndex] + " ");
+            /*
+        }
+        catch (Exception ex)
+        {
+            serialPort.DiscardInBuffer();
+            MessageBox.Show($"Veri çevirme işlemi sırasında bir hata meydana geldi: {ex.Message}", "Fuck this shit!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+        dataIndex++;
+
+    }*/
+            /* try
+             {
+                 uc_AnalizTablo.aciVeriEkle(dataArray[1], dataArray[2], dataArray[3], dataArray[5] == 1);
+                 uc_AnalizTablo.basincVeriEkle(dataArray[0], dataArray[4] == 1);//veriler bu indexlerde olacak
+                 TeknofestVeriler.Veriler.BasincIrtifa = ((float)dataArray[0]);
+                 TeknofestVeriler.Veriler.JiroskopX = ((float)dataArray[1]);
+                 TeknofestVeriler.Veriler.JiroskopY = ((float)dataArray[2]);
+                 TeknofestVeriler.Veriler.JiroskopZ = ((float)dataArray[3]);
+                 TeknofestVeriler.Veriler.KademeBoylam = ((float)dataArray[4]);//öylesine ekledim normalde kullanılmayacak
+                 TeknofestVeriler.Veriler.KademeEnlem = ((float)dataArray[5]); //mutlaka sil (normalde bunlar veri tablosunda yok o yüzden böyle yapıyorum)
+
+             }
+             catch (Exception ex)
+             {
+                 MessageBox.Show($"Büyük ihtimalle Veri çevirme işlemi sırasında bir hata meydana geldi ve veri tabanına veriler eklenemedi: {ex.Message}", "Fuck this shit!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+             }*/
+            /*
+            Console.WriteLine();
+            //shit works
+        }
+        catch (Exception ex)
+        {
+            MessageBox.Show($"Bir hata meydana geldi: {ex.Message}", "HATA! ", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
 
 
 
 
+
+        */
         }
 
         private void HYISerialPort_DataReceived(object sender, SerialDataReceivedEventArgs e)

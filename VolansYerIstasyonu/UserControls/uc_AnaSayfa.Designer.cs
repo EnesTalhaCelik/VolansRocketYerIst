@@ -46,16 +46,16 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label32;
         private System.Windows.Forms.Label label30;
-        private System.Windows.Forms.Label label29;
+        private System.Windows.Forms.Label JiroskopZ;
         private System.Windows.Forms.Label label31;
         private System.Windows.Forms.Label label28;
         private System.Windows.Forms.Label label27;
         private System.Windows.Forms.Label label26;
-        private System.Windows.Forms.Label label25;
+        private System.Windows.Forms.Label JiroskopY;
         private System.Windows.Forms.Label label24;
         private System.Windows.Forms.Label label23;
         private System.Windows.Forms.Label label22;
-        private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.Label JiroskopX;
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.Label label36;
@@ -83,7 +83,7 @@
         private System.Windows.Forms.Label lbl_haritaC_enlem_dgr;
         private System.Windows.Forms.TextBox konumaGit_Enlem;
         private System.Windows.Forms.Label label49;
-        private System.Windows.Forms.Label label52;
+        private System.Windows.Forms.Label Basinc;
         private System.Windows.Forms.Label label51;
         private System.Windows.Forms.Label label50;
         private System.Windows.Forms.Label lbl_gidilecekEnlem;
@@ -91,5 +91,7 @@
         private System.Windows.Forms.Label lbl_gidilecekBoylam;
         private System.Windows.Forms.Button btnKonumaGit;
         private System.Windows.Forms.DataVisualization.Charting.Chart chartGeiger;
+        private System.Windows.Forms.Label aciTetiklendiMİ;
+        private System.Windows.Forms.Label basincTetiklendiMi;
     }
 }
