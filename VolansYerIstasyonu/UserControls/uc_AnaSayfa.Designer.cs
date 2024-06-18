@@ -32,17 +32,17 @@
         private System.Windows.Forms.Label lbl_paketSayac;
         private System.Windows.Forms.Label lbl_bsncIrtıfa_dgr;
         private System.Windows.Forms.Label lbl_bsncIrtifa;
-        private System.Windows.Forms.Label label18;
-        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label gYukuBoylam;
+        private System.Windows.Forms.Label roketBoylam;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label gYukuEnlem;
+        private System.Windows.Forms.Label roketEnlem;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label gYukuGPSIrtifa;
         private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label roketGPSIrtifa;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label32;
         private System.Windows.Forms.Label label30;
@@ -68,7 +68,7 @@
         private System.Windows.Forms.Label label40;
         private System.Windows.Forms.Label label38;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label roketHizY;
         private System.Windows.Forms.Label label41;
         private System.Windows.Forms.Label label39;
         private System.Windows.Forms.Label label37;
@@ -94,5 +94,7 @@
         private System.Windows.Forms.Label aciTetiklendiMİ;
         private System.Windows.Forms.Label basincTetiklendiMi;
         private System.Windows.Forms.Button btnSimBaslat;
+        private System.Windows.Forms.Label lbl_gecenSure;
+        private System.Windows.Forms.Label gecenSure;
     }
 }

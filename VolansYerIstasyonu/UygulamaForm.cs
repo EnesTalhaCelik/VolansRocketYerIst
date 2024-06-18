@@ -28,7 +28,8 @@ namespace VolansYerIstasyonu
             pnl_AnaSayfa.Controls.Add(veriGrafikEkrani);
             anaSayfaEkrani.Dock = DockStyle.Fill;
             anaSayfaEkrani.BringToFront();
-
+            TeknofestVeriler.Veriler.GorevYukuBoylam = 31.524978876f;
+            TeknofestVeriler.Veriler.GorevYukuEnlem = 40.716131152f;
         }
 
         
