@@ -93,5 +93,6 @@
         private System.Windows.Forms.DataVisualization.Charting.Chart chartGeiger;
         private System.Windows.Forms.Label aciTetiklendiMİ;
         private System.Windows.Forms.Label basincTetiklendiMi;
+        private System.Windows.Forms.Button btnSimBaslat;
     }
 }
