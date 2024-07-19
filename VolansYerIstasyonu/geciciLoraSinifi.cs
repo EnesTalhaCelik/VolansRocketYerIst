@@ -37,21 +37,7 @@ namespace VolansYerIstasyonu
 
         //burada metotları farklı durumlar için overlaod ediyorum.
         //string gönder
-        static void sendFixedMessage(SerialPort LoraSP,String message,byte address,byte channel,byte header)
-        {
-            try
-            {
-                char[] gonderilecekMesajlar = message.ToCharArray();
-                byte[] mesajlar = { header, address, channel };
-                LoraSP.Write(mesajlar, 0, mesajlar.Length);
-                LoraSP.Write(gonderilecekMesajlar, 0, gonderilecekMesajlar.Length);
-            }
-            catch(Exception x)
-            {
-                Console.Write("Bir Hata meydana geldi! : ");
-                Console.WriteLine(x);
-            }
-        }
+        
         //int gönder
         static void sendFixedMessage(SerialPort LoraSP, int message, byte address, byte channel, byte header)
         {

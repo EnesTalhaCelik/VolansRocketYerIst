@@ -63,6 +63,26 @@ namespace VolansYerIstasyonu.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap d7b87b40_6bc3_4066_a0db_80edd4639b4c {
+            get {
+                object obj = ResourceManager.GetObject("d7b87b40-6bc3-4066-a0db-80edd4639b4c", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Dünya {
+            get {
+                object obj = ResourceManager.GetObject("Dünya", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap pc_gy {
             get {
                 object obj = ResourceManager.GetObject("pc_gy", resourceCulture);

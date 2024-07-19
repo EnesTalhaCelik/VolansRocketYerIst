@@ -96,5 +96,6 @@
         private System.Windows.Forms.Button btnSimBaslat;
         private System.Windows.Forms.Label lbl_gecenSure;
         private System.Windows.Forms.Label gecenSure;
+        private System.Windows.Forms.Button button1;
     }
 }

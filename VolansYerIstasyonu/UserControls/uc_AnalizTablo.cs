@@ -287,16 +287,17 @@ namespace VolansYerIstasyonu.UserControls
         private void databaseComboboxDoldur()
         {
             string ucusVeriPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "..", "..", "UcusVeri");
-            string[] dbFiles = Directory.GetFiles(ucusVeriPath, "*.db");
+            //string[] dbFiles = Directory.GetFiles(ucusVeriPath, "*.db");
 
             cbox_analizTabloUcus.Items.Clear();
 
-            foreach (string dbFile in dbFiles)
+           
+            /*foreach (string dbFile in dbFiles)
             {
                 string fileName = Path.GetFileName(dbFile);
 
                 cbox_analizTabloUcus.Items.Add(fileName);
-            }
+            }*/
         }
 
         private void comboboxGuncelle()
