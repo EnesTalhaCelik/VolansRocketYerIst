@@ -58,6 +58,7 @@
             this.cboxHYIBaudRate = new System.Windows.Forms.ComboBox();
             this.cboxHYISP = new System.Windows.Forms.ComboBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.button1 = new System.Windows.Forms.Button();
             this.label35 = new System.Windows.Forms.Label();
             this.label34 = new System.Windows.Forms.Label();
             this.label33 = new System.Windows.Forms.Label();
@@ -91,7 +92,6 @@
             this.btnLoraPingYedekAv = new System.Windows.Forms.Button();
             this.btnLoraPingPong = new System.Windows.Forms.Button();
             this.logSeriPort = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -113,18 +113,21 @@
             this.groupBox1.Controls.Add(this.cboxLoraDataBit);
             this.groupBox1.Controls.Add(this.cboxLoraBaudRate);
             this.groupBox1.Controls.Add(this.cboxLoraSP);
-            this.groupBox1.Location = new System.Drawing.Point(3, 3);
+            this.groupBox1.Location = new System.Drawing.Point(4, 4);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(332, 344);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(4);
+            this.groupBox1.Size = new System.Drawing.Size(443, 423);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             // 
             // btnLoraTstVeriGondr
             // 
             this.btnLoraTstVeriGondr.Enabled = false;
-            this.btnLoraTstVeriGondr.Location = new System.Drawing.Point(187, 290);
+            this.btnLoraTstVeriGondr.Location = new System.Drawing.Point(249, 357);
+            this.btnLoraTstVeriGondr.Margin = new System.Windows.Forms.Padding(4);
             this.btnLoraTstVeriGondr.Name = "btnLoraTstVeriGondr";
-            this.btnLoraTstVeriGondr.Size = new System.Drawing.Size(113, 23);
+            this.btnLoraTstVeriGondr.Size = new System.Drawing.Size(151, 28);
             this.btnLoraTstVeriGondr.TabIndex = 7;
             this.btnLoraTstVeriGondr.Text = "Test Verisi Gönder";
             this.btnLoraTstVeriGondr.UseVisualStyleBackColor = true;
@@ -134,17 +137,19 @@
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label11.Location = new System.Drawing.Point(27, 16);
+            this.label11.Location = new System.Drawing.Point(36, 20);
+            this.label11.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(133, 15);
+            this.label11.Size = new System.Drawing.Size(171, 20);
             this.label11.TabIndex = 6;
             this.label11.Text = "Lora Port Ayarları";
             // 
             // btnLoraBaglan
             // 
-            this.btnLoraBaglan.Location = new System.Drawing.Point(31, 261);
+            this.btnLoraBaglan.Location = new System.Drawing.Point(41, 321);
+            this.btnLoraBaglan.Margin = new System.Windows.Forms.Padding(4);
             this.btnLoraBaglan.Name = "btnLoraBaglan";
-            this.btnLoraBaglan.Size = new System.Drawing.Size(107, 23);
+            this.btnLoraBaglan.Size = new System.Drawing.Size(143, 28);
             this.btnLoraBaglan.TabIndex = 5;
             this.btnLoraBaglan.Text = "Bağlan";
             this.btnLoraBaglan.UseVisualStyleBackColor = true;
@@ -153,9 +158,10 @@
             // btnLoraBaglantiKes
             // 
             this.btnLoraBaglantiKes.Enabled = false;
-            this.btnLoraBaglantiKes.Location = new System.Drawing.Point(187, 261);
+            this.btnLoraBaglantiKes.Location = new System.Drawing.Point(249, 321);
+            this.btnLoraBaglantiKes.Margin = new System.Windows.Forms.Padding(4);
             this.btnLoraBaglantiKes.Name = "btnLoraBaglantiKes";
-            this.btnLoraBaglantiKes.Size = new System.Drawing.Size(113, 23);
+            this.btnLoraBaglantiKes.Size = new System.Drawing.Size(151, 28);
             this.btnLoraBaglantiKes.TabIndex = 5;
             this.btnLoraBaglantiKes.Text = "Bağlantıyı Kes";
             this.btnLoraBaglantiKes.UseVisualStyleBackColor = true;
@@ -164,87 +170,97 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(184, 190);
+            this.label4.Location = new System.Drawing.Point(245, 234);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(72, 13);
+            this.label4.Size = new System.Drawing.Size(89, 16);
             this.label4.TabIndex = 3;
             this.label4.Text = "Parity Metodu";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(28, 130);
+            this.label5.Location = new System.Drawing.Point(37, 160);
+            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(45, 13);
+            this.label5.Size = new System.Drawing.Size(54, 16);
             this.label5.TabIndex = 3;
             this.label5.Text = "Data Bit";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(184, 130);
+            this.label2.Location = new System.Drawing.Point(245, 160);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(52, 13);
+            this.label2.Size = new System.Drawing.Size(64, 16);
             this.label2.TabIndex = 3;
             this.label2.Text = "Baud Hızı";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(28, 190);
+            this.label3.Location = new System.Drawing.Point(37, 234);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(44, 13);
+            this.label3.Size = new System.Drawing.Size(53, 16);
             this.label3.TabIndex = 2;
             this.label3.Text = "Stop Bit";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(28, 46);
+            this.label1.Location = new System.Drawing.Point(37, 57);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(47, 13);
+            this.label1.Size = new System.Drawing.Size(58, 16);
             this.label1.TabIndex = 2;
             this.label1.Text = "Seri Port";
             // 
             // cboxLoraParity
             // 
             this.cboxLoraParity.FormattingEnabled = true;
-            this.cboxLoraParity.Location = new System.Drawing.Point(187, 206);
+            this.cboxLoraParity.Location = new System.Drawing.Point(249, 254);
+            this.cboxLoraParity.Margin = new System.Windows.Forms.Padding(4);
             this.cboxLoraParity.Name = "cboxLoraParity";
-            this.cboxLoraParity.Size = new System.Drawing.Size(113, 21);
+            this.cboxLoraParity.Size = new System.Drawing.Size(149, 24);
             this.cboxLoraParity.TabIndex = 1;
             // 
             // cboxLoraStopBit
             // 
             this.cboxLoraStopBit.FormattingEnabled = true;
-            this.cboxLoraStopBit.Location = new System.Drawing.Point(31, 206);
+            this.cboxLoraStopBit.Location = new System.Drawing.Point(41, 254);
+            this.cboxLoraStopBit.Margin = new System.Windows.Forms.Padding(4);
             this.cboxLoraStopBit.Name = "cboxLoraStopBit";
-            this.cboxLoraStopBit.Size = new System.Drawing.Size(107, 21);
+            this.cboxLoraStopBit.Size = new System.Drawing.Size(141, 24);
             this.cboxLoraStopBit.TabIndex = 0;
             // 
             // cboxLoraDataBit
             // 
             this.cboxLoraDataBit.FormattingEnabled = true;
-            this.cboxLoraDataBit.Location = new System.Drawing.Point(31, 146);
+            this.cboxLoraDataBit.Location = new System.Drawing.Point(41, 180);
+            this.cboxLoraDataBit.Margin = new System.Windows.Forms.Padding(4);
             this.cboxLoraDataBit.Name = "cboxLoraDataBit";
-            this.cboxLoraDataBit.Size = new System.Drawing.Size(107, 21);
+            this.cboxLoraDataBit.Size = new System.Drawing.Size(141, 24);
             this.cboxLoraDataBit.TabIndex = 1;
             this.cboxLoraDataBit.SelectedIndexChanged += new System.EventHandler(this.comboBox5_SelectedIndexChanged);
             // 
             // cboxLoraBaudRate
             // 
             this.cboxLoraBaudRate.FormattingEnabled = true;
-            this.cboxLoraBaudRate.Location = new System.Drawing.Point(187, 146);
+            this.cboxLoraBaudRate.Location = new System.Drawing.Point(249, 180);
+            this.cboxLoraBaudRate.Margin = new System.Windows.Forms.Padding(4);
             this.cboxLoraBaudRate.Name = "cboxLoraBaudRate";
-            this.cboxLoraBaudRate.Size = new System.Drawing.Size(113, 21);
+            this.cboxLoraBaudRate.Size = new System.Drawing.Size(149, 24);
             this.cboxLoraBaudRate.TabIndex = 1;
             // 
             // cboxLoraSP
             // 
             this.cboxLoraSP.FormattingEnabled = true;
-            this.cboxLoraSP.Location = new System.Drawing.Point(31, 65);
+            this.cboxLoraSP.Location = new System.Drawing.Point(41, 80);
+            this.cboxLoraSP.Margin = new System.Windows.Forms.Padding(4);
             this.cboxLoraSP.Name = "cboxLoraSP";
-            this.cboxLoraSP.Size = new System.Drawing.Size(212, 21);
+            this.cboxLoraSP.Size = new System.Drawing.Size(281, 24);
             this.cboxLoraSP.TabIndex = 0;
             this.cboxLoraSP.SelectedIndexChanged += new System.EventHandler(this.cboxLoraSP_SelectedIndexChanged);
             this.cboxLoraSP.Click += new System.EventHandler(this.cboxLoraSP_Click);
@@ -264,9 +280,11 @@
             this.groupBox2.Controls.Add(this.cboxHYIDataBit);
             this.groupBox2.Controls.Add(this.cboxHYIBaudRate);
             this.groupBox2.Controls.Add(this.cboxHYISP);
-            this.groupBox2.Location = new System.Drawing.Point(341, 3);
+            this.groupBox2.Location = new System.Drawing.Point(455, 4);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(352, 344);
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(4);
+            this.groupBox2.Size = new System.Drawing.Size(469, 423);
             this.groupBox2.TabIndex = 0;
             this.groupBox2.TabStop = false;
             // 
@@ -274,17 +292,19 @@
             // 
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label12.Location = new System.Drawing.Point(28, 16);
+            this.label12.Location = new System.Drawing.Point(37, 20);
+            this.label12.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(126, 15);
+            this.label12.Size = new System.Drawing.Size(162, 20);
             this.label12.TabIndex = 6;
             this.label12.Text = "HYI Port Ayarları";
             // 
             // btnHYIBaglan
             // 
-            this.btnHYIBaglan.Location = new System.Drawing.Point(31, 261);
+            this.btnHYIBaglan.Location = new System.Drawing.Point(41, 321);
+            this.btnHYIBaglan.Margin = new System.Windows.Forms.Padding(4);
             this.btnHYIBaglan.Name = "btnHYIBaglan";
-            this.btnHYIBaglan.Size = new System.Drawing.Size(107, 23);
+            this.btnHYIBaglan.Size = new System.Drawing.Size(143, 28);
             this.btnHYIBaglan.TabIndex = 5;
             this.btnHYIBaglan.Text = "Bağlan";
             this.btnHYIBaglan.UseVisualStyleBackColor = true;
@@ -292,9 +312,10 @@
             // 
             // btnHYIBaglantiKes
             // 
-            this.btnHYIBaglantiKes.Location = new System.Drawing.Point(187, 261);
+            this.btnHYIBaglantiKes.Location = new System.Drawing.Point(249, 321);
+            this.btnHYIBaglantiKes.Margin = new System.Windows.Forms.Padding(4);
             this.btnHYIBaglantiKes.Name = "btnHYIBaglantiKes";
-            this.btnHYIBaglantiKes.Size = new System.Drawing.Size(113, 23);
+            this.btnHYIBaglantiKes.Size = new System.Drawing.Size(151, 28);
             this.btnHYIBaglantiKes.TabIndex = 5;
             this.btnHYIBaglantiKes.Text = "Bağlantıyı Kes";
             this.btnHYIBaglantiKes.UseVisualStyleBackColor = true;
@@ -303,87 +324,97 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(184, 190);
+            this.label6.Location = new System.Drawing.Point(245, 234);
+            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(72, 13);
+            this.label6.Size = new System.Drawing.Size(89, 16);
             this.label6.TabIndex = 3;
             this.label6.Text = "Parity Metodu";
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(28, 130);
+            this.label7.Location = new System.Drawing.Point(37, 160);
+            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(45, 13);
+            this.label7.Size = new System.Drawing.Size(54, 16);
             this.label7.TabIndex = 3;
             this.label7.Text = "Data Bit";
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(184, 130);
+            this.label8.Location = new System.Drawing.Point(245, 160);
+            this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(52, 13);
+            this.label8.Size = new System.Drawing.Size(64, 16);
             this.label8.TabIndex = 3;
             this.label8.Text = "Baud Hızı";
             // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(28, 190);
+            this.label9.Location = new System.Drawing.Point(37, 234);
+            this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(44, 13);
+            this.label9.Size = new System.Drawing.Size(53, 16);
             this.label9.TabIndex = 2;
             this.label9.Text = "Stop Bit";
             // 
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(28, 46);
+            this.label10.Location = new System.Drawing.Point(37, 57);
+            this.label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(47, 13);
+            this.label10.Size = new System.Drawing.Size(58, 16);
             this.label10.TabIndex = 2;
             this.label10.Text = "Seri Port";
             // 
             // cboxHYIParity
             // 
             this.cboxHYIParity.FormattingEnabled = true;
-            this.cboxHYIParity.Location = new System.Drawing.Point(187, 206);
+            this.cboxHYIParity.Location = new System.Drawing.Point(249, 254);
+            this.cboxHYIParity.Margin = new System.Windows.Forms.Padding(4);
             this.cboxHYIParity.Name = "cboxHYIParity";
-            this.cboxHYIParity.Size = new System.Drawing.Size(113, 21);
+            this.cboxHYIParity.Size = new System.Drawing.Size(149, 24);
             this.cboxHYIParity.TabIndex = 1;
             // 
             // cboxHYIStopBit
             // 
             this.cboxHYIStopBit.FormattingEnabled = true;
-            this.cboxHYIStopBit.Location = new System.Drawing.Point(31, 206);
+            this.cboxHYIStopBit.Location = new System.Drawing.Point(41, 254);
+            this.cboxHYIStopBit.Margin = new System.Windows.Forms.Padding(4);
             this.cboxHYIStopBit.Name = "cboxHYIStopBit";
-            this.cboxHYIStopBit.Size = new System.Drawing.Size(107, 21);
+            this.cboxHYIStopBit.Size = new System.Drawing.Size(141, 24);
             this.cboxHYIStopBit.TabIndex = 0;
             // 
             // cboxHYIDataBit
             // 
             this.cboxHYIDataBit.FormattingEnabled = true;
-            this.cboxHYIDataBit.Location = new System.Drawing.Point(31, 146);
+            this.cboxHYIDataBit.Location = new System.Drawing.Point(41, 180);
+            this.cboxHYIDataBit.Margin = new System.Windows.Forms.Padding(4);
             this.cboxHYIDataBit.Name = "cboxHYIDataBit";
-            this.cboxHYIDataBit.Size = new System.Drawing.Size(107, 21);
+            this.cboxHYIDataBit.Size = new System.Drawing.Size(141, 24);
             this.cboxHYIDataBit.TabIndex = 1;
             this.cboxHYIDataBit.SelectedIndexChanged += new System.EventHandler(this.comboBox5_SelectedIndexChanged);
             // 
             // cboxHYIBaudRate
             // 
             this.cboxHYIBaudRate.FormattingEnabled = true;
-            this.cboxHYIBaudRate.Location = new System.Drawing.Point(187, 146);
+            this.cboxHYIBaudRate.Location = new System.Drawing.Point(249, 180);
+            this.cboxHYIBaudRate.Margin = new System.Windows.Forms.Padding(4);
             this.cboxHYIBaudRate.Name = "cboxHYIBaudRate";
-            this.cboxHYIBaudRate.Size = new System.Drawing.Size(113, 21);
+            this.cboxHYIBaudRate.Size = new System.Drawing.Size(149, 24);
             this.cboxHYIBaudRate.TabIndex = 1;
             // 
             // cboxHYISP
             // 
             this.cboxHYISP.FormattingEnabled = true;
-            this.cboxHYISP.Location = new System.Drawing.Point(31, 65);
+            this.cboxHYISP.Location = new System.Drawing.Point(41, 80);
+            this.cboxHYISP.Margin = new System.Windows.Forms.Padding(4);
             this.cboxHYISP.Name = "cboxHYISP";
-            this.cboxHYISP.Size = new System.Drawing.Size(212, 21);
+            this.cboxHYISP.Size = new System.Drawing.Size(281, 24);
             this.cboxHYISP.TabIndex = 0;
             this.cboxHYISP.SelectedIndexChanged += new System.EventHandler(this.cboxHYISP_SelectedIndexChanged);
             this.cboxHYISP.Click += new System.EventHandler(this.cboxHYISP_Click);
@@ -423,154 +454,183 @@
             this.groupBox3.Controls.Add(this.btnLoraPingRoket);
             this.groupBox3.Controls.Add(this.btnLoraPingYedekAv);
             this.groupBox3.Controls.Add(this.btnLoraPingPong);
-            this.groupBox3.Location = new System.Drawing.Point(3, 364);
+            this.groupBox3.Location = new System.Drawing.Point(4, 448);
+            this.groupBox3.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(690, 176);
+            this.groupBox3.Padding = new System.Windows.Forms.Padding(4);
+            this.groupBox3.Size = new System.Drawing.Size(920, 217);
             this.groupBox3.TabIndex = 1;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Lora Ağ Ayarları";
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(249, 139);
+            this.button1.Margin = new System.Windows.Forms.Padding(4);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(177, 28);
+            this.button1.TabIndex = 24;
+            this.button1.Text = "Fünyeyi Patlat";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // label35
             // 
             this.label35.AutoSize = true;
-            this.label35.Location = new System.Drawing.Point(105, 102);
+            this.label35.Location = new System.Drawing.Point(140, 126);
+            this.label35.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label35.Name = "label35";
-            this.label35.Size = new System.Drawing.Size(41, 13);
+            this.label35.Size = new System.Drawing.Size(62, 16);
             this.label35.TabIndex = 23;
-            this.label35.Text = "label32";
+            this.label35.Text = "No Parity";
             // 
             // label34
             // 
             this.label34.AutoSize = true;
-            this.label34.Location = new System.Drawing.Point(105, 83);
+            this.label34.Location = new System.Drawing.Point(140, 102);
+            this.label34.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label34.Name = "label34";
-            this.label34.Size = new System.Drawing.Size(41, 13);
+            this.label34.Size = new System.Drawing.Size(49, 16);
             this.label34.TabIndex = 23;
-            this.label34.Text = "label32";
+            this.label34.Text = "29dBm";
             // 
             // label33
             // 
             this.label33.AutoSize = true;
-            this.label33.Location = new System.Drawing.Point(105, 64);
+            this.label33.Location = new System.Drawing.Point(140, 79);
+            this.label33.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label33.Name = "label33";
-            this.label33.Size = new System.Drawing.Size(41, 13);
+            this.label33.Size = new System.Drawing.Size(40, 16);
             this.label33.TabIndex = 23;
-            this.label33.Text = "label32";
+            this.label33.Text = "5kb/s";
             // 
             // label32
             // 
             this.label32.AutoSize = true;
-            this.label32.Location = new System.Drawing.Point(105, 45);
+            this.label32.Location = new System.Drawing.Point(140, 55);
+            this.label32.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label32.Name = "label32";
-            this.label32.Size = new System.Drawing.Size(41, 13);
+            this.label32.Size = new System.Drawing.Size(42, 16);
             this.label32.TabIndex = 23;
-            this.label32.Text = "label32";
+            this.label32.Text = "19200";
             // 
             // label31
             // 
             this.label31.AutoSize = true;
-            this.label31.Location = new System.Drawing.Point(270, 83);
+            this.label31.Location = new System.Drawing.Point(402, 101);
+            this.label31.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label31.Name = "label31";
-            this.label31.Size = new System.Drawing.Size(59, 13);
+            this.label31.Size = new System.Drawing.Size(24, 16);
             this.label31.TabIndex = 22;
-            this.label31.Text = "I/O Mode :";
+            this.label31.Text = "I/O";
             // 
             // label30
             // 
             this.label30.AutoSize = true;
-            this.label30.Location = new System.Drawing.Point(261, 45);
+            this.label30.Location = new System.Drawing.Point(394, 55);
+            this.label30.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label30.Name = "label30";
-            this.label30.Size = new System.Drawing.Size(68, 13);
+            this.label30.Size = new System.Drawing.Size(32, 16);
             this.label30.TabIndex = 21;
-            this.label30.Text = "Fixed Mode :";
+            this.label30.Text = "Aktif";
             // 
             // label27
             // 
             this.label27.AutoSize = true;
-            this.label27.Location = new System.Drawing.Point(170, 83);
+            this.label27.Location = new System.Drawing.Point(227, 102);
+            this.label27.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label27.Name = "label27";
-            this.label27.Size = new System.Drawing.Size(59, 13);
+            this.label27.Size = new System.Drawing.Size(68, 16);
             this.label27.TabIndex = 22;
             this.label27.Text = "I/O Mode :";
             // 
             // label29
             // 
             this.label29.AutoSize = true;
-            this.label29.Location = new System.Drawing.Point(255, 64);
+            this.label29.Location = new System.Drawing.Point(356, 79);
+            this.label29.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label29.Name = "label29";
-            this.label29.Size = new System.Drawing.Size(74, 13);
+            this.label29.Size = new System.Drawing.Size(70, 16);
             this.label29.TabIndex = 20;
-            this.label29.Text = "WOR Timing :";
+            this.label29.Text = "Devre Dışı";
             // 
             // label26
             // 
             this.label26.AutoSize = true;
-            this.label26.Location = new System.Drawing.Point(170, 45);
+            this.label26.Location = new System.Drawing.Point(227, 55);
+            this.label26.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(68, 13);
+            this.label26.Size = new System.Drawing.Size(84, 16);
             this.label26.TabIndex = 21;
             this.label26.Text = "Fixed Mode :";
             // 
             // label28
             // 
             this.label28.AutoSize = true;
-            this.label28.Location = new System.Drawing.Point(296, 26);
+            this.label28.Location = new System.Drawing.Point(395, 32);
+            this.label28.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label28.Name = "label28";
-            this.label28.Size = new System.Drawing.Size(33, 13);
+            this.label28.Size = new System.Drawing.Size(32, 16);
             this.label28.TabIndex = 19;
-            this.label28.Text = "FEC :";
+            this.label28.Text = "Aktif";
             // 
             // label25
             // 
             this.label25.AutoSize = true;
-            this.label25.Location = new System.Drawing.Point(170, 64);
+            this.label25.Location = new System.Drawing.Point(227, 79);
+            this.label25.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(74, 13);
+            this.label25.Size = new System.Drawing.Size(90, 16);
             this.label25.TabIndex = 20;
             this.label25.Text = "WOR Timing :";
             // 
             // label24
             // 
             this.label24.AutoSize = true;
-            this.label24.Location = new System.Drawing.Point(170, 26);
+            this.label24.Location = new System.Drawing.Point(227, 32);
+            this.label24.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(33, 13);
+            this.label24.Size = new System.Drawing.Size(39, 16);
             this.label24.TabIndex = 19;
             this.label24.Text = "FEC :";
             // 
             // label23
             // 
             this.label23.AutoSize = true;
-            this.label23.Location = new System.Drawing.Point(7, 83);
+            this.label23.Location = new System.Drawing.Point(9, 102);
+            this.label23.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(73, 13);
+            this.label23.Size = new System.Drawing.Size(90, 16);
             this.label23.TabIndex = 18;
             this.label23.Text = "Power (dBm) :";
             // 
             // label22
             // 
             this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(7, 102);
+            this.label22.Location = new System.Drawing.Point(9, 126);
+            this.label22.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(39, 13);
+            this.label22.Size = new System.Drawing.Size(47, 16);
             this.label22.TabIndex = 17;
             this.label22.Text = "Parity :";
             // 
             // label21
             // 
             this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(7, 45);
+            this.label21.Location = new System.Drawing.Point(9, 55);
+            this.label21.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(59, 13);
+            this.label21.Size = new System.Drawing.Size(70, 16);
             this.label21.TabIndex = 16;
             this.label21.Text = "Uart Rate :";
             // 
             // btnLoraParamGet
             // 
             this.btnLoraParamGet.Enabled = false;
-            this.btnLoraParamGet.Location = new System.Drawing.Point(187, 142);
+            this.btnLoraParamGet.Location = new System.Drawing.Point(257, 175);
+            this.btnLoraParamGet.Margin = new System.Windows.Forms.Padding(4);
             this.btnLoraParamGet.Name = "btnLoraParamGet";
-            this.btnLoraParamGet.Size = new System.Drawing.Size(127, 23);
+            this.btnLoraParamGet.Size = new System.Drawing.Size(169, 28);
             this.btnLoraParamGet.TabIndex = 15;
             this.btnLoraParamGet.Text = "Parametreleri Çek";
             this.btnLoraParamGet.UseVisualStyleBackColor = true;
@@ -579,27 +639,30 @@
             // label20
             // 
             this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(7, 64);
+            this.label20.Location = new System.Drawing.Point(9, 79);
+            this.label20.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(51, 13);
+            this.label20.Size = new System.Drawing.Size(61, 16);
             this.label20.TabIndex = 14;
             this.label20.Text = "Air Rate :";
             // 
             // label19
             // 
             this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(126, 26);
+            this.label19.Location = new System.Drawing.Point(168, 32);
+            this.label19.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(12, 13);
+            this.label19.Size = new System.Drawing.Size(11, 16);
             this.label19.TabIndex = 13;
             this.label19.Text = "/";
             // 
             // label18
             // 
             this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(141, 26);
+            this.label18.Location = new System.Drawing.Point(188, 32);
+            this.label18.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(19, 13);
+            this.label18.Size = new System.Drawing.Size(21, 16);
             this.label18.TabIndex = 12;
             this.label18.Text = "25";
             this.label18.Click += new System.EventHandler(this.label18_Click);
@@ -607,45 +670,50 @@
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(105, 26);
+            this.label15.Location = new System.Drawing.Point(140, 32);
+            this.label15.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(19, 13);
+            this.label15.Size = new System.Drawing.Size(21, 16);
             this.label15.TabIndex = 11;
             this.label15.Text = "15";
             // 
             // label17
             // 
             this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(111, 123);
+            this.label17.Location = new System.Drawing.Point(148, 151);
+            this.label17.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(13, 13);
+            this.label17.Size = new System.Drawing.Size(14, 16);
             this.label17.TabIndex = 10;
             this.label17.Text = "0";
             // 
             // label16
             // 
             this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(7, 121);
+            this.label16.Location = new System.Drawing.Point(9, 149);
+            this.label16.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(91, 13);
+            this.label16.Size = new System.Drawing.Size(111, 16);
             this.label16.TabIndex = 9;
             this.label16.Text = "Bağlantı Durumu :";
             // 
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(7, 26);
+            this.label14.Location = new System.Drawing.Point(9, 32);
+            this.label14.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(89, 13);
+            this.label14.Size = new System.Drawing.Size(106, 16);
             this.label14.TabIndex = 7;
             this.label14.Text = "Kanal / Frekans :";
             // 
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(449, 36);
+            this.label13.Location = new System.Drawing.Point(599, 44);
+            this.label13.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(171, 13);
+            this.label13.Size = new System.Drawing.Size(217, 16);
             this.label13.TabIndex = 6;
             this.label13.Text = "Mesaj Gönderilecek Lora\'yı Seçiniz";
             // 
@@ -653,17 +721,19 @@
             // 
             this.cboxLoraSec.Enabled = false;
             this.cboxLoraSec.FormattingEnabled = true;
-            this.cboxLoraSec.Location = new System.Drawing.Point(452, 55);
+            this.cboxLoraSec.Location = new System.Drawing.Point(603, 68);
+            this.cboxLoraSec.Margin = new System.Windows.Forms.Padding(4);
             this.cboxLoraSec.Name = "cboxLoraSec";
-            this.cboxLoraSec.Size = new System.Drawing.Size(121, 21);
+            this.cboxLoraSec.Size = new System.Drawing.Size(160, 24);
             this.cboxLoraSec.TabIndex = 5;
             // 
             // btnLoraMesajGonder
             // 
             this.btnLoraMesajGonder.Enabled = false;
-            this.btnLoraMesajGonder.Location = new System.Drawing.Point(452, 113);
+            this.btnLoraMesajGonder.Location = new System.Drawing.Point(603, 139);
+            this.btnLoraMesajGonder.Margin = new System.Windows.Forms.Padding(4);
             this.btnLoraMesajGonder.Name = "btnLoraMesajGonder";
-            this.btnLoraMesajGonder.Size = new System.Drawing.Size(103, 23);
+            this.btnLoraMesajGonder.Size = new System.Drawing.Size(137, 28);
             this.btnLoraMesajGonder.TabIndex = 4;
             this.btnLoraMesajGonder.Text = "Mesaj Gönder";
             this.btnLoraMesajGonder.UseVisualStyleBackColor = true;
@@ -671,17 +741,19 @@
             // txtboxLoraMesaj
             // 
             this.txtboxLoraMesaj.Enabled = false;
-            this.txtboxLoraMesaj.Location = new System.Drawing.Point(452, 82);
+            this.txtboxLoraMesaj.Location = new System.Drawing.Point(603, 101);
+            this.txtboxLoraMesaj.Margin = new System.Windows.Forms.Padding(4);
             this.txtboxLoraMesaj.Name = "txtboxLoraMesaj";
-            this.txtboxLoraMesaj.Size = new System.Drawing.Size(121, 20);
+            this.txtboxLoraMesaj.Size = new System.Drawing.Size(160, 22);
             this.txtboxLoraMesaj.TabIndex = 3;
             // 
             // btnLoraAgAyarlari
             // 
             this.btnLoraAgAyarlari.Enabled = false;
-            this.btnLoraAgAyarlari.Location = new System.Drawing.Point(345, 142);
+            this.btnLoraAgAyarlari.Location = new System.Drawing.Point(460, 175);
+            this.btnLoraAgAyarlari.Margin = new System.Windows.Forms.Padding(4);
             this.btnLoraAgAyarlari.Name = "btnLoraAgAyarlari";
-            this.btnLoraAgAyarlari.Size = new System.Drawing.Size(75, 23);
+            this.btnLoraAgAyarlari.Size = new System.Drawing.Size(100, 28);
             this.btnLoraAgAyarlari.TabIndex = 2;
             this.btnLoraAgAyarlari.Text = "Ağ Ayarları";
             this.btnLoraAgAyarlari.UseVisualStyleBackColor = true;
@@ -689,9 +761,10 @@
             // btnLoraPingGorevY
             // 
             this.btnLoraPingGorevY.Enabled = false;
-            this.btnLoraPingGorevY.Location = new System.Drawing.Point(335, 113);
+            this.btnLoraPingGorevY.Location = new System.Drawing.Point(447, 139);
+            this.btnLoraPingGorevY.Margin = new System.Windows.Forms.Padding(4);
             this.btnLoraPingGorevY.Name = "btnLoraPingGorevY";
-            this.btnLoraPingGorevY.Size = new System.Drawing.Size(95, 23);
+            this.btnLoraPingGorevY.Size = new System.Drawing.Size(127, 28);
             this.btnLoraPingGorevY.TabIndex = 1;
             this.btnLoraPingGorevY.Text = "Ping Görev Y.";
             this.btnLoraPingGorevY.UseVisualStyleBackColor = true;
@@ -699,9 +772,10 @@
             // btnLoraPingRoket
             // 
             this.btnLoraPingRoket.Enabled = false;
-            this.btnLoraPingRoket.Location = new System.Drawing.Point(335, 55);
+            this.btnLoraPingRoket.Location = new System.Drawing.Point(447, 68);
+            this.btnLoraPingRoket.Margin = new System.Windows.Forms.Padding(4);
             this.btnLoraPingRoket.Name = "btnLoraPingRoket";
-            this.btnLoraPingRoket.Size = new System.Drawing.Size(95, 23);
+            this.btnLoraPingRoket.Size = new System.Drawing.Size(127, 28);
             this.btnLoraPingRoket.TabIndex = 1;
             this.btnLoraPingRoket.Text = "Ping Roket";
             this.btnLoraPingRoket.UseVisualStyleBackColor = true;
@@ -710,9 +784,10 @@
             // btnLoraPingYedekAv
             // 
             this.btnLoraPingYedekAv.Enabled = false;
-            this.btnLoraPingYedekAv.Location = new System.Drawing.Point(335, 84);
+            this.btnLoraPingYedekAv.Location = new System.Drawing.Point(447, 103);
+            this.btnLoraPingYedekAv.Margin = new System.Windows.Forms.Padding(4);
             this.btnLoraPingYedekAv.Name = "btnLoraPingYedekAv";
-            this.btnLoraPingYedekAv.Size = new System.Drawing.Size(95, 23);
+            this.btnLoraPingYedekAv.Size = new System.Drawing.Size(127, 28);
             this.btnLoraPingYedekAv.TabIndex = 0;
             this.btnLoraPingYedekAv.Text = "Ping Yedek Av.";
             this.btnLoraPingYedekAv.UseVisualStyleBackColor = true;
@@ -720,9 +795,10 @@
             // btnLoraPingPong
             // 
             this.btnLoraPingPong.Enabled = false;
-            this.btnLoraPingPong.Location = new System.Drawing.Point(335, 26);
+            this.btnLoraPingPong.Location = new System.Drawing.Point(447, 32);
+            this.btnLoraPingPong.Margin = new System.Windows.Forms.Padding(4);
             this.btnLoraPingPong.Name = "btnLoraPingPong";
-            this.btnLoraPingPong.Size = new System.Drawing.Size(95, 23);
+            this.btnLoraPingPong.Size = new System.Drawing.Size(127, 28);
             this.btnLoraPingPong.TabIndex = 0;
             this.btnLoraPingPong.Text = "Ping Pong Test";
             this.btnLoraPingPong.UseVisualStyleBackColor = true;
@@ -733,35 +809,28 @@
             this.logSeriPort.BackColor = System.Drawing.SystemColors.Desktop;
             this.logSeriPort.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.logSeriPort.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.logSeriPort.Location = new System.Drawing.Point(703, 3);
+            this.logSeriPort.Location = new System.Drawing.Point(937, 4);
+            this.logSeriPort.Margin = new System.Windows.Forms.Padding(4);
             this.logSeriPort.Multiline = true;
             this.logSeriPort.Name = "logSeriPort";
             this.logSeriPort.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.logSeriPort.Size = new System.Drawing.Size(283, 536);
+            this.logSeriPort.Size = new System.Drawing.Size(376, 659);
             this.logSeriPort.TabIndex = 2;
-            this.logSeriPort.Text = "Heir Kommt die Sonne";
+            this.logSeriPort.Text = "Property Of Volans Roket Takımı 2024";
             this.logSeriPort.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(187, 113);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(133, 23);
-            this.button1.TabIndex = 24;
-            this.button1.Text = "Fünyeyi Patlat";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // uc_PortAyarlari
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.logSeriPort);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "uc_PortAyarlari";
-            this.Size = new System.Drawing.Size(986, 609);
+            this.Size = new System.Drawing.Size(1315, 750);
+            this.Load += new System.EventHandler(this.uc_PortAyarlari_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);

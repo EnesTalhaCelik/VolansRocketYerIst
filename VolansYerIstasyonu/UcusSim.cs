@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using TeknofestVeriler;
+using VolansYerIstasyonu.UserControls;
 
 namespace VolansYerIstasyonu
 {
@@ -16,36 +17,36 @@ namespace VolansYerIstasyonu
         public static double yukseklikHesap(double zaman)
         {
 
-            double temp = -2.1 * (zaman * (zaman - 100));
-
+            double temp = -6 * (zaman * (zaman - 40));
+            uc_AnaSayfa.Roket.RoketGpsIrtifa = (float)temp;
             return temp;
         }
 
         public static double hizHesap(double zaman)
         {
 
-            double temp = -4.2 * (zaman) + 210;
-
+            double temp = -12 * (zaman) + 240;
+            
             return temp;
         }
         public static void enlemHesapla(double zaman)
         {
-            TeknofestVeriler.Veriler.RoketEnlem += (float)(zaman * enlemKayma);
+            uc_AnaSayfa.Roket.RoketEnlem += (float)(zaman * enlemKayma);
 
         }
         public static void boylamHesapla(double zaman)
         {
-            TeknofestVeriler.Veriler.RoketBoylam += (float)(zaman * zaman * boylamKayma);
+            uc_AnaSayfa.Roket.RoketBoylam += (float)(zaman * zaman * boylamKayma);
 
         }
         public static void gorevYukuEnlemHesapla(double zaman)
         {
-            TeknofestVeriler.Veriler.GorevYukuEnlem += (float)(zaman * enlemKayma * 2);
+            uc_AnaSayfa.Roket.GorevYukuEnlem += (float)(zaman * enlemKayma * 2/4);
 
         }
         public static void gorevYukuBoylamHesapla(double zaman)
         {
-            TeknofestVeriler.Veriler.GorevYukuBoylam += (float)(zaman * zaman * boylamKayma * 0.4);
+            uc_AnaSayfa.Roket.GorevYukuBoylam += (float)(zaman * zaman * boylamKayma * 0.4/4);
 
         }
 

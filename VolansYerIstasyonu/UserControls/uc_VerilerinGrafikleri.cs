@@ -21,5 +21,10 @@ namespace VolansYerIstasyonu.UserControls
         {
 
         }
+
+        private void uc_VerilerinGrafikleri_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

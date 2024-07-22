@@ -18,6 +18,8 @@ using GMap.NET.WindowsForms.Markers;
 using GMap.NET.WindowsForms.ToolTips;
 using System.Data.Entity;
 using TeknofestVeriler;
+using GMap.NET.WindowsPresentation;
+using GMapRoute = GMap.NET.WindowsForms.GMapRoute;
 
 
 
@@ -29,19 +31,27 @@ namespace VolansYerIstasyonu.UserControls
     public partial class uc_AnaSayfa : UserControl
     {
 
+        public static Roket Roket = new Roket (1,2,3,4,5);
+
+        private GMapOverlay markersOverlay;
+        private GMarkerGoogle gpsMarker;
+
         private Timer timer;
         private GMapOverlay overlay;
         private GMapOverlay routesOverlay;
         private Random random = new Random();
-        private GMapRoute routeAna;
-        private GMapRoute routeYedek;
-        private GMapRoute routeGorev;
+        private GMap.NET.WindowsForms.GMapRoute routeAna;
+        private GMap.NET.WindowsForms.GMapRoute routeYedek;
+        private GMap.NET.WindowsForms.GMapRoute routeGorev;
         private bool isSeparated = false;
         private List<PointLatLng> anaAviyonikCoordinates = new List<PointLatLng>();
         private List<PointLatLng> gorevYukuCoordinates = new List<PointLatLng>();
         public static Timer ucusTimer;
         public static double ucusGecenZaman = 0;
         private bool isUcusTimerRunning = false;
+        int paketSayac = 0;
+        private List<PointLatLng> positions;
+        
         public uc_AnaSayfa()
         {
             InitializeComponent();
@@ -54,6 +64,17 @@ namespace VolansYerIstasyonu.UserControls
             anasayfaHarita.MinZoom = 1;
             anasayfaHarita.MaxZoom = 24;
             anasayfaHarita.Zoom = 18;
+
+            markersOverlay = new GMapOverlay("markers");
+            anasayfaHarita.Overlays.Add(markersOverlay);
+
+            Bitmap customIcon = new Bitmap("C:\\Users\\ASUS\\Source\\Repos\\EnesTalhaCelik\\VolansYerIstasyonu\\VolansYerIstasyonu\\images\\rocket.png"); // Use the path to your custom icon
+            Bitmap resizedIcon = ResizeImage(customIcon,25,25); // Resize to desired dimensions
+
+            // Create marker with the resized icon
+            gpsMarker = new GMarkerGoogle(new PointLatLng(40.7350, 31.6060), resizedIcon);
+            markersOverlay.Markers.Add(gpsMarker);
+            positions = new List<PointLatLng>();
         }
 
         private void InitializeUcusTimer()
@@ -70,23 +91,38 @@ namespace VolansYerIstasyonu.UserControls
         }
 
 
+        private Bitmap ResizeImage(Bitmap imgToResize, int width, int height)
+        {
+            return new Bitmap(imgToResize, new System.Drawing.Size(width, height));
+        }
 
         private void OnUcusTimerTick(object sender, EventArgs e)
         {
             ucusGecenZaman += 0.2;
             gecenSure.Text = $"{ucusGecenZaman}";
             
-            TeknofestVeriler.Veriler.RoketGpsIrtifa = (float)(UcusSim.yukseklikHesap(ucusGecenZaman));
+            Roket.RoketGpsIrtifa = (float)(UcusSim.yukseklikHesap(ucusGecenZaman));
+
+            if (Roket.RoketGpsIrtifa <= 1)
+            {
+                StopUcusTimer();
+                isUcusTimerRunning = false;
+                btnSimBaslat.Text = "Simülasyonu Başlat";
+            }
+
             UcusSim.enlemHesapla(ucusGecenZaman);
             UcusSim.boylamHesapla(ucusGecenZaman);
             roketGPSIrtifa.Text = $"{UcusSim.yukseklikHesap(ucusGecenZaman)}";
-            roketEnlem.Text = $"{TeknofestVeriler.Veriler.RoketEnlem}";
-            roketBoylam.Text = $"{TeknofestVeriler.Veriler.RoketBoylam}";
+            roketEnlem.Text = $"{Roket.RoketEnlem}";
+            roketBoylam.Text = $"{Roket.RoketBoylam}";
             UcusSim.gorevYukuEnlemHesapla(ucusGecenZaman);
             UcusSim.gorevYukuBoylamHesapla(ucusGecenZaman);
-            gYukuEnlem.Text = $"{TeknofestVeriler.Veriler.GorevYukuEnlem}";
-            gYukuBoylam.Text = $"{TeknofestVeriler.Veriler.GorevYukuBoylam}";
+            gYukuEnlem.Text = $"{Roket.GorevYukuEnlem}";
+            gYukuBoylam.Text = $"{Roket.GorevYukuBoylam}";
             roketHizY.Text = $"{UcusSim.hizHesap(ucusGecenZaman)}";
+            UpdateMapIsaret(new PointLatLng(Roket.RoketEnlem,Roket.RoketBoylam));
+            paketSayac++;
+            uc_VeriTablo.anaAviyonikVeriEkle(0,Roket.BasincIrtifa,2,paketSayac,Roket.BasincIrtifa,Roket.RoketSicaklik,paketSayac*paketSayac + 5,(float)UcusSim.hizHesap(ucusGecenZaman),paketSayac+5,0,0,0,0,0,0,2,12,1,0,Roket.RoketEnlem,Roket.RoketBoylam,Roket.RoketGpsIrtifa);
 
 
             //Database.addDataGorevYuku();
@@ -97,8 +133,7 @@ namespace VolansYerIstasyonu.UserControls
             //ivmeYAnaSayfa.Text = $"{UcusSim.anlikYukseklikHesapla(ucusGecenZaman)}";
             //gpsirtifaAnaSayfa.Text = $"{Veriler.roketGpsIrtifa}";
 
-            double newLatitude = TeknofestVeriler.Veriler.RoketEnlem;
-            double newLongitude = TeknofestVeriler.Veriler.RoketBoylam;
+
             /*
             UpdateRocketPosition(newLatitude, newLongitude);
             UpdateDistanceLabel();*/
@@ -144,6 +179,7 @@ namespace VolansYerIstasyonu.UserControls
 
             overlay = new GMapOverlay("markers");
             routesOverlay = new GMapOverlay("routes");
+           
             anasayfaHarita.Overlays.Add(overlay);
             anasayfaHarita.Overlays.Add(routesOverlay);
         }
@@ -226,62 +262,37 @@ namespace VolansYerIstasyonu.UserControls
             UpdateMap(ana_av_x, ana_av_y, yedek_av_x, yedek_av_y, gorev_yuku_x, gorev_yuku_y, durum);*/
         }
 
+        
 
-
-        private void UpdateMap(double ana_av_x, double ana_av_y, double yedek_av_x, double yedek_av_y, double gorev_yuku_x, double gorev_yuku_y, int durum)
+        private void UpdateMapIsaret(PointLatLng point)
         {
-            overlay.Markers.Clear();
-            routesOverlay.Routes.Clear();
-
-            var anaAvCoordinate = new PointLatLng(ana_av_x, ana_av_y);
-            var yedekAvCoordinate = new PointLatLng(yedek_av_x, yedek_av_y);
-            var gorevYukuCoordinate = new PointLatLng(gorev_yuku_x, gorev_yuku_y);
-
-            var anaAvMarker = new GMarkerGoogle(anaAvCoordinate, GMarkerGoogleType.red);
-            var yedekAvMarker = new GMarkerGoogle(yedekAvCoordinate, GMarkerGoogleType.blue);
-            var gorevYukuMarker = new GMarkerGoogle(gorevYukuCoordinate, GMarkerGoogleType.green);
-
-            overlay.Markers.Add(anaAvMarker);
-            overlay.Markers.Add(yedekAvMarker);
-            overlay.Markers.Add(gorevYukuMarker);
-
-            if (durum == 0)
+            if (anasayfaHarita.InvokeRequired)
             {
-
-                anaAviyonikCoordinates.Add(anaAvCoordinate);
-
-
-                if (anaAviyonikCoordinates.Count > 1)
+                anasayfaHarita.Invoke(new MethodInvoker(delegate
                 {
-                    var anaAvRoute = new GMapRoute(anaAviyonikCoordinates, "Ana Aviyonik Route");
-                    anaAvRoute.Stroke = new System.Drawing.Pen(System.Drawing.Color.Red, 2);
-                    routesOverlay.Routes.Add(anaAvRoute);
-                }
+                    gpsMarker.Position = point;
+                    anasayfaHarita.Position = point; // Optional: Center the map on the new position
 
-                //focus
-                anasayfaHarita.Position = anaAvCoordinate;
-                anasayfaHarita.Zoom = 8;
+                    positions.Add(point);
+
+                    // Draw the route
+                    DrawRoute();
+                    
+                }));
             }
-            else if (durum == 1)
+            else
             {
+                gpsMarker.Position = point;
+                anasayfaHarita.Position = point; // Optional: Center the map on the new position
 
-                gorevYukuCoordinates.Add(gorevYukuCoordinate);
+                positions.Add(point);
 
-
-                if (gorevYukuCoordinates.Count > 1)
-                {
-                    var gorevYukuRoute = new GMapRoute(gorevYukuCoordinates, "Görev Yükü Route");
-                    gorevYukuRoute.Stroke = new System.Drawing.Pen(System.Drawing.Color.Green, 2);
-                    routesOverlay.Routes.Add(gorevYukuRoute);
-                }
-
-
-                anasayfaHarita.Position = gorevYukuCoordinate;
-                anasayfaHarita.Zoom = 8;
+                // Draw the route
+                DrawRoute();
+                
             }
-
-            anasayfaHarita.Refresh();
         }
+            
 
         private double GetRandomCoordinate(double min, double max)
         {
@@ -300,9 +311,26 @@ namespace VolansYerIstasyonu.UserControls
 
         }
 
+        private void DrawRoute()
+        {
+            routesOverlay.Routes.Clear(); // Clear previous routes
 
+            GMapRoute route = new GMapRoute(positions, "My Route")
+            {
+                Stroke = new Pen(System.Drawing.Color.Red, 2) // Set the color and width of the line
+            };
 
+            routesOverlay.Routes.Add(route);
+            anasayfaHarita.Refresh(); // Refresh the map to show the updated route
 
+            // Optionally, add a marker at each point
+            markersOverlay.Markers.Clear();
+           
+            // Re-add the custom icon marker to keep it on top
+            markersOverlay.Markers.Add(gpsMarker);
+        }
+
+        
 
         public void InitializeComponent() 
         {
@@ -395,7 +423,7 @@ namespace VolansYerIstasyonu.UserControls
             this.anasayfaHarita.HelperLineOption = GMap.NET.WindowsForms.HelperLineOptions.DontShow;
             this.anasayfaHarita.LevelsKeepInMemory = 5;
             this.anasayfaHarita.Location = new System.Drawing.Point(529, 0);
-            this.anasayfaHarita.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.anasayfaHarita.Margin = new System.Windows.Forms.Padding(4);
             this.anasayfaHarita.MarkersEnabled = true;
             this.anasayfaHarita.MaxZoom = 2;
             this.anasayfaHarita.MinZoom = 2;
@@ -484,13 +512,14 @@ namespace VolansYerIstasyonu.UserControls
             this.gboxVeriler.Controls.Add(this.textBox1);
             this.gboxVeriler.Controls.Add(this.lbl_takimID);
             this.gboxVeriler.Location = new System.Drawing.Point(5, 5);
-            this.gboxVeriler.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gboxVeriler.Margin = new System.Windows.Forms.Padding(4);
             this.gboxVeriler.Name = "gboxVeriler";
-            this.gboxVeriler.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gboxVeriler.Padding = new System.Windows.Forms.Padding(4);
             this.gboxVeriler.Size = new System.Drawing.Size(516, 741);
             this.gboxVeriler.TabIndex = 1;
             this.gboxVeriler.TabStop = false;
             this.gboxVeriler.Text = "Veriler";
+            this.gboxVeriler.Enter += new System.EventHandler(this.gboxVeriler_Enter);
             // 
             // gecenSure
             // 
@@ -542,7 +571,7 @@ namespace VolansYerIstasyonu.UserControls
             legend1.Name = "Legend1";
             this.chartGeiger.Legends.Add(legend1);
             this.chartGeiger.Location = new System.Drawing.Point(17, 539);
-            this.chartGeiger.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.chartGeiger.Margin = new System.Windows.Forms.Padding(4);
             this.chartGeiger.Name = "chartGeiger";
             this.chartGeiger.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.SeaGreen;
             series1.ChartArea = "ChartArea1";
@@ -1043,6 +1072,7 @@ namespace VolansYerIstasyonu.UserControls
             this.label39.Size = new System.Drawing.Size(78, 16);
             this.label39.TabIndex = 2;
             this.label39.Text = "Açısal Hız Y";
+            this.label39.Click += new System.EventHandler(this.label39_Click);
             // 
             // lbl_paketSayac_dgr
             // 
@@ -1127,7 +1157,7 @@ namespace VolansYerIstasyonu.UserControls
             // textBox1
             // 
             this.textBox1.Location = new System.Drawing.Point(109, 30);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(4);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(41, 22);
             this.textBox1.TabIndex = 1;
@@ -1146,7 +1176,7 @@ namespace VolansYerIstasyonu.UserControls
             // konumaGit_Enlem
             // 
             this.konumaGit_Enlem.Location = new System.Drawing.Point(529, 670);
-            this.konumaGit_Enlem.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.konumaGit_Enlem.Margin = new System.Windows.Forms.Padding(4);
             this.konumaGit_Enlem.Name = "konumaGit_Enlem";
             this.konumaGit_Enlem.Size = new System.Drawing.Size(132, 22);
             this.konumaGit_Enlem.TabIndex = 2;
@@ -1164,7 +1194,7 @@ namespace VolansYerIstasyonu.UserControls
             // konumaGit_Boylam
             // 
             this.konumaGit_Boylam.Location = new System.Drawing.Point(692, 670);
-            this.konumaGit_Boylam.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.konumaGit_Boylam.Margin = new System.Windows.Forms.Padding(4);
             this.konumaGit_Boylam.Name = "konumaGit_Boylam";
             this.konumaGit_Boylam.Size = new System.Drawing.Size(132, 22);
             this.konumaGit_Boylam.TabIndex = 2;
@@ -1182,7 +1212,7 @@ namespace VolansYerIstasyonu.UserControls
             // btnKonumaGit
             // 
             this.btnKonumaGit.Location = new System.Drawing.Point(855, 668);
-            this.btnKonumaGit.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnKonumaGit.Margin = new System.Windows.Forms.Padding(4);
             this.btnKonumaGit.Name = "btnKonumaGit";
             this.btnKonumaGit.Size = new System.Drawing.Size(121, 25);
             this.btnKonumaGit.TabIndex = 4;
@@ -1210,7 +1240,7 @@ namespace VolansYerIstasyonu.UserControls
             this.button1.TabIndex = 5;
             this.button1.Text = "Simülasyonu Sıfırla";
             this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.btnSimBaslat_Click);
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // uc_AnaSayfa
             // 
@@ -1225,7 +1255,7 @@ namespace VolansYerIstasyonu.UserControls
             this.Controls.Add(this.konumaGit_Enlem);
             this.Controls.Add(this.gboxVeriler);
             this.Controls.Add(this.anasayfaHarita);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "uc_AnaSayfa";
             this.Size = new System.Drawing.Size(1315, 750);
             this.Load += new System.EventHandler(this.uc_AnaSayfa_Load);
@@ -1237,7 +1267,30 @@ namespace VolansYerIstasyonu.UserControls
 
         }
 
+        private void label39_Click(object sender, EventArgs e)
+        {
 
-      
+        }
+
+        private void gboxVeriler_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            
+            markersOverlay.Markers.Clear();
+            
+            
+
+
+            routesOverlay.Routes.Clear();
+            positions.Clear();
+            anasayfaHarita.Refresh();
+            ucusGecenZaman = 0;
+            isUcusTimerRunning = false;
+            StopUcusTimer();
+        }
     }
 }

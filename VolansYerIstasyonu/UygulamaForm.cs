@@ -10,14 +10,20 @@ using System.Windows.Forms;
 
 namespace VolansYerIstasyonu
 {
+
     public partial class UygulamaForm : Form
     {
+        
+
 
         private UserControls.uc_AnaSayfa anaSayfaEkrani = new UserControls.uc_AnaSayfa();
-        private UserControls.uc_PortAyarlari portAyarEkrani = new UserControls.uc_PortAyarlari();
+        public static UserControls.uc_PortAyarlari portAyarEkrani = new UserControls.uc_PortAyarlari();
         private UserControls.uc_VerilerinGrafikleri veriGrafikEkrani = new UserControls.uc_VerilerinGrafikleri();
         private UserControls.uc_AnalizTablo veriAnalizTabloEkrani = new UserControls.uc_AnalizTablo();
         private UserControls.uc_VeriTablo veriVeriTabloEkrani = new UserControls.uc_VeriTablo();
+
+        
+
         public UygulamaForm()
         {
             InitializeComponent();

@@ -14,6 +14,7 @@ using System.Runtime.Remoting.Channels;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using DocumentFormat.OpenXml.Wordprocessing;
 using TeknofestVeriler;
+using System.Management;
 namespace VolansYerIstasyonu.UserControls
 {
     public partial class uc_PortAyarlari : UserControl
@@ -185,6 +186,21 @@ namespace VolansYerIstasyonu.UserControls
                 txtboxLoraMesaj.Enabled = true;
                 btnLoraParamGet.Enabled = true;
                 btnLoraTstVeriGondr.Enabled = true;
+                string cihaz = GetSerialPortDeviceName(loraSerialPort.PortName);
+                if (logSeriPort.InvokeRequired)
+                {
+                    logSeriPort.Invoke(new MethodInvoker(delegate
+                    {
+                        logSeriPort.AppendText($"{Environment.NewLine} {DateTime.Now}: Seri" +
+                                                $" Port Başarıyla açılmıştır.{Environment.NewLine}Bağlı Cihaz: {cihaz}");
+                    }));
+                }
+                else
+                {
+
+                    logSeriPort.AppendText($"{Environment.NewLine} {DateTime.Now}: Seri" +
+                        $" Port Başarıyla açılmıştır.{Environment.NewLine}Bağlı Cihaz: {cihaz}");
+                }
 
             }
             catch (Exception ex)
@@ -245,12 +261,45 @@ namespace VolansYerIstasyonu.UserControls
                 txtboxLoraMesaj.Enabled = false;
                 btnLoraParamGet.Enabled = false;
                 btnLoraTstVeriGondr.Enabled = false;
+                
+                if (logSeriPort.InvokeRequired)
+                {
+                    logSeriPort.Invoke(new MethodInvoker(delegate
+                    {
+                        logSeriPort.AppendText($"{ Environment.NewLine} {DateTime.Now}: Lora Serial port Başarıyla Kapatılmıştır. ");
+                    }));
+                }
+                else
+                {
+
+                    logSeriPort.AppendText($"{Environment.NewLine} {DateTime.Now}: Lora Serial port Başarıyla Kapatılmıştır. ");
+                }
+
+
             }
             catch (Exception ex)
             {
                 MessageBox.Show($"Bir Hata Meydana Geldi!: {ex.Message}", "Hata!", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
             }
+        }
+        private string GetSerialPortDeviceName(string portName)
+        {
+            try
+            {
+                using (var searcher = new ManagementObjectSearcher("SELECT * FROM Win32_PnPEntity WHERE Caption LIKE '%(" + portName + ")%'"))
+                {
+                    foreach (var device in searcher.Get())
+                    {
+                        return device["Caption"].ToString();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error retrieving device name: " + ex.Message);
+            }
+            return "Unknown device";
         }
         private void btnHYIBaglantiKes_Click(object sender, EventArgs e)
         {
@@ -363,6 +412,11 @@ namespace VolansYerIstasyonu.UserControls
                 MessageBox.Show($"Bir Hata Meydana Geldi!: {ex.Message}", "Hata!", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
             }
+        }
+
+        private void uc_PortAyarlari_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

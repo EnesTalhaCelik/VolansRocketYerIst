@@ -32,7 +32,7 @@ namespace VolansYerIstasyonu.UserControls
         {
             InitializeComponent();
             baslangicCalistir();
-            
+            anaAviyonikDatabaseOlustur();
         }
 
 
@@ -886,6 +886,10 @@ namespace VolansYerIstasyonu.UserControls
         {
 
         }
-        
+
+        private void uc_VeriTablo_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

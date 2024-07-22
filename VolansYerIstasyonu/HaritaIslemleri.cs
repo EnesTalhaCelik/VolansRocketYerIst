@@ -14,6 +14,14 @@ namespace VolansYerIstasyonu.UserControls
          * Çizgi Çiz 
          * Daire Çiz ??sinyal indikatörü
          * Ekranı Temizle
+         * user control içerisinde çalışacak bir metodu nasıl burada temsil edeceğim ?
+         * user control içerisinde çalışacak bir metodu nasıl burada temsil edeceğim ?
+         * user control içerisinde çalışacak bir metodu nasıl burada temsil edeceğim ?
+         * user control içerisinde çalışacak bir metodu nasıl burada temsil edeceğim ?
+         * 
+         * 
+         * 
+         * 
          * 
          */
 

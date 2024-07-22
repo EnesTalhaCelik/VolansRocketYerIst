@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace VolansYerIstasyonu
 {
-    internal class Roket
+    public class Roket
     {
 
         private byte baslangicKey;

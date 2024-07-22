@@ -207,6 +207,7 @@
             this.Controls.Add(this.rbtn_yedekAviyonik);
             this.Name = "uc_VeriTablo";
             this.Size = new System.Drawing.Size(1315, 750);
+            this.Load += new System.EventHandler(this.uc_VeriTablo_Load);
             ((System.ComponentModel.ISupportInitialize)(this.tbl_anaAviyonik)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbl_yedekAviyonik)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbl_gorevYuku)).EndInit();
