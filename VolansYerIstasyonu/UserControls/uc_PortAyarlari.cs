@@ -24,7 +24,7 @@ namespace VolansYerIstasyonu.UserControls
 
         //seri portları burada tanımlıyorum
 
-
+        
         
         static string[] ports = SerialPort.GetPortNames();
         static int[] boudRates = { 9600, 19200,115200 };

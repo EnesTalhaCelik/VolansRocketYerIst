@@ -809,7 +809,7 @@
             this.logSeriPort.BackColor = System.Drawing.SystemColors.Desktop;
             this.logSeriPort.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.logSeriPort.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.logSeriPort.Location = new System.Drawing.Point(937, 4);
+            this.logSeriPort.Location = new System.Drawing.Point(939, 4);
             this.logSeriPort.Margin = new System.Windows.Forms.Padding(4);
             this.logSeriPort.Multiline = true;
             this.logSeriPort.Name = "logSeriPort";

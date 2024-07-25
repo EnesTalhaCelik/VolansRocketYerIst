@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("SerialPortOperations")]
+[assembly: AssemblyTitle("Ports")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("SerialPortOperations")]
+[assembly: AssemblyProduct("Ports")]
 [assembly: AssemblyCopyright("Copyright ©  2024")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("e7bb2ddf-fd80-4bbf-99b7-b1b2d54205a6")]
+[assembly: Guid("bfc691a2-d1ab-4db1-942e-974fec3edf9b")]
 
 // Version information for an assembly consists of the following four values:
 //

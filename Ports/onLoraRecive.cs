@@ -4,11 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace UIOperations
+namespace Ports
 {
-    internal class MapOperations
+    internal class onLoraRecive
     {
-
 
 
 

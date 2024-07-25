@@ -6,10 +6,15 @@ using System.Threading.Tasks;
 
 namespace UIOperations
 {
-    internal class MapOperations
+    internal class InfoMessages
     {
+        public static void ShowInfoMessage(string message)
+        {
 
 
+
+
+        }
 
 
     }
