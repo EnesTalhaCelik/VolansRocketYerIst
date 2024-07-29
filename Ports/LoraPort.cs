@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Ports
 {
-    internal class LoraPort 
+    public class LoraPort 
     {
 
         internal static System.IO.Ports.SerialPort LoraSerialPort = new System.IO.Ports.SerialPort();

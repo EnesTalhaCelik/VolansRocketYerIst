@@ -39,7 +39,7 @@
             // pnl_AnaSayfa
             // 
             this.pnl_AnaSayfa.Location = new System.Drawing.Point(171, 1);
-            this.pnl_AnaSayfa.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pnl_AnaSayfa.Margin = new System.Windows.Forms.Padding(4);
             this.pnl_AnaSayfa.Name = "pnl_AnaSayfa";
             this.pnl_AnaSayfa.Size = new System.Drawing.Size(1315, 750);
             this.pnl_AnaSayfa.TabIndex = 0;
@@ -47,7 +47,7 @@
             // btn_yerIst
             // 
             this.btn_yerIst.Location = new System.Drawing.Point(16, 66);
-            this.btn_yerIst.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btn_yerIst.Margin = new System.Windows.Forms.Padding(4);
             this.btn_yerIst.Name = "btn_yerIst";
             this.btn_yerIst.Size = new System.Drawing.Size(120, 74);
             this.btn_yerIst.TabIndex = 1;
@@ -58,7 +58,7 @@
             // button2
             // 
             this.button2.Location = new System.Drawing.Point(16, 229);
-            this.button2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button2.Margin = new System.Windows.Forms.Padding(4);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(120, 74);
             this.button2.TabIndex = 1;
@@ -69,7 +69,7 @@
             // button3
             // 
             this.button3.Location = new System.Drawing.Point(16, 310);
-            this.button3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button3.Margin = new System.Windows.Forms.Padding(4);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(120, 74);
             this.button3.TabIndex = 1;
@@ -79,7 +79,7 @@
             // btn_AnalizTablo
             // 
             this.btn_AnalizTablo.Location = new System.Drawing.Point(16, 390);
-            this.btn_AnalizTablo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btn_AnalizTablo.Margin = new System.Windows.Forms.Padding(4);
             this.btn_AnalizTablo.Name = "btn_AnalizTablo";
             this.btn_AnalizTablo.Size = new System.Drawing.Size(120, 74);
             this.btn_AnalizTablo.TabIndex = 1;
@@ -90,7 +90,7 @@
             // btn_PrtAyar
             // 
             this.btn_PrtAyar.Location = new System.Drawing.Point(16, 148);
-            this.btn_PrtAyar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btn_PrtAyar.Margin = new System.Windows.Forms.Padding(4);
             this.btn_PrtAyar.Name = "btn_PrtAyar";
             this.btn_PrtAyar.Size = new System.Drawing.Size(120, 74);
             this.btn_PrtAyar.TabIndex = 1;
@@ -109,7 +109,7 @@
             this.Controls.Add(this.button2);
             this.Controls.Add(this.btn_yerIst);
             this.Controls.Add(this.pnl_AnaSayfa);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "UygulamaForm";
             this.Text = "Volans Roket Takımı Yer İstasyonu";
             this.Load += new System.EventHandler(this.UygulamaForm_Load);

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace UIOperations
 {
-    internal class ErrorMessages
+    public class ErrorMessages
     {
         
 

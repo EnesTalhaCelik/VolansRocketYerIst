@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{BFC691A2-D1AB-4DB1-942E-974FEC3EDF9B}</ProjectGuid>
+    <ProjectGuid>{9E6F74C0-8AFA-40F6-B897-0DFBF484D53B}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Ports</RootNamespace>
-    <AssemblyName>Ports</AssemblyName>
+    <RootNamespace>RoketMapUI</RootNamespace>
+    <AssemblyName>RoketMapUI</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -39,24 +39,14 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Xml" />
-    <Reference Include="Values">
-      <HintPath>..\Values\bin\Debug\Values.dll</HintPath>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="HYICommunication.cs" />
-    <Compile Include="HYIPort.cs" />
-    <Compile Include="LoraCommunication.cs" />
-    <Compile Include="LoraPort.cs" />
-    <Compile Include="onLoraRecive.cs" />
+    <Compile Include="MapUIBase.cs" />
+    <Compile Include="Methods.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SP.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\UIOperations\UIOperations.csproj">
-      <Project>{50a7f609-1263-4e53-b292-0688aa49346a}</Project>
-      <Name>UIOperations</Name>
-    </ProjectReference>
+    <Compile Include="UIAnaAv.cs" />
+    <Compile Include="UIGorevYuku.cs" />
+    <Compile Include="UIYedekAv.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace UIOperations
 {
-    internal class TextboxOperations
+    public class TextboxOperations
     {
         public static string PortAcildi(SerialPort serialport)
         {
@@ -54,6 +54,42 @@ namespace UIOperations
         public static string HYIRecivedFail()
         {
             return ($"HYI portundan gelen veri okunamadı");
+        }
+
+        public static string LoraMessageSentSuccessful()
+        {
+            return ("Success");
+        }
+        public static string LoraMessageSentFailedException(Exception x)
+        {
+            return ($"Communication attemt to lora port is failed. Exception {x.Message}");
+        }
+        public static string HYIMessageSentSuccessful()
+        {
+            return ("Success");
+        }
+        public static string HYIMessageSentFailedException(Exception x)
+        {
+            return ($"Communication attemt to HYI port is failed. Exception {x.Message}");
+        }
+        public static string LoraByteArrayMessageSentSuccessful()
+        {
+            return ("Byte array sent successfully via lora");
+        }
+
+        public static string LoraStringMessageSentSuccessful()
+        {
+            return ("Text sent successfully via lora");
+        }
+
+        public static string LoraIntMessageSentSuccessful()
+        {
+            return ("Number sent successfully via lora");
+        }
+
+        public static string LoraFloatMessageSentSuccessful()
+        {
+            return ("Floating Number sent successfully via lora");
         }
 
     }

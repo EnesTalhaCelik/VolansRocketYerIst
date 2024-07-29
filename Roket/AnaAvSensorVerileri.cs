@@ -4,16 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DatabaseHandling
+namespace Roket
 {
-    public class Class1
+    internal class AnaAvSensorVerileri
     {
 
-
-
-
     }
-
-    
-
 }

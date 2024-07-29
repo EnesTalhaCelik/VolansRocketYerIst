@@ -15,6 +15,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DatabaseHandling", "Databas
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ports", "Ports\Ports.csproj", "{BFC691A2-D1AB-4DB1-942E-974FEC3EDF9B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Roket", "Roket\Roket.csproj", "{A3AF7A0F-EBDD-47AC-9F21-E74AD64CAD88}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RoketMapUI", "RoketMapUI\RoketMapUI.csproj", "{9E6F74C0-8AFA-40F6-B897-0DFBF484D53B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,6 +49,14 @@ Global
 		{BFC691A2-D1AB-4DB1-942E-974FEC3EDF9B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BFC691A2-D1AB-4DB1-942E-974FEC3EDF9B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BFC691A2-D1AB-4DB1-942E-974FEC3EDF9B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A3AF7A0F-EBDD-47AC-9F21-E74AD64CAD88}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A3AF7A0F-EBDD-47AC-9F21-E74AD64CAD88}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A3AF7A0F-EBDD-47AC-9F21-E74AD64CAD88}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A3AF7A0F-EBDD-47AC-9F21-E74AD64CAD88}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9E6F74C0-8AFA-40F6-B897-0DFBF484D53B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9E6F74C0-8AFA-40F6-B897-0DFBF484D53B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9E6F74C0-8AFA-40F6-B897-0DFBF484D53B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9E6F74C0-8AFA-40F6-B897-0DFBF484D53B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

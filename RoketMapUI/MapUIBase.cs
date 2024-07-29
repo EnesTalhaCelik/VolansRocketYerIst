@@ -4,16 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DatabaseHandling
+namespace RoketMapUI
 {
-    public class Class1
+    public class MapUIBase
     {
-
-
-
-
+        public static string mapIconPath;
+        public static string pathColor;
     }
-
-    
-
 }

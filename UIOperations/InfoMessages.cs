@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace UIOperations
 {
-    internal class InfoMessages
+    public class InfoMessages
     {
         public static void ShowInfoMessage(string message)
         {
