@@ -1,6 +1,0 @@
-C:\Users\EnesT\source\repos\YerIstasyonuVolans\TeknofestVeriler\bin\Debug\TeknofestVeriler.dll
-C:\Users\EnesT\source\repos\YerIstasyonuVolans\TeknofestVeriler\bin\Debug\TeknofestVeriler.pdb
-C:\Users\EnesT\source\repos\YerIstasyonuVolans\TeknofestVeriler\obj\Debug\TeknofestVeriler.csproj.AssemblyReference.cache
-C:\Users\EnesT\source\repos\YerIstasyonuVolans\TeknofestVeriler\obj\Debug\TeknofestVeriler.csproj.CoreCompileInputs.cache
-C:\Users\EnesT\source\repos\YerIstasyonuVolans\TeknofestVeriler\obj\Debug\TeknofestVeriler.dll
-C:\Users\EnesT\source\repos\YerIstasyonuVolans\TeknofestVeriler\obj\Debug\TeknofestVeriler.pdb

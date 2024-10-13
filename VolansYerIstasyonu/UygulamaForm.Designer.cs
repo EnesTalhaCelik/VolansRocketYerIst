@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UygulamaForm));
             this.pnl_AnaSayfa = new System.Windows.Forms.Panel();
             this.btn_yerIst = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
@@ -109,6 +110,7 @@
             this.Controls.Add(this.button2);
             this.Controls.Add(this.btn_yerIst);
             this.Controls.Add(this.pnl_AnaSayfa);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "UygulamaForm";
             this.Text = "Volans Roket Takımı Yer İstasyonu";

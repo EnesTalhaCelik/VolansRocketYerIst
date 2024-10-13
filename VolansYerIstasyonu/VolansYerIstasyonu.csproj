@@ -274,6 +274,7 @@
     <None Include="images\pc_gy.png" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="images\a4ae4f5e-01a5-4bf4-bc3a-73145c7935db.jpg" />
     <Content Include="images\d7b87b40-6bc3-4066-a0db-80edd4639b4c.png" />
     <Content Include="images\rocket.png" />
     <None Include="Resources\Dünya.jpg" />

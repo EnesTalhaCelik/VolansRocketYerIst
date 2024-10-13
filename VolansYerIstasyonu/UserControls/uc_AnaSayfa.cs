@@ -107,7 +107,9 @@ namespace VolansYerIstasyonu.UserControls
             {
                 StopUcusTimer();
                 isUcusTimerRunning = false;
+                roketGPSIrtifa.Text = "0";
                 btnSimBaslat.Text = "Simülasyonu Başlat";
+                
             }
 
             UcusSim.enlemHesapla(ucusGecenZaman);
@@ -182,6 +184,8 @@ namespace VolansYerIstasyonu.UserControls
            
             anasayfaHarita.Overlays.Add(overlay);
             anasayfaHarita.Overlays.Add(routesOverlay);
+            anasayfaHarita.ShowCenter = false;
+
         }
 
 
