@@ -15,6 +15,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CommTest", "CommTest\CommTe
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestApp", "TestApp\TestApp.csproj", "{8F7F9AF9-D176-47F9-AFAF-8980C0DE7B6F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VolansGUI", "VolansGUI\VolansGUI.csproj", "{5FECD623-B13F-4D71-BB74-A4AD463673AB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,6 +47,10 @@ Global
 		{8F7F9AF9-D176-47F9-AFAF-8980C0DE7B6F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8F7F9AF9-D176-47F9-AFAF-8980C0DE7B6F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8F7F9AF9-D176-47F9-AFAF-8980C0DE7B6F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5FECD623-B13F-4D71-BB74-A4AD463673AB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5FECD623-B13F-4D71-BB74-A4AD463673AB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5FECD623-B13F-4D71-BB74-A4AD463673AB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5FECD623-B13F-4D71-BB74-A4AD463673AB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
