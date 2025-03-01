@@ -112,16 +112,87 @@
             materialCard1 = new MaterialSkin.Controls.MaterialCard();
             tabPage2 = new TabPage();
             materialCard8 = new MaterialSkin.Controls.MaterialCard();
+            materialTextBox1 = new MaterialSkin.Controls.MaterialTextBox();
+            materialComboBox11 = new MaterialSkin.Controls.MaterialComboBox();
+            panel17 = new Panel();
+            materialButton17 = new MaterialSkin.Controls.MaterialButton();
+            materialLabel100 = new MaterialSkin.Controls.MaterialLabel();
+            panel18 = new Panel();
+            materialButton18 = new MaterialSkin.Controls.MaterialButton();
+            panel13 = new Panel();
+            materialButton13 = new MaterialSkin.Controls.MaterialButton();
+            panel14 = new Panel();
+            materialButton14 = new MaterialSkin.Controls.MaterialButton();
+            panel9 = new Panel();
+            materialButton9 = new MaterialSkin.Controls.MaterialButton();
+            panel12 = new Panel();
+            materialButton12 = new MaterialSkin.Controls.MaterialButton();
+            panel15 = new Panel();
+            materialButton15 = new MaterialSkin.Controls.MaterialButton();
+            panel16 = new Panel();
+            materialButton16 = new MaterialSkin.Controls.MaterialButton();
+            materialLabel92 = new MaterialSkin.Controls.MaterialLabel();
+            materialLabel93 = new MaterialSkin.Controls.MaterialLabel();
+            materialLabel94 = new MaterialSkin.Controls.MaterialLabel();
+            materialLabel95 = new MaterialSkin.Controls.MaterialLabel();
+            materialLabel96 = new MaterialSkin.Controls.MaterialLabel();
+            materialLabel97 = new MaterialSkin.Controls.MaterialLabel();
+            materialLabel98 = new MaterialSkin.Controls.MaterialLabel();
+            materialLabel99 = new MaterialSkin.Controls.MaterialLabel();
+            materialLabel80 = new MaterialSkin.Controls.MaterialLabel();
+            materialLabel81 = new MaterialSkin.Controls.MaterialLabel();
+            materialLabel82 = new MaterialSkin.Controls.MaterialLabel();
+            materialLabel83 = new MaterialSkin.Controls.MaterialLabel();
+            materialLabel84 = new MaterialSkin.Controls.MaterialLabel();
+            materialLabel85 = new MaterialSkin.Controls.MaterialLabel();
+            materialLabel86 = new MaterialSkin.Controls.MaterialLabel();
+            materialLabel87 = new MaterialSkin.Controls.MaterialLabel();
+            materialLabel88 = new MaterialSkin.Controls.MaterialLabel();
+            materialLabel89 = new MaterialSkin.Controls.MaterialLabel();
+            materialLabel90 = new MaterialSkin.Controls.MaterialLabel();
+            materialLabel91 = new MaterialSkin.Controls.MaterialLabel();
+            materialLabel79 = new MaterialSkin.Controls.MaterialLabel();
             materialCard7 = new MaterialSkin.Controls.MaterialCard();
             materialCard6 = new MaterialSkin.Controls.MaterialCard();
+            materialComboBox6 = new MaterialSkin.Controls.MaterialComboBox();
+            materialComboBox7 = new MaterialSkin.Controls.MaterialComboBox();
+            panel10 = new Panel();
+            materialButton10 = new MaterialSkin.Controls.MaterialButton();
+            panel11 = new Panel();
+            materialButton11 = new MaterialSkin.Controls.MaterialButton();
+            materialLabel73 = new MaterialSkin.Controls.MaterialLabel();
+            materialLabel74 = new MaterialSkin.Controls.MaterialLabel();
+            materialComboBox8 = new MaterialSkin.Controls.MaterialComboBox();
+            materialLabel75 = new MaterialSkin.Controls.MaterialLabel();
+            materialLabel76 = new MaterialSkin.Controls.MaterialLabel();
+            materialComboBox9 = new MaterialSkin.Controls.MaterialComboBox();
+            materialLabel77 = new MaterialSkin.Controls.MaterialLabel();
+            materialComboBox10 = new MaterialSkin.Controls.MaterialComboBox();
+            materialLabel78 = new MaterialSkin.Controls.MaterialLabel();
             materialCard5 = new MaterialSkin.Controls.MaterialCard();
+            materialComboBox5 = new MaterialSkin.Controls.MaterialComboBox();
+            materialComboBox3 = new MaterialSkin.Controls.MaterialComboBox();
+            panel8 = new Panel();
+            materialButton8 = new MaterialSkin.Controls.MaterialButton();
+            panel7 = new Panel();
+            materialButton7 = new MaterialSkin.Controls.MaterialButton();
+            panel6 = new Panel();
+            materialButton6 = new MaterialSkin.Controls.MaterialButton();
+            materialLabel72 = new MaterialSkin.Controls.MaterialLabel();
+            materialLabel71 = new MaterialSkin.Controls.MaterialLabel();
+            materialComboBox4 = new MaterialSkin.Controls.MaterialComboBox();
+            materialLabel70 = new MaterialSkin.Controls.MaterialLabel();
+            materialLabel69 = new MaterialSkin.Controls.MaterialLabel();
+            materialComboBox2 = new MaterialSkin.Controls.MaterialComboBox();
+            materialLabel68 = new MaterialSkin.Controls.MaterialLabel();
+            materialComboBox1 = new MaterialSkin.Controls.MaterialComboBox();
+            materialLabel67 = new MaterialSkin.Controls.MaterialLabel();
             tabPage3 = new TabPage();
             panel4 = new Panel();
             materialButton4 = new MaterialSkin.Controls.MaterialButton();
             panel5 = new Panel();
             materialButton5 = new MaterialSkin.Controls.MaterialButton();
-            panel6 = new Panel();
-            materialButton6 = new MaterialSkin.Controls.MaterialButton();
+            textBox1 = new TextBox();
             materialTabControl1.SuspendLayout();
             tabPage1.SuspendLayout();
             materialCard4.SuspendLayout();
@@ -131,9 +202,25 @@
             materialCard3.SuspendLayout();
             materialCard2.SuspendLayout();
             tabPage2.SuspendLayout();
+            materialCard8.SuspendLayout();
+            panel17.SuspendLayout();
+            panel18.SuspendLayout();
+            panel13.SuspendLayout();
+            panel14.SuspendLayout();
+            panel9.SuspendLayout();
+            panel12.SuspendLayout();
+            panel15.SuspendLayout();
+            panel16.SuspendLayout();
+            materialCard7.SuspendLayout();
+            materialCard6.SuspendLayout();
+            panel10.SuspendLayout();
+            panel11.SuspendLayout();
+            materialCard5.SuspendLayout();
+            panel8.SuspendLayout();
+            panel7.SuspendLayout();
+            panel6.SuspendLayout();
             panel4.SuspendLayout();
             panel5.SuspendLayout();
-            panel6.SuspendLayout();
             SuspendLayout();
             // 
             // materialTabControl1
@@ -1110,9 +1197,9 @@
             materialLabel22.Location = new Point(290, 104);
             materialLabel22.MouseState = MaterialSkin.MouseState.HOVER;
             materialLabel22.Name = "materialLabel22";
-            materialLabel22.Size = new Size(86, 19);
+            materialLabel22.Size = new Size(82, 19);
             materialLabel22.TabIndex = 85;
-            materialLabel22.Text = "Roket Hız  Z";
+            materialLabel22.Text = "Roket Hız Z";
             // 
             // materialLabel60
             // 
@@ -1165,9 +1252,9 @@
             materialLabel23.Location = new Point(290, 74);
             materialLabel23.MouseState = MaterialSkin.MouseState.HOVER;
             materialLabel23.Name = "materialLabel23";
-            materialLabel23.Size = new Size(86, 19);
+            materialLabel23.Size = new Size(82, 19);
             materialLabel23.TabIndex = 84;
-            materialLabel23.Text = "Roket Hız  Y";
+            materialLabel23.Text = "Roket Hız Y";
             // 
             // materialLabel61
             // 
@@ -1377,45 +1464,945 @@
             // materialCard8
             // 
             materialCard8.BackColor = Color.FromArgb(255, 255, 255);
+            materialCard8.Controls.Add(materialTextBox1);
+            materialCard8.Controls.Add(materialComboBox11);
+            materialCard8.Controls.Add(panel17);
+            materialCard8.Controls.Add(materialLabel100);
+            materialCard8.Controls.Add(panel18);
+            materialCard8.Controls.Add(panel13);
+            materialCard8.Controls.Add(panel14);
+            materialCard8.Controls.Add(panel9);
+            materialCard8.Controls.Add(panel12);
+            materialCard8.Controls.Add(panel15);
+            materialCard8.Controls.Add(panel16);
+            materialCard8.Controls.Add(materialLabel92);
+            materialCard8.Controls.Add(materialLabel93);
+            materialCard8.Controls.Add(materialLabel94);
+            materialCard8.Controls.Add(materialLabel95);
+            materialCard8.Controls.Add(materialLabel96);
+            materialCard8.Controls.Add(materialLabel97);
+            materialCard8.Controls.Add(materialLabel98);
+            materialCard8.Controls.Add(materialLabel99);
+            materialCard8.Controls.Add(materialLabel80);
+            materialCard8.Controls.Add(materialLabel81);
+            materialCard8.Controls.Add(materialLabel82);
+            materialCard8.Controls.Add(materialLabel83);
+            materialCard8.Controls.Add(materialLabel84);
+            materialCard8.Controls.Add(materialLabel85);
+            materialCard8.Controls.Add(materialLabel86);
+            materialCard8.Controls.Add(materialLabel87);
+            materialCard8.Controls.Add(materialLabel88);
+            materialCard8.Controls.Add(materialLabel89);
+            materialCard8.Controls.Add(materialLabel90);
+            materialCard8.Controls.Add(materialLabel91);
+            materialCard8.Controls.Add(materialLabel79);
             materialCard8.Depth = 0;
             materialCard8.ForeColor = Color.FromArgb(222, 0, 0, 0);
-            materialCard8.Location = new Point(14, 508);
+            materialCard8.Location = new Point(14, 577);
             materialCard8.Margin = new Padding(14);
             materialCard8.MouseState = MaterialSkin.MouseState.HOVER;
             materialCard8.Name = "materialCard8";
             materialCard8.Padding = new Padding(14);
-            materialCard8.Size = new Size(1163, 358);
+            materialCard8.Size = new Size(1069, 289);
             materialCard8.TabIndex = 8;
+            // 
+            // materialTextBox1
+            // 
+            materialTextBox1.AnimateReadOnly = false;
+            materialTextBox1.BorderStyle = BorderStyle.None;
+            materialTextBox1.Depth = 0;
+            materialTextBox1.Font = new Font("Roboto", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
+            materialTextBox1.LeadingIcon = null;
+            materialTextBox1.Location = new Point(741, 164);
+            materialTextBox1.MaxLength = 50;
+            materialTextBox1.MouseState = MaterialSkin.MouseState.OUT;
+            materialTextBox1.Multiline = false;
+            materialTextBox1.Name = "materialTextBox1";
+            materialTextBox1.Size = new Size(260, 50);
+            materialTextBox1.TabIndex = 137;
+            materialTextBox1.Text = "";
+            materialTextBox1.TrailingIcon = null;
+            // 
+            // materialComboBox11
+            // 
+            materialComboBox11.AutoResize = false;
+            materialComboBox11.BackColor = Color.FromArgb(255, 255, 255);
+            materialComboBox11.Depth = 0;
+            materialComboBox11.DrawMode = DrawMode.OwnerDrawVariable;
+            materialComboBox11.DropDownHeight = 174;
+            materialComboBox11.DropDownStyle = ComboBoxStyle.DropDownList;
+            materialComboBox11.DropDownWidth = 121;
+            materialComboBox11.Font = new Font("Microsoft Sans Serif", 14F, FontStyle.Bold, GraphicsUnit.Pixel);
+            materialComboBox11.ForeColor = Color.FromArgb(222, 0, 0, 0);
+            materialComboBox11.FormattingEnabled = true;
+            materialComboBox11.IntegralHeight = false;
+            materialComboBox11.ItemHeight = 43;
+            materialComboBox11.Location = new Point(741, 105);
+            materialComboBox11.MaxDropDownItems = 4;
+            materialComboBox11.MouseState = MaterialSkin.MouseState.OUT;
+            materialComboBox11.Name = "materialComboBox11";
+            materialComboBox11.Size = new Size(260, 49);
+            materialComboBox11.StartIndex = 0;
+            materialComboBox11.TabIndex = 136;
+            // 
+            // panel17
+            // 
+            panel17.BackColor = Color.Transparent;
+            panel17.Controls.Add(materialButton17);
+            panel17.ForeColor = Color.Transparent;
+            panel17.Location = new Point(741, 220);
+            panel17.Name = "panel17";
+            panel17.Size = new Size(193, 35);
+            panel17.TabIndex = 135;
+            // 
+            // materialButton17
+            // 
+            materialButton17.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            materialButton17.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            materialButton17.Depth = 0;
+            materialButton17.Dock = DockStyle.Fill;
+            materialButton17.Font = new Font("Segoe UI", 19F);
+            materialButton17.HighEmphasis = true;
+            materialButton17.Icon = null;
+            materialButton17.Location = new Point(0, 0);
+            materialButton17.Margin = new Padding(4, 6, 4, 6);
+            materialButton17.MouseState = MaterialSkin.MouseState.HOVER;
+            materialButton17.Name = "materialButton17";
+            materialButton17.NoAccentTextColor = Color.Empty;
+            materialButton17.Size = new Size(193, 35);
+            materialButton17.TabIndex = 1;
+            materialButton17.Text = "Mesaj Gönder";
+            materialButton17.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            materialButton17.UseAccentColor = false;
+            materialButton17.UseVisualStyleBackColor = true;
+            // 
+            // materialLabel100
+            // 
+            materialLabel100.AutoSize = true;
+            materialLabel100.Depth = 0;
+            materialLabel100.Font = new Font("Roboto Medium", 20F, FontStyle.Bold, GraphicsUnit.Pixel);
+            materialLabel100.FontType = MaterialSkin.MaterialSkinManager.fontType.H6;
+            materialLabel100.HighEmphasis = true;
+            materialLabel100.Location = new Point(741, 64);
+            materialLabel100.MouseState = MaterialSkin.MouseState.HOVER;
+            materialLabel100.Name = "materialLabel100";
+            materialLabel100.Size = new Size(310, 24);
+            materialLabel100.TabIndex = 134;
+            materialLabel100.Text = "Mesaj Gönderilecek Lora'yı Seçiniz";
+            // 
+            // panel18
+            // 
+            panel18.BackColor = Color.Transparent;
+            panel18.Controls.Add(materialButton18);
+            panel18.ForeColor = Color.Transparent;
+            panel18.Location = new Point(516, 70);
+            panel18.Name = "panel18";
+            panel18.Size = new Size(193, 35);
+            panel18.TabIndex = 133;
+            // 
+            // materialButton18
+            // 
+            materialButton18.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            materialButton18.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            materialButton18.Depth = 0;
+            materialButton18.Dock = DockStyle.Fill;
+            materialButton18.Font = new Font("Segoe UI", 19F);
+            materialButton18.HighEmphasis = true;
+            materialButton18.Icon = null;
+            materialButton18.Location = new Point(0, 0);
+            materialButton18.Margin = new Padding(4, 6, 4, 6);
+            materialButton18.MouseState = MaterialSkin.MouseState.HOVER;
+            materialButton18.Name = "materialButton18";
+            materialButton18.NoAccentTextColor = Color.Empty;
+            materialButton18.Size = new Size(193, 35);
+            materialButton18.TabIndex = 1;
+            materialButton18.Text = "Ping Pong Test";
+            materialButton18.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            materialButton18.UseAccentColor = false;
+            materialButton18.UseVisualStyleBackColor = true;
+            // 
+            // panel13
+            // 
+            panel13.BackColor = Color.Transparent;
+            panel13.Controls.Add(materialButton13);
+            panel13.ForeColor = Color.Transparent;
+            panel13.Location = new Point(516, 152);
+            panel13.Name = "panel13";
+            panel13.Size = new Size(193, 35);
+            panel13.TabIndex = 132;
+            // 
+            // materialButton13
+            // 
+            materialButton13.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            materialButton13.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            materialButton13.Depth = 0;
+            materialButton13.Dock = DockStyle.Fill;
+            materialButton13.Font = new Font("Segoe UI", 19F);
+            materialButton13.HighEmphasis = true;
+            materialButton13.Icon = null;
+            materialButton13.Location = new Point(0, 0);
+            materialButton13.Margin = new Padding(4, 6, 4, 6);
+            materialButton13.MouseState = MaterialSkin.MouseState.HOVER;
+            materialButton13.Name = "materialButton13";
+            materialButton13.NoAccentTextColor = Color.Empty;
+            materialButton13.Size = new Size(193, 35);
+            materialButton13.TabIndex = 1;
+            materialButton13.Text = "Ping Yedek Av.";
+            materialButton13.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            materialButton13.UseAccentColor = false;
+            materialButton13.UseVisualStyleBackColor = true;
+            // 
+            // panel14
+            // 
+            panel14.BackColor = Color.Transparent;
+            panel14.Controls.Add(materialButton14);
+            panel14.ForeColor = Color.Transparent;
+            panel14.Location = new Point(516, 111);
+            panel14.Name = "panel14";
+            panel14.Size = new Size(193, 35);
+            panel14.TabIndex = 131;
+            // 
+            // materialButton14
+            // 
+            materialButton14.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            materialButton14.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            materialButton14.Depth = 0;
+            materialButton14.Dock = DockStyle.Fill;
+            materialButton14.Font = new Font("Segoe UI", 19F);
+            materialButton14.HighEmphasis = true;
+            materialButton14.Icon = null;
+            materialButton14.Location = new Point(0, 0);
+            materialButton14.Margin = new Padding(4, 6, 4, 6);
+            materialButton14.MouseState = MaterialSkin.MouseState.HOVER;
+            materialButton14.Name = "materialButton14";
+            materialButton14.NoAccentTextColor = Color.Empty;
+            materialButton14.Size = new Size(193, 35);
+            materialButton14.TabIndex = 1;
+            materialButton14.Text = "Ping Roket";
+            materialButton14.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            materialButton14.UseAccentColor = false;
+            materialButton14.UseVisualStyleBackColor = true;
+            // 
+            // panel9
+            // 
+            panel9.BackColor = Color.Transparent;
+            panel9.Controls.Add(materialButton9);
+            panel9.ForeColor = Color.Transparent;
+            panel9.Location = new Point(516, 234);
+            panel9.Name = "panel9";
+            panel9.Size = new Size(193, 35);
+            panel9.TabIndex = 130;
+            // 
+            // materialButton9
+            // 
+            materialButton9.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            materialButton9.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            materialButton9.Depth = 0;
+            materialButton9.Dock = DockStyle.Fill;
+            materialButton9.Font = new Font("Segoe UI", 19F);
+            materialButton9.HighEmphasis = true;
+            materialButton9.Icon = null;
+            materialButton9.Location = new Point(0, 0);
+            materialButton9.Margin = new Padding(4, 6, 4, 6);
+            materialButton9.MouseState = MaterialSkin.MouseState.HOVER;
+            materialButton9.Name = "materialButton9";
+            materialButton9.NoAccentTextColor = Color.Empty;
+            materialButton9.Size = new Size(193, 35);
+            materialButton9.TabIndex = 1;
+            materialButton9.Text = "Ağ Ayarları";
+            materialButton9.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            materialButton9.UseAccentColor = false;
+            materialButton9.UseVisualStyleBackColor = true;
+            // 
+            // panel12
+            // 
+            panel12.BackColor = Color.Transparent;
+            panel12.Controls.Add(materialButton12);
+            panel12.ForeColor = Color.Transparent;
+            panel12.Location = new Point(516, 193);
+            panel12.Name = "panel12";
+            panel12.Size = new Size(193, 35);
+            panel12.TabIndex = 129;
+            // 
+            // materialButton12
+            // 
+            materialButton12.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            materialButton12.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            materialButton12.Depth = 0;
+            materialButton12.Dock = DockStyle.Fill;
+            materialButton12.Font = new Font("Segoe UI", 19F);
+            materialButton12.HighEmphasis = true;
+            materialButton12.Icon = null;
+            materialButton12.Location = new Point(0, 0);
+            materialButton12.Margin = new Padding(4, 6, 4, 6);
+            materialButton12.MouseState = MaterialSkin.MouseState.HOVER;
+            materialButton12.Name = "materialButton12";
+            materialButton12.NoAccentTextColor = Color.Empty;
+            materialButton12.Size = new Size(193, 35);
+            materialButton12.TabIndex = 1;
+            materialButton12.Text = "Ping Görev Y.";
+            materialButton12.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            materialButton12.UseAccentColor = false;
+            materialButton12.UseVisualStyleBackColor = true;
+            // 
+            // panel15
+            // 
+            panel15.BackColor = Color.Transparent;
+            panel15.Controls.Add(materialButton15);
+            panel15.ForeColor = Color.Transparent;
+            panel15.Location = new Point(256, 234);
+            panel15.Name = "panel15";
+            panel15.Size = new Size(228, 35);
+            panel15.TabIndex = 128;
+            // 
+            // materialButton15
+            // 
+            materialButton15.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            materialButton15.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            materialButton15.Depth = 0;
+            materialButton15.Dock = DockStyle.Fill;
+            materialButton15.Font = new Font("Segoe UI", 19F);
+            materialButton15.HighEmphasis = true;
+            materialButton15.Icon = null;
+            materialButton15.Location = new Point(0, 0);
+            materialButton15.Margin = new Padding(4, 6, 4, 6);
+            materialButton15.MouseState = MaterialSkin.MouseState.HOVER;
+            materialButton15.Name = "materialButton15";
+            materialButton15.NoAccentTextColor = Color.Empty;
+            materialButton15.Size = new Size(228, 35);
+            materialButton15.TabIndex = 1;
+            materialButton15.Text = "Parametreleri Çek";
+            materialButton15.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            materialButton15.UseAccentColor = false;
+            materialButton15.UseVisualStyleBackColor = true;
+            // 
+            // panel16
+            // 
+            panel16.BackColor = Color.Transparent;
+            panel16.Controls.Add(materialButton16);
+            panel16.ForeColor = Color.Transparent;
+            panel16.Location = new Point(256, 193);
+            panel16.Name = "panel16";
+            panel16.Size = new Size(228, 35);
+            panel16.TabIndex = 127;
+            // 
+            // materialButton16
+            // 
+            materialButton16.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            materialButton16.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            materialButton16.Depth = 0;
+            materialButton16.Dock = DockStyle.Fill;
+            materialButton16.Font = new Font("Segoe UI", 19F);
+            materialButton16.HighEmphasis = true;
+            materialButton16.Icon = null;
+            materialButton16.Location = new Point(0, 0);
+            materialButton16.Margin = new Padding(4, 6, 4, 6);
+            materialButton16.MouseState = MaterialSkin.MouseState.HOVER;
+            materialButton16.Name = "materialButton16";
+            materialButton16.NoAccentTextColor = Color.Empty;
+            materialButton16.Size = new Size(228, 35);
+            materialButton16.TabIndex = 1;
+            materialButton16.Text = "Fünyeyi Patlat";
+            materialButton16.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            materialButton16.UseAccentColor = false;
+            materialButton16.UseVisualStyleBackColor = true;
+            // 
+            // materialLabel92
+            // 
+            materialLabel92.AutoSize = true;
+            materialLabel92.Depth = 0;
+            materialLabel92.Font = new Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
+            materialLabel92.HighEmphasis = true;
+            materialLabel92.Location = new Point(282, 70);
+            materialLabel92.MouseState = MaterialSkin.MouseState.HOVER;
+            materialLabel92.Name = "materialLabel92";
+            materialLabel92.Size = new Size(37, 19);
+            materialLabel92.TabIndex = 115;
+            materialLabel92.Text = "FEC :";
+            // 
+            // materialLabel93
+            // 
+            materialLabel93.AutoSize = true;
+            materialLabel93.Depth = 0;
+            materialLabel93.Font = new Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
+            materialLabel93.HighEmphasis = true;
+            materialLabel93.Location = new Point(436, 70);
+            materialLabel93.MouseState = MaterialSkin.MouseState.HOVER;
+            materialLabel93.Name = "materialLabel93";
+            materialLabel93.Size = new Size(10, 19);
+            materialLabel93.TabIndex = 119;
+            materialLabel93.Text = "0";
+            materialLabel93.UseAccent = true;
+            // 
+            // materialLabel94
+            // 
+            materialLabel94.AutoSize = true;
+            materialLabel94.Depth = 0;
+            materialLabel94.Font = new Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
+            materialLabel94.HighEmphasis = true;
+            materialLabel94.Location = new Point(282, 100);
+            materialLabel94.MouseState = MaterialSkin.MouseState.HOVER;
+            materialLabel94.Name = "materialLabel94";
+            materialLabel94.Padding = new Padding(0, 10, 0, 0);
+            materialLabel94.Size = new Size(91, 19);
+            materialLabel94.TabIndex = 116;
+            materialLabel94.Text = "Fixed Mode :";
+            // 
+            // materialLabel95
+            // 
+            materialLabel95.AutoSize = true;
+            materialLabel95.Depth = 0;
+            materialLabel95.Font = new Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
+            materialLabel95.HighEmphasis = true;
+            materialLabel95.Location = new Point(436, 100);
+            materialLabel95.MouseState = MaterialSkin.MouseState.HOVER;
+            materialLabel95.Name = "materialLabel95";
+            materialLabel95.Padding = new Padding(0, 10, 0, 0);
+            materialLabel95.Size = new Size(10, 19);
+            materialLabel95.TabIndex = 120;
+            materialLabel95.Text = "0";
+            materialLabel95.UseAccent = true;
+            // 
+            // materialLabel96
+            // 
+            materialLabel96.AutoSize = true;
+            materialLabel96.Depth = 0;
+            materialLabel96.Font = new Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
+            materialLabel96.HighEmphasis = true;
+            materialLabel96.Location = new Point(282, 130);
+            materialLabel96.MouseState = MaterialSkin.MouseState.HOVER;
+            materialLabel96.Name = "materialLabel96";
+            materialLabel96.Size = new Size(90, 19);
+            materialLabel96.TabIndex = 117;
+            materialLabel96.Text = "WOR Timing";
+            // 
+            // materialLabel97
+            // 
+            materialLabel97.AutoSize = true;
+            materialLabel97.Depth = 0;
+            materialLabel97.Font = new Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
+            materialLabel97.HighEmphasis = true;
+            materialLabel97.Location = new Point(436, 130);
+            materialLabel97.MouseState = MaterialSkin.MouseState.HOVER;
+            materialLabel97.Name = "materialLabel97";
+            materialLabel97.Size = new Size(10, 19);
+            materialLabel97.TabIndex = 121;
+            materialLabel97.Text = "0";
+            materialLabel97.UseAccent = true;
+            // 
+            // materialLabel98
+            // 
+            materialLabel98.AutoSize = true;
+            materialLabel98.Depth = 0;
+            materialLabel98.Font = new Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
+            materialLabel98.HighEmphasis = true;
+            materialLabel98.Location = new Point(282, 160);
+            materialLabel98.MouseState = MaterialSkin.MouseState.HOVER;
+            materialLabel98.Name = "materialLabel98";
+            materialLabel98.Size = new Size(75, 19);
+            materialLabel98.TabIndex = 118;
+            materialLabel98.Text = "I/O Mode :";
+            // 
+            // materialLabel99
+            // 
+            materialLabel99.AutoSize = true;
+            materialLabel99.Depth = 0;
+            materialLabel99.Font = new Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
+            materialLabel99.HighEmphasis = true;
+            materialLabel99.Location = new Point(436, 160);
+            materialLabel99.MouseState = MaterialSkin.MouseState.HOVER;
+            materialLabel99.Name = "materialLabel99";
+            materialLabel99.Size = new Size(10, 19);
+            materialLabel99.TabIndex = 122;
+            materialLabel99.Text = "0";
+            materialLabel99.UseAccent = true;
+            // 
+            // materialLabel80
+            // 
+            materialLabel80.AutoSize = true;
+            materialLabel80.Depth = 0;
+            materialLabel80.Font = new Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
+            materialLabel80.HighEmphasis = true;
+            materialLabel80.Location = new Point(17, 70);
+            materialLabel80.MouseState = MaterialSkin.MouseState.HOVER;
+            materialLabel80.Name = "materialLabel80";
+            materialLabel80.Size = new Size(121, 19);
+            materialLabel80.TabIndex = 103;
+            materialLabel80.Text = "Kanal / Frekans :";
+            // 
+            // materialLabel81
+            // 
+            materialLabel81.AutoSize = true;
+            materialLabel81.Depth = 0;
+            materialLabel81.Font = new Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
+            materialLabel81.HighEmphasis = true;
+            materialLabel81.Location = new Point(171, 70);
+            materialLabel81.MouseState = MaterialSkin.MouseState.HOVER;
+            materialLabel81.Name = "materialLabel81";
+            materialLabel81.Size = new Size(10, 19);
+            materialLabel81.TabIndex = 109;
+            materialLabel81.Text = "0";
+            materialLabel81.UseAccent = true;
+            // 
+            // materialLabel82
+            // 
+            materialLabel82.AutoSize = true;
+            materialLabel82.Depth = 0;
+            materialLabel82.Font = new Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
+            materialLabel82.HighEmphasis = true;
+            materialLabel82.Location = new Point(17, 100);
+            materialLabel82.MouseState = MaterialSkin.MouseState.HOVER;
+            materialLabel82.Name = "materialLabel82";
+            materialLabel82.Padding = new Padding(0, 10, 0, 0);
+            materialLabel82.Size = new Size(74, 19);
+            materialLabel82.TabIndex = 104;
+            materialLabel82.Text = "Uart Rate :";
+            // 
+            // materialLabel83
+            // 
+            materialLabel83.AutoSize = true;
+            materialLabel83.Depth = 0;
+            materialLabel83.Font = new Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
+            materialLabel83.HighEmphasis = true;
+            materialLabel83.Location = new Point(171, 100);
+            materialLabel83.MouseState = MaterialSkin.MouseState.HOVER;
+            materialLabel83.Name = "materialLabel83";
+            materialLabel83.Padding = new Padding(0, 10, 0, 0);
+            materialLabel83.Size = new Size(10, 19);
+            materialLabel83.TabIndex = 110;
+            materialLabel83.Text = "0";
+            materialLabel83.UseAccent = true;
+            // 
+            // materialLabel84
+            // 
+            materialLabel84.AutoSize = true;
+            materialLabel84.Depth = 0;
+            materialLabel84.Font = new Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
+            materialLabel84.HighEmphasis = true;
+            materialLabel84.Location = new Point(17, 130);
+            materialLabel84.MouseState = MaterialSkin.MouseState.HOVER;
+            materialLabel84.Name = "materialLabel84";
+            materialLabel84.Size = new Size(64, 19);
+            materialLabel84.TabIndex = 105;
+            materialLabel84.Text = "Air Rate :";
+            // 
+            // materialLabel85
+            // 
+            materialLabel85.AutoSize = true;
+            materialLabel85.Depth = 0;
+            materialLabel85.Font = new Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
+            materialLabel85.HighEmphasis = true;
+            materialLabel85.Location = new Point(171, 130);
+            materialLabel85.MouseState = MaterialSkin.MouseState.HOVER;
+            materialLabel85.Name = "materialLabel85";
+            materialLabel85.Size = new Size(10, 19);
+            materialLabel85.TabIndex = 111;
+            materialLabel85.Text = "0";
+            materialLabel85.UseAccent = true;
+            // 
+            // materialLabel86
+            // 
+            materialLabel86.AutoSize = true;
+            materialLabel86.Depth = 0;
+            materialLabel86.Font = new Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
+            materialLabel86.HighEmphasis = true;
+            materialLabel86.Location = new Point(17, 160);
+            materialLabel86.MouseState = MaterialSkin.MouseState.HOVER;
+            materialLabel86.Name = "materialLabel86";
+            materialLabel86.Size = new Size(101, 19);
+            materialLabel86.TabIndex = 106;
+            materialLabel86.Text = "Power (dBm) :";
+            // 
+            // materialLabel87
+            // 
+            materialLabel87.AutoSize = true;
+            materialLabel87.Depth = 0;
+            materialLabel87.Font = new Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
+            materialLabel87.HighEmphasis = true;
+            materialLabel87.Location = new Point(171, 160);
+            materialLabel87.MouseState = MaterialSkin.MouseState.HOVER;
+            materialLabel87.Name = "materialLabel87";
+            materialLabel87.Size = new Size(10, 19);
+            materialLabel87.TabIndex = 112;
+            materialLabel87.Text = "0";
+            materialLabel87.UseAccent = true;
+            // 
+            // materialLabel88
+            // 
+            materialLabel88.AutoSize = true;
+            materialLabel88.Depth = 0;
+            materialLabel88.Font = new Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
+            materialLabel88.HighEmphasis = true;
+            materialLabel88.Location = new Point(17, 190);
+            materialLabel88.MouseState = MaterialSkin.MouseState.HOVER;
+            materialLabel88.Name = "materialLabel88";
+            materialLabel88.Size = new Size(50, 19);
+            materialLabel88.TabIndex = 107;
+            materialLabel88.Text = "Parity :";
+            // 
+            // materialLabel89
+            // 
+            materialLabel89.AutoSize = true;
+            materialLabel89.Depth = 0;
+            materialLabel89.Font = new Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
+            materialLabel89.HighEmphasis = true;
+            materialLabel89.Location = new Point(171, 190);
+            materialLabel89.MouseState = MaterialSkin.MouseState.HOVER;
+            materialLabel89.Name = "materialLabel89";
+            materialLabel89.Size = new Size(10, 19);
+            materialLabel89.TabIndex = 113;
+            materialLabel89.Text = "0";
+            materialLabel89.UseAccent = true;
+            // 
+            // materialLabel90
+            // 
+            materialLabel90.AutoSize = true;
+            materialLabel90.Depth = 0;
+            materialLabel90.Font = new Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
+            materialLabel90.HighEmphasis = true;
+            materialLabel90.Location = new Point(17, 220);
+            materialLabel90.MouseState = MaterialSkin.MouseState.HOVER;
+            materialLabel90.Name = "materialLabel90";
+            materialLabel90.Size = new Size(129, 19);
+            materialLabel90.TabIndex = 108;
+            materialLabel90.Text = "Bağlantı Durumu :";
+            // 
+            // materialLabel91
+            // 
+            materialLabel91.AutoSize = true;
+            materialLabel91.Depth = 0;
+            materialLabel91.Font = new Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
+            materialLabel91.HighEmphasis = true;
+            materialLabel91.Location = new Point(171, 220);
+            materialLabel91.MouseState = MaterialSkin.MouseState.HOVER;
+            materialLabel91.Name = "materialLabel91";
+            materialLabel91.Size = new Size(10, 19);
+            materialLabel91.TabIndex = 114;
+            materialLabel91.Text = "0";
+            materialLabel91.UseAccent = true;
+            // 
+            // materialLabel79
+            // 
+            materialLabel79.AutoSize = true;
+            materialLabel79.BorderStyle = BorderStyle.FixedSingle;
+            materialLabel79.Depth = 0;
+            materialLabel79.Font = new Font("Roboto", 24F, FontStyle.Bold, GraphicsUnit.Pixel);
+            materialLabel79.FontType = MaterialSkin.MaterialSkinManager.fontType.H5;
+            materialLabel79.Location = new Point(17, 14);
+            materialLabel79.MouseState = MaterialSkin.MouseState.HOVER;
+            materialLabel79.Name = "materialLabel79";
+            materialLabel79.Size = new Size(250, 29);
+            materialLabel79.TabIndex = 16;
+            materialLabel79.Text = "     LORA Ağ Ayarları      ";
             // 
             // materialCard7
             // 
             materialCard7.BackColor = Color.FromArgb(255, 255, 255);
+            materialCard7.Controls.Add(textBox1);
             materialCard7.Depth = 0;
             materialCard7.ForeColor = Color.FromArgb(222, 0, 0, 0);
-            materialCard7.Location = new Point(1191, 17);
+            materialCard7.Location = new Point(1101, 17);
             materialCard7.Margin = new Padding(14);
             materialCard7.MouseState = MaterialSkin.MouseState.HOVER;
             materialCard7.Name = "materialCard7";
             materialCard7.Padding = new Padding(14);
-            materialCard7.Size = new Size(349, 849);
+            materialCard7.Size = new Size(439, 849);
             materialCard7.TabIndex = 7;
             // 
             // materialCard6
             // 
             materialCard6.BackColor = Color.FromArgb(255, 255, 255);
+            materialCard6.Controls.Add(materialComboBox6);
+            materialCard6.Controls.Add(materialComboBox7);
+            materialCard6.Controls.Add(panel10);
+            materialCard6.Controls.Add(panel11);
+            materialCard6.Controls.Add(materialLabel73);
+            materialCard6.Controls.Add(materialLabel74);
+            materialCard6.Controls.Add(materialComboBox8);
+            materialCard6.Controls.Add(materialLabel75);
+            materialCard6.Controls.Add(materialLabel76);
+            materialCard6.Controls.Add(materialComboBox9);
+            materialCard6.Controls.Add(materialLabel77);
+            materialCard6.Controls.Add(materialComboBox10);
+            materialCard6.Controls.Add(materialLabel78);
             materialCard6.Depth = 0;
             materialCard6.ForeColor = Color.FromArgb(222, 0, 0, 0);
-            materialCard6.Location = new Point(604, 17);
+            materialCard6.Location = new Point(555, 14);
             materialCard6.Margin = new Padding(14);
             materialCard6.MouseState = MaterialSkin.MouseState.HOVER;
             materialCard6.Name = "materialCard6";
             materialCard6.Padding = new Padding(14);
-            materialCard6.Size = new Size(573, 474);
+            materialCard6.Size = new Size(528, 549);
             materialCard6.TabIndex = 6;
+            // 
+            // materialComboBox6
+            // 
+            materialComboBox6.AutoResize = false;
+            materialComboBox6.BackColor = Color.FromArgb(255, 255, 255);
+            materialComboBox6.Depth = 0;
+            materialComboBox6.DrawMode = DrawMode.OwnerDrawVariable;
+            materialComboBox6.DropDownHeight = 174;
+            materialComboBox6.DropDownStyle = ComboBoxStyle.DropDownList;
+            materialComboBox6.DropDownWidth = 121;
+            materialComboBox6.Font = new Font("Microsoft Sans Serif", 14F, FontStyle.Bold, GraphicsUnit.Pixel);
+            materialComboBox6.ForeColor = Color.FromArgb(222, 0, 0, 0);
+            materialComboBox6.FormattingEnabled = true;
+            materialComboBox6.IntegralHeight = false;
+            materialComboBox6.ItemHeight = 43;
+            materialComboBox6.Location = new Point(282, 269);
+            materialComboBox6.MaxDropDownItems = 4;
+            materialComboBox6.MouseState = MaterialSkin.MouseState.OUT;
+            materialComboBox6.Name = "materialComboBox6";
+            materialComboBox6.Size = new Size(228, 49);
+            materialComboBox6.StartIndex = 0;
+            materialComboBox6.TabIndex = 28;
+            // 
+            // materialComboBox7
+            // 
+            materialComboBox7.AutoResize = false;
+            materialComboBox7.BackColor = Color.FromArgb(255, 255, 255);
+            materialComboBox7.Depth = 0;
+            materialComboBox7.DrawMode = DrawMode.OwnerDrawVariable;
+            materialComboBox7.DropDownHeight = 174;
+            materialComboBox7.DropDownStyle = ComboBoxStyle.DropDownList;
+            materialComboBox7.DropDownWidth = 121;
+            materialComboBox7.Font = new Font("Microsoft Sans Serif", 14F, FontStyle.Bold, GraphicsUnit.Pixel);
+            materialComboBox7.ForeColor = Color.FromArgb(222, 0, 0, 0);
+            materialComboBox7.FormattingEnabled = true;
+            materialComboBox7.IntegralHeight = false;
+            materialComboBox7.ItemHeight = 43;
+            materialComboBox7.Location = new Point(282, 178);
+            materialComboBox7.MaxDropDownItems = 4;
+            materialComboBox7.MouseState = MaterialSkin.MouseState.OUT;
+            materialComboBox7.Name = "materialComboBox7";
+            materialComboBox7.Size = new Size(228, 49);
+            materialComboBox7.StartIndex = 0;
+            materialComboBox7.TabIndex = 27;
+            // 
+            // panel10
+            // 
+            panel10.BackColor = Color.Transparent;
+            panel10.Controls.Add(materialButton10);
+            panel10.ForeColor = Color.Transparent;
+            panel10.Location = new Point(17, 403);
+            panel10.Name = "panel10";
+            panel10.Size = new Size(228, 40);
+            panel10.TabIndex = 26;
+            // 
+            // materialButton10
+            // 
+            materialButton10.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            materialButton10.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            materialButton10.Depth = 0;
+            materialButton10.Dock = DockStyle.Fill;
+            materialButton10.Font = new Font("Segoe UI", 19F);
+            materialButton10.HighEmphasis = true;
+            materialButton10.Icon = null;
+            materialButton10.Location = new Point(0, 0);
+            materialButton10.Margin = new Padding(4, 6, 4, 6);
+            materialButton10.MouseState = MaterialSkin.MouseState.HOVER;
+            materialButton10.Name = "materialButton10";
+            materialButton10.NoAccentTextColor = Color.Empty;
+            materialButton10.Size = new Size(228, 40);
+            materialButton10.TabIndex = 1;
+            materialButton10.Text = "Bağlantıyı Kes";
+            materialButton10.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            materialButton10.UseAccentColor = false;
+            materialButton10.UseVisualStyleBackColor = true;
+            // 
+            // panel11
+            // 
+            panel11.BackColor = Color.Transparent;
+            panel11.Controls.Add(materialButton11);
+            panel11.ForeColor = Color.Transparent;
+            panel11.Location = new Point(17, 354);
+            panel11.Name = "panel11";
+            panel11.Size = new Size(228, 40);
+            panel11.TabIndex = 24;
+            // 
+            // materialButton11
+            // 
+            materialButton11.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            materialButton11.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            materialButton11.Depth = 0;
+            materialButton11.Dock = DockStyle.Fill;
+            materialButton11.Font = new Font("Segoe UI", 19F);
+            materialButton11.HighEmphasis = true;
+            materialButton11.Icon = null;
+            materialButton11.Location = new Point(0, 0);
+            materialButton11.Margin = new Padding(4, 6, 4, 6);
+            materialButton11.MouseState = MaterialSkin.MouseState.HOVER;
+            materialButton11.Name = "materialButton11";
+            materialButton11.NoAccentTextColor = Color.Empty;
+            materialButton11.Size = new Size(228, 40);
+            materialButton11.TabIndex = 1;
+            materialButton11.Text = "Bağlan";
+            materialButton11.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            materialButton11.UseAccentColor = false;
+            materialButton11.UseVisualStyleBackColor = true;
+            // 
+            // materialLabel73
+            // 
+            materialLabel73.AutoSize = true;
+            materialLabel73.Depth = 0;
+            materialLabel73.Font = new Font("Roboto Medium", 20F, FontStyle.Bold, GraphicsUnit.Pixel);
+            materialLabel73.FontType = MaterialSkin.MaterialSkinManager.fontType.H6;
+            materialLabel73.Location = new Point(282, 242);
+            materialLabel73.MouseState = MaterialSkin.MouseState.HOVER;
+            materialLabel73.Name = "materialLabel73";
+            materialLabel73.Size = new Size(128, 24);
+            materialLabel73.TabIndex = 23;
+            materialLabel73.Text = "Parity Metodu";
+            // 
+            // materialLabel74
+            // 
+            materialLabel74.AutoSize = true;
+            materialLabel74.Depth = 0;
+            materialLabel74.Font = new Font("Roboto Medium", 20F, FontStyle.Bold, GraphicsUnit.Pixel);
+            materialLabel74.FontType = MaterialSkin.MaterialSkinManager.fontType.H6;
+            materialLabel74.Location = new Point(17, 242);
+            materialLabel74.MouseState = MaterialSkin.MouseState.HOVER;
+            materialLabel74.Name = "materialLabel74";
+            materialLabel74.Size = new Size(72, 24);
+            materialLabel74.TabIndex = 22;
+            materialLabel74.Text = "Stop Bit";
+            // 
+            // materialComboBox8
+            // 
+            materialComboBox8.AutoResize = false;
+            materialComboBox8.BackColor = Color.FromArgb(255, 255, 255);
+            materialComboBox8.Depth = 0;
+            materialComboBox8.DrawMode = DrawMode.OwnerDrawVariable;
+            materialComboBox8.DropDownHeight = 174;
+            materialComboBox8.DropDownStyle = ComboBoxStyle.DropDownList;
+            materialComboBox8.DropDownWidth = 121;
+            materialComboBox8.Font = new Font("Microsoft Sans Serif", 14F, FontStyle.Bold, GraphicsUnit.Pixel);
+            materialComboBox8.ForeColor = Color.FromArgb(222, 0, 0, 0);
+            materialComboBox8.FormattingEnabled = true;
+            materialComboBox8.IntegralHeight = false;
+            materialComboBox8.ItemHeight = 43;
+            materialComboBox8.Location = new Point(17, 269);
+            materialComboBox8.MaxDropDownItems = 4;
+            materialComboBox8.MouseState = MaterialSkin.MouseState.OUT;
+            materialComboBox8.Name = "materialComboBox8";
+            materialComboBox8.Size = new Size(228, 49);
+            materialComboBox8.StartIndex = 0;
+            materialComboBox8.TabIndex = 21;
+            // 
+            // materialLabel75
+            // 
+            materialLabel75.AutoSize = true;
+            materialLabel75.Depth = 0;
+            materialLabel75.Font = new Font("Roboto Medium", 20F, FontStyle.Bold, GraphicsUnit.Pixel);
+            materialLabel75.FontType = MaterialSkin.MaterialSkinManager.fontType.H6;
+            materialLabel75.Location = new Point(282, 151);
+            materialLabel75.MouseState = MaterialSkin.MouseState.HOVER;
+            materialLabel75.Name = "materialLabel75";
+            materialLabel75.Size = new Size(91, 24);
+            materialLabel75.TabIndex = 20;
+            materialLabel75.Text = " Baud Hızı";
+            // 
+            // materialLabel76
+            // 
+            materialLabel76.AutoSize = true;
+            materialLabel76.Depth = 0;
+            materialLabel76.Font = new Font("Roboto Medium", 20F, FontStyle.Bold, GraphicsUnit.Pixel);
+            materialLabel76.FontType = MaterialSkin.MaterialSkinManager.fontType.H6;
+            materialLabel76.Location = new Point(17, 151);
+            materialLabel76.MouseState = MaterialSkin.MouseState.HOVER;
+            materialLabel76.Name = "materialLabel76";
+            materialLabel76.Size = new Size(78, 24);
+            materialLabel76.TabIndex = 19;
+            materialLabel76.Text = " Data Bit";
+            // 
+            // materialComboBox9
+            // 
+            materialComboBox9.AutoResize = false;
+            materialComboBox9.BackColor = Color.FromArgb(255, 255, 255);
+            materialComboBox9.Depth = 0;
+            materialComboBox9.DrawMode = DrawMode.OwnerDrawVariable;
+            materialComboBox9.DropDownHeight = 174;
+            materialComboBox9.DropDownStyle = ComboBoxStyle.DropDownList;
+            materialComboBox9.DropDownWidth = 121;
+            materialComboBox9.Font = new Font("Microsoft Sans Serif", 14F, FontStyle.Bold, GraphicsUnit.Pixel);
+            materialComboBox9.ForeColor = Color.FromArgb(222, 0, 0, 0);
+            materialComboBox9.FormattingEnabled = true;
+            materialComboBox9.IntegralHeight = false;
+            materialComboBox9.ItemHeight = 43;
+            materialComboBox9.Location = new Point(17, 178);
+            materialComboBox9.MaxDropDownItems = 4;
+            materialComboBox9.MouseState = MaterialSkin.MouseState.OUT;
+            materialComboBox9.Name = "materialComboBox9";
+            materialComboBox9.Size = new Size(228, 49);
+            materialComboBox9.StartIndex = 0;
+            materialComboBox9.TabIndex = 18;
+            // 
+            // materialLabel77
+            // 
+            materialLabel77.AutoSize = true;
+            materialLabel77.Depth = 0;
+            materialLabel77.Font = new Font("Roboto Medium", 20F, FontStyle.Bold, GraphicsUnit.Pixel);
+            materialLabel77.FontType = MaterialSkin.MaterialSkinManager.fontType.H6;
+            materialLabel77.Location = new Point(17, 62);
+            materialLabel77.MouseState = MaterialSkin.MouseState.HOVER;
+            materialLabel77.Name = "materialLabel77";
+            materialLabel77.Size = new Size(84, 24);
+            materialLabel77.TabIndex = 17;
+            materialLabel77.Text = " Seri Port";
+            // 
+            // materialComboBox10
+            // 
+            materialComboBox10.AutoResize = false;
+            materialComboBox10.BackColor = Color.FromArgb(255, 255, 255);
+            materialComboBox10.Depth = 0;
+            materialComboBox10.DrawMode = DrawMode.OwnerDrawVariable;
+            materialComboBox10.DropDownHeight = 174;
+            materialComboBox10.DropDownStyle = ComboBoxStyle.DropDownList;
+            materialComboBox10.DropDownWidth = 121;
+            materialComboBox10.Font = new Font("Microsoft Sans Serif", 14F, FontStyle.Bold, GraphicsUnit.Pixel);
+            materialComboBox10.ForeColor = Color.FromArgb(222, 0, 0, 0);
+            materialComboBox10.FormattingEnabled = true;
+            materialComboBox10.IntegralHeight = false;
+            materialComboBox10.ItemHeight = 43;
+            materialComboBox10.Location = new Point(17, 89);
+            materialComboBox10.MaxDropDownItems = 4;
+            materialComboBox10.MouseState = MaterialSkin.MouseState.OUT;
+            materialComboBox10.Name = "materialComboBox10";
+            materialComboBox10.Size = new Size(322, 49);
+            materialComboBox10.StartIndex = 0;
+            materialComboBox10.TabIndex = 16;
+            // 
+            // materialLabel78
+            // 
+            materialLabel78.AutoSize = true;
+            materialLabel78.BorderStyle = BorderStyle.FixedSingle;
+            materialLabel78.Depth = 0;
+            materialLabel78.Font = new Font("Roboto", 24F, FontStyle.Bold, GraphicsUnit.Pixel);
+            materialLabel78.FontType = MaterialSkin.MaterialSkinManager.fontType.H5;
+            materialLabel78.Location = new Point(17, 11);
+            materialLabel78.MouseState = MaterialSkin.MouseState.HOVER;
+            materialLabel78.Name = "materialLabel78";
+            materialLabel78.Size = new Size(243, 29);
+            materialLabel78.TabIndex = 15;
+            materialLabel78.Text = "      HYI Port Ayarları     ";
             // 
             // materialCard5
             // 
             materialCard5.BackColor = Color.FromArgb(255, 255, 255);
+            materialCard5.Controls.Add(materialComboBox5);
+            materialCard5.Controls.Add(materialComboBox3);
+            materialCard5.Controls.Add(panel8);
+            materialCard5.Controls.Add(panel7);
+            materialCard5.Controls.Add(panel6);
+            materialCard5.Controls.Add(materialLabel72);
+            materialCard5.Controls.Add(materialLabel71);
+            materialCard5.Controls.Add(materialComboBox4);
+            materialCard5.Controls.Add(materialLabel70);
+            materialCard5.Controls.Add(materialLabel69);
+            materialCard5.Controls.Add(materialComboBox2);
+            materialCard5.Controls.Add(materialLabel68);
+            materialCard5.Controls.Add(materialComboBox1);
+            materialCard5.Controls.Add(materialLabel67);
             materialCard5.Depth = 0;
             materialCard5.ForeColor = Color.FromArgb(222, 0, 0, 0);
             materialCard5.Location = new Point(14, 14);
@@ -1423,8 +2410,292 @@
             materialCard5.MouseState = MaterialSkin.MouseState.HOVER;
             materialCard5.Name = "materialCard5";
             materialCard5.Padding = new Padding(14);
-            materialCard5.Size = new Size(573, 477);
+            materialCard5.Size = new Size(528, 549);
             materialCard5.TabIndex = 5;
+            // 
+            // materialComboBox5
+            // 
+            materialComboBox5.AutoResize = false;
+            materialComboBox5.BackColor = Color.FromArgb(255, 255, 255);
+            materialComboBox5.Depth = 0;
+            materialComboBox5.DrawMode = DrawMode.OwnerDrawVariable;
+            materialComboBox5.DropDownHeight = 174;
+            materialComboBox5.DropDownStyle = ComboBoxStyle.DropDownList;
+            materialComboBox5.DropDownWidth = 121;
+            materialComboBox5.Font = new Font("Microsoft Sans Serif", 14F, FontStyle.Bold, GraphicsUnit.Pixel);
+            materialComboBox5.ForeColor = Color.FromArgb(222, 0, 0, 0);
+            materialComboBox5.FormattingEnabled = true;
+            materialComboBox5.IntegralHeight = false;
+            materialComboBox5.ItemHeight = 43;
+            materialComboBox5.Location = new Point(282, 272);
+            materialComboBox5.MaxDropDownItems = 4;
+            materialComboBox5.MouseState = MaterialSkin.MouseState.OUT;
+            materialComboBox5.Name = "materialComboBox5";
+            materialComboBox5.Size = new Size(228, 49);
+            materialComboBox5.StartIndex = 0;
+            materialComboBox5.TabIndex = 14;
+            // 
+            // materialComboBox3
+            // 
+            materialComboBox3.AutoResize = false;
+            materialComboBox3.BackColor = Color.FromArgb(255, 255, 255);
+            materialComboBox3.Depth = 0;
+            materialComboBox3.DrawMode = DrawMode.OwnerDrawVariable;
+            materialComboBox3.DropDownHeight = 174;
+            materialComboBox3.DropDownStyle = ComboBoxStyle.DropDownList;
+            materialComboBox3.DropDownWidth = 121;
+            materialComboBox3.Font = new Font("Microsoft Sans Serif", 14F, FontStyle.Bold, GraphicsUnit.Pixel);
+            materialComboBox3.ForeColor = Color.FromArgb(222, 0, 0, 0);
+            materialComboBox3.FormattingEnabled = true;
+            materialComboBox3.IntegralHeight = false;
+            materialComboBox3.ItemHeight = 43;
+            materialComboBox3.Location = new Point(282, 181);
+            materialComboBox3.MaxDropDownItems = 4;
+            materialComboBox3.MouseState = MaterialSkin.MouseState.OUT;
+            materialComboBox3.Name = "materialComboBox3";
+            materialComboBox3.Size = new Size(228, 49);
+            materialComboBox3.StartIndex = 0;
+            materialComboBox3.TabIndex = 13;
+            // 
+            // panel8
+            // 
+            panel8.BackColor = Color.Transparent;
+            panel8.Controls.Add(materialButton8);
+            panel8.ForeColor = Color.Transparent;
+            panel8.Location = new Point(282, 357);
+            panel8.Name = "panel8";
+            panel8.Size = new Size(228, 40);
+            panel8.TabIndex = 12;
+            // 
+            // materialButton8
+            // 
+            materialButton8.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            materialButton8.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            materialButton8.Depth = 0;
+            materialButton8.Dock = DockStyle.Fill;
+            materialButton8.Font = new Font("Segoe UI", 19F);
+            materialButton8.HighEmphasis = true;
+            materialButton8.Icon = null;
+            materialButton8.Location = new Point(0, 0);
+            materialButton8.Margin = new Padding(4, 6, 4, 6);
+            materialButton8.MouseState = MaterialSkin.MouseState.HOVER;
+            materialButton8.Name = "materialButton8";
+            materialButton8.NoAccentTextColor = Color.Empty;
+            materialButton8.Size = new Size(228, 40);
+            materialButton8.TabIndex = 1;
+            materialButton8.Text = "Test Verisi Gönder";
+            materialButton8.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            materialButton8.UseAccentColor = false;
+            materialButton8.UseVisualStyleBackColor = true;
+            // 
+            // panel7
+            // 
+            panel7.BackColor = Color.Transparent;
+            panel7.Controls.Add(materialButton7);
+            panel7.ForeColor = Color.Transparent;
+            panel7.Location = new Point(17, 406);
+            panel7.Name = "panel7";
+            panel7.Size = new Size(228, 40);
+            panel7.TabIndex = 12;
+            // 
+            // materialButton7
+            // 
+            materialButton7.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            materialButton7.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            materialButton7.Depth = 0;
+            materialButton7.Dock = DockStyle.Fill;
+            materialButton7.Font = new Font("Segoe UI", 19F);
+            materialButton7.HighEmphasis = true;
+            materialButton7.Icon = null;
+            materialButton7.Location = new Point(0, 0);
+            materialButton7.Margin = new Padding(4, 6, 4, 6);
+            materialButton7.MouseState = MaterialSkin.MouseState.HOVER;
+            materialButton7.Name = "materialButton7";
+            materialButton7.NoAccentTextColor = Color.Empty;
+            materialButton7.Size = new Size(228, 40);
+            materialButton7.TabIndex = 1;
+            materialButton7.Text = "Bağlantıyı Kes";
+            materialButton7.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            materialButton7.UseAccentColor = false;
+            materialButton7.UseVisualStyleBackColor = true;
+            // 
+            // panel6
+            // 
+            panel6.BackColor = Color.Transparent;
+            panel6.Controls.Add(materialButton6);
+            panel6.ForeColor = Color.Transparent;
+            panel6.Location = new Point(17, 357);
+            panel6.Name = "panel6";
+            panel6.Size = new Size(228, 40);
+            panel6.TabIndex = 11;
+            // 
+            // materialButton6
+            // 
+            materialButton6.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            materialButton6.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            materialButton6.Depth = 0;
+            materialButton6.Dock = DockStyle.Fill;
+            materialButton6.Font = new Font("Segoe UI", 19F);
+            materialButton6.HighEmphasis = true;
+            materialButton6.Icon = null;
+            materialButton6.Location = new Point(0, 0);
+            materialButton6.Margin = new Padding(4, 6, 4, 6);
+            materialButton6.MouseState = MaterialSkin.MouseState.HOVER;
+            materialButton6.Name = "materialButton6";
+            materialButton6.NoAccentTextColor = Color.Empty;
+            materialButton6.Size = new Size(228, 40);
+            materialButton6.TabIndex = 1;
+            materialButton6.Text = "Bağlan";
+            materialButton6.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            materialButton6.UseAccentColor = false;
+            materialButton6.UseVisualStyleBackColor = true;
+            // 
+            // materialLabel72
+            // 
+            materialLabel72.AutoSize = true;
+            materialLabel72.Depth = 0;
+            materialLabel72.Font = new Font("Roboto Medium", 20F, FontStyle.Bold, GraphicsUnit.Pixel);
+            materialLabel72.FontType = MaterialSkin.MaterialSkinManager.fontType.H6;
+            materialLabel72.Location = new Point(282, 245);
+            materialLabel72.MouseState = MaterialSkin.MouseState.HOVER;
+            materialLabel72.Name = "materialLabel72";
+            materialLabel72.Size = new Size(128, 24);
+            materialLabel72.TabIndex = 10;
+            materialLabel72.Text = "Parity Metodu";
+            // 
+            // materialLabel71
+            // 
+            materialLabel71.AutoSize = true;
+            materialLabel71.Depth = 0;
+            materialLabel71.Font = new Font("Roboto Medium", 20F, FontStyle.Bold, GraphicsUnit.Pixel);
+            materialLabel71.FontType = MaterialSkin.MaterialSkinManager.fontType.H6;
+            materialLabel71.Location = new Point(17, 245);
+            materialLabel71.MouseState = MaterialSkin.MouseState.HOVER;
+            materialLabel71.Name = "materialLabel71";
+            materialLabel71.Size = new Size(72, 24);
+            materialLabel71.TabIndex = 8;
+            materialLabel71.Text = "Stop Bit";
+            // 
+            // materialComboBox4
+            // 
+            materialComboBox4.AutoResize = false;
+            materialComboBox4.BackColor = Color.FromArgb(255, 255, 255);
+            materialComboBox4.Depth = 0;
+            materialComboBox4.DrawMode = DrawMode.OwnerDrawVariable;
+            materialComboBox4.DropDownHeight = 174;
+            materialComboBox4.DropDownStyle = ComboBoxStyle.DropDownList;
+            materialComboBox4.DropDownWidth = 121;
+            materialComboBox4.Font = new Font("Microsoft Sans Serif", 14F, FontStyle.Bold, GraphicsUnit.Pixel);
+            materialComboBox4.ForeColor = Color.FromArgb(222, 0, 0, 0);
+            materialComboBox4.FormattingEnabled = true;
+            materialComboBox4.IntegralHeight = false;
+            materialComboBox4.ItemHeight = 43;
+            materialComboBox4.Location = new Point(17, 272);
+            materialComboBox4.MaxDropDownItems = 4;
+            materialComboBox4.MouseState = MaterialSkin.MouseState.OUT;
+            materialComboBox4.Name = "materialComboBox4";
+            materialComboBox4.Size = new Size(228, 49);
+            materialComboBox4.StartIndex = 0;
+            materialComboBox4.TabIndex = 7;
+            // 
+            // materialLabel70
+            // 
+            materialLabel70.AutoSize = true;
+            materialLabel70.Depth = 0;
+            materialLabel70.Font = new Font("Roboto Medium", 20F, FontStyle.Bold, GraphicsUnit.Pixel);
+            materialLabel70.FontType = MaterialSkin.MaterialSkinManager.fontType.H6;
+            materialLabel70.Location = new Point(282, 154);
+            materialLabel70.MouseState = MaterialSkin.MouseState.HOVER;
+            materialLabel70.Name = "materialLabel70";
+            materialLabel70.Size = new Size(91, 24);
+            materialLabel70.TabIndex = 6;
+            materialLabel70.Text = " Baud Hızı";
+            // 
+            // materialLabel69
+            // 
+            materialLabel69.AutoSize = true;
+            materialLabel69.Depth = 0;
+            materialLabel69.Font = new Font("Roboto Medium", 20F, FontStyle.Bold, GraphicsUnit.Pixel);
+            materialLabel69.FontType = MaterialSkin.MaterialSkinManager.fontType.H6;
+            materialLabel69.Location = new Point(17, 154);
+            materialLabel69.MouseState = MaterialSkin.MouseState.HOVER;
+            materialLabel69.Name = "materialLabel69";
+            materialLabel69.Size = new Size(78, 24);
+            materialLabel69.TabIndex = 4;
+            materialLabel69.Text = " Data Bit";
+            // 
+            // materialComboBox2
+            // 
+            materialComboBox2.AutoResize = false;
+            materialComboBox2.BackColor = Color.FromArgb(255, 255, 255);
+            materialComboBox2.Depth = 0;
+            materialComboBox2.DrawMode = DrawMode.OwnerDrawVariable;
+            materialComboBox2.DropDownHeight = 174;
+            materialComboBox2.DropDownStyle = ComboBoxStyle.DropDownList;
+            materialComboBox2.DropDownWidth = 121;
+            materialComboBox2.Font = new Font("Microsoft Sans Serif", 14F, FontStyle.Bold, GraphicsUnit.Pixel);
+            materialComboBox2.ForeColor = Color.FromArgb(222, 0, 0, 0);
+            materialComboBox2.FormattingEnabled = true;
+            materialComboBox2.IntegralHeight = false;
+            materialComboBox2.ItemHeight = 43;
+            materialComboBox2.Location = new Point(17, 181);
+            materialComboBox2.MaxDropDownItems = 4;
+            materialComboBox2.MouseState = MaterialSkin.MouseState.OUT;
+            materialComboBox2.Name = "materialComboBox2";
+            materialComboBox2.Size = new Size(228, 49);
+            materialComboBox2.StartIndex = 0;
+            materialComboBox2.TabIndex = 3;
+            // 
+            // materialLabel68
+            // 
+            materialLabel68.AutoSize = true;
+            materialLabel68.Depth = 0;
+            materialLabel68.Font = new Font("Roboto Medium", 20F, FontStyle.Bold, GraphicsUnit.Pixel);
+            materialLabel68.FontType = MaterialSkin.MaterialSkinManager.fontType.H6;
+            materialLabel68.Location = new Point(17, 65);
+            materialLabel68.MouseState = MaterialSkin.MouseState.HOVER;
+            materialLabel68.Name = "materialLabel68";
+            materialLabel68.Size = new Size(84, 24);
+            materialLabel68.TabIndex = 2;
+            materialLabel68.Text = " Seri Port";
+            materialLabel68.Click += materialLabel68_Click;
+            // 
+            // materialComboBox1
+            // 
+            materialComboBox1.AutoResize = false;
+            materialComboBox1.BackColor = Color.FromArgb(255, 255, 255);
+            materialComboBox1.Depth = 0;
+            materialComboBox1.DrawMode = DrawMode.OwnerDrawVariable;
+            materialComboBox1.DropDownHeight = 174;
+            materialComboBox1.DropDownStyle = ComboBoxStyle.DropDownList;
+            materialComboBox1.DropDownWidth = 121;
+            materialComboBox1.Font = new Font("Microsoft Sans Serif", 14F, FontStyle.Bold, GraphicsUnit.Pixel);
+            materialComboBox1.ForeColor = Color.FromArgb(222, 0, 0, 0);
+            materialComboBox1.FormattingEnabled = true;
+            materialComboBox1.IntegralHeight = false;
+            materialComboBox1.ItemHeight = 43;
+            materialComboBox1.Location = new Point(17, 92);
+            materialComboBox1.MaxDropDownItems = 4;
+            materialComboBox1.MouseState = MaterialSkin.MouseState.OUT;
+            materialComboBox1.Name = "materialComboBox1";
+            materialComboBox1.Size = new Size(322, 49);
+            materialComboBox1.StartIndex = 0;
+            materialComboBox1.TabIndex = 1;
+            // 
+            // materialLabel67
+            // 
+            materialLabel67.AutoSize = true;
+            materialLabel67.BorderStyle = BorderStyle.FixedSingle;
+            materialLabel67.Depth = 0;
+            materialLabel67.Font = new Font("Roboto", 24F, FontStyle.Bold, GraphicsUnit.Pixel);
+            materialLabel67.FontType = MaterialSkin.MaterialSkinManager.fontType.H5;
+            materialLabel67.Location = new Point(17, 14);
+            materialLabel67.MouseState = MaterialSkin.MouseState.HOVER;
+            materialLabel67.Name = "materialLabel67";
+            materialLabel67.Size = new Size(260, 29);
+            materialLabel67.TabIndex = 0;
+            materialLabel67.Text = "     LORA Port Ayarları     ";
+            materialLabel67.Click += materialLabel67_Click;
             // 
             // tabPage3
             // 
@@ -1440,7 +2711,8 @@
             // 
             panel4.BackColor = Color.Transparent;
             panel4.Controls.Add(materialButton4);
-            panel4.Location = new Point(1445, 36);
+            panel4.ForeColor = Color.Transparent;
+            panel4.Location = new Point(1498, 35);
             panel4.Name = "panel4";
             panel4.Size = new Size(40, 40);
             panel4.TabIndex = 1;
@@ -1471,7 +2743,8 @@
             // 
             panel5.BackColor = Color.Transparent;
             panel5.Controls.Add(materialButton5);
-            panel5.Location = new Point(1492, 36);
+            panel5.ForeColor = Color.Transparent;
+            panel5.Location = new Point(1545, 35);
             panel5.Name = "panel5";
             panel5.Size = new Size(40, 40);
             panel5.TabIndex = 2;
@@ -1498,42 +2771,23 @@
             materialButton5.UseVisualStyleBackColor = true;
             materialButton5.Click += materialButton5_Click;
             // 
-            // panel6
+            // textBox1
             // 
-            panel6.BackColor = Color.Transparent;
-            panel6.Controls.Add(materialButton6);
-            panel6.Location = new Point(1539, 36);
-            panel6.Name = "panel6";
-            panel6.Size = new Size(40, 40);
-            panel6.TabIndex = 2;
-            // 
-            // materialButton6
-            // 
-            materialButton6.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            materialButton6.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
-            materialButton6.Depth = 0;
-            materialButton6.Dock = DockStyle.Fill;
-            materialButton6.Font = new Font("Segoe UI", 19F);
-            materialButton6.HighEmphasis = true;
-            materialButton6.Icon = null;
-            materialButton6.Location = new Point(0, 0);
-            materialButton6.Margin = new Padding(4, 6, 4, 6);
-            materialButton6.MouseState = MaterialSkin.MouseState.HOVER;
-            materialButton6.Name = "materialButton6";
-            materialButton6.NoAccentTextColor = Color.Empty;
-            materialButton6.Size = new Size(40, 40);
-            materialButton6.TabIndex = 1;
-            materialButton6.Text = "3";
-            materialButton6.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
-            materialButton6.UseAccentColor = false;
-            materialButton6.UseVisualStyleBackColor = true;
-            materialButton6.Click += materialButton6_Click;
+            textBox1.BackColor = Color.Black;
+            textBox1.Dock = DockStyle.Fill;
+            textBox1.Font = new Font("Consolas", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 162);
+            textBox1.ForeColor = Color.White;
+            textBox1.Location = new Point(14, 14);
+            textBox1.Multiline = true;
+            textBox1.Name = "textBox1";
+            textBox1.Size = new Size(411, 821);
+            textBox1.TabIndex = 0;
+            textBox1.Text = "Property Of Volans Roket Takımı 2024";
             // 
             // Form1
             // 
             AutoScaleMode = AutoScaleMode.None;
             ClientSize = new Size(1942, 1102);
-            Controls.Add(panel6);
             Controls.Add(panel5);
             Controls.Add(panel4);
             Controls.Add(materialTabControl1);
@@ -1562,12 +2816,44 @@
             materialCard2.ResumeLayout(false);
             materialCard2.PerformLayout();
             tabPage2.ResumeLayout(false);
+            materialCard8.ResumeLayout(false);
+            materialCard8.PerformLayout();
+            panel17.ResumeLayout(false);
+            panel17.PerformLayout();
+            panel18.ResumeLayout(false);
+            panel18.PerformLayout();
+            panel13.ResumeLayout(false);
+            panel13.PerformLayout();
+            panel14.ResumeLayout(false);
+            panel14.PerformLayout();
+            panel9.ResumeLayout(false);
+            panel9.PerformLayout();
+            panel12.ResumeLayout(false);
+            panel12.PerformLayout();
+            panel15.ResumeLayout(false);
+            panel15.PerformLayout();
+            panel16.ResumeLayout(false);
+            panel16.PerformLayout();
+            materialCard7.ResumeLayout(false);
+            materialCard7.PerformLayout();
+            materialCard6.ResumeLayout(false);
+            materialCard6.PerformLayout();
+            panel10.ResumeLayout(false);
+            panel10.PerformLayout();
+            panel11.ResumeLayout(false);
+            panel11.PerformLayout();
+            materialCard5.ResumeLayout(false);
+            materialCard5.PerformLayout();
+            panel8.ResumeLayout(false);
+            panel8.PerformLayout();
+            panel7.ResumeLayout(false);
+            panel7.PerformLayout();
+            panel6.ResumeLayout(false);
+            panel6.PerformLayout();
             panel4.ResumeLayout(false);
             panel4.PerformLayout();
             panel5.ResumeLayout(false);
             panel5.PerformLayout();
-            panel6.ResumeLayout(false);
-            panel6.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -1665,7 +2951,78 @@
         private MaterialSkin.Controls.MaterialButton materialButton4;
         private Panel panel5;
         private MaterialSkin.Controls.MaterialButton materialButton5;
+        private MaterialSkin.Controls.MaterialLabel materialLabel67;
+        private MaterialSkin.Controls.MaterialLabel materialLabel68;
+        private MaterialSkin.Controls.MaterialComboBox materialComboBox1;
+        private MaterialSkin.Controls.MaterialComboBox materialComboBox3;
+        private Panel panel8;
+        private MaterialSkin.Controls.MaterialButton materialButton8;
+        private Panel panel7;
+        private MaterialSkin.Controls.MaterialButton materialButton7;
         private Panel panel6;
         private MaterialSkin.Controls.MaterialButton materialButton6;
+        private MaterialSkin.Controls.MaterialLabel materialLabel72;
+        private MaterialSkin.Controls.MaterialLabel materialLabel71;
+        private MaterialSkin.Controls.MaterialComboBox materialComboBox4;
+        private MaterialSkin.Controls.MaterialLabel materialLabel70;
+        private MaterialSkin.Controls.MaterialLabel materialLabel69;
+        private MaterialSkin.Controls.MaterialComboBox materialComboBox2;
+        private MaterialSkin.Controls.MaterialLabel materialLabel92;
+        private MaterialSkin.Controls.MaterialLabel materialLabel93;
+        private MaterialSkin.Controls.MaterialLabel materialLabel94;
+        private MaterialSkin.Controls.MaterialLabel materialLabel95;
+        private MaterialSkin.Controls.MaterialLabel materialLabel96;
+        private MaterialSkin.Controls.MaterialLabel materialLabel97;
+        private MaterialSkin.Controls.MaterialLabel materialLabel98;
+        private MaterialSkin.Controls.MaterialLabel materialLabel99;
+        private MaterialSkin.Controls.MaterialLabel materialLabel80;
+        private MaterialSkin.Controls.MaterialLabel materialLabel81;
+        private MaterialSkin.Controls.MaterialLabel materialLabel82;
+        private MaterialSkin.Controls.MaterialLabel materialLabel83;
+        private MaterialSkin.Controls.MaterialLabel materialLabel84;
+        private MaterialSkin.Controls.MaterialLabel materialLabel85;
+        private MaterialSkin.Controls.MaterialLabel materialLabel86;
+        private MaterialSkin.Controls.MaterialLabel materialLabel87;
+        private MaterialSkin.Controls.MaterialLabel materialLabel88;
+        private MaterialSkin.Controls.MaterialLabel materialLabel89;
+        private MaterialSkin.Controls.MaterialLabel materialLabel90;
+        private MaterialSkin.Controls.MaterialLabel materialLabel91;
+        private MaterialSkin.Controls.MaterialLabel materialLabel79;
+        private MaterialSkin.Controls.MaterialComboBox materialComboBox6;
+        private MaterialSkin.Controls.MaterialComboBox materialComboBox7;
+        private Panel panel10;
+        private MaterialSkin.Controls.MaterialButton materialButton10;
+        private Panel panel11;
+        private MaterialSkin.Controls.MaterialButton materialButton11;
+        private MaterialSkin.Controls.MaterialLabel materialLabel73;
+        private MaterialSkin.Controls.MaterialLabel materialLabel74;
+        private MaterialSkin.Controls.MaterialComboBox materialComboBox8;
+        private MaterialSkin.Controls.MaterialLabel materialLabel75;
+        private MaterialSkin.Controls.MaterialLabel materialLabel76;
+        private MaterialSkin.Controls.MaterialComboBox materialComboBox9;
+        private MaterialSkin.Controls.MaterialLabel materialLabel77;
+        private MaterialSkin.Controls.MaterialComboBox materialComboBox10;
+        private MaterialSkin.Controls.MaterialLabel materialLabel78;
+        private MaterialSkin.Controls.MaterialComboBox materialComboBox5;
+        private Panel panel15;
+        private MaterialSkin.Controls.MaterialButton materialButton15;
+        private Panel panel16;
+        private MaterialSkin.Controls.MaterialButton materialButton16;
+        private Panel panel18;
+        private MaterialSkin.Controls.MaterialButton materialButton18;
+        private Panel panel13;
+        private MaterialSkin.Controls.MaterialButton materialButton13;
+        private Panel panel14;
+        private MaterialSkin.Controls.MaterialButton materialButton14;
+        private Panel panel9;
+        private MaterialSkin.Controls.MaterialButton materialButton9;
+        private Panel panel12;
+        private MaterialSkin.Controls.MaterialButton materialButton12;
+        private MaterialSkin.Controls.MaterialComboBox materialComboBox11;
+        private Panel panel17;
+        private MaterialSkin.Controls.MaterialButton materialButton17;
+        private MaterialSkin.Controls.MaterialLabel materialLabel100;
+        private MaterialSkin.Controls.MaterialTextBox materialTextBox1;
+        private TextBox textBox1;
     }
 }
