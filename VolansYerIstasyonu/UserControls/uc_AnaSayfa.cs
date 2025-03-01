@@ -58,21 +58,21 @@ namespace VolansYerIstasyonu.UserControls
             InitializeMap();
             //uc_PortAyarlari.loraSerialPort.DataReceived += loraSerialPort_DataReceived; //subscription test
 
-            anasayfaHarita.MapProvider = GMapProviders.GoogleMap;
-            GMaps.Instance.Mode = AccessMode.ServerOnly;
-            anasayfaHarita.Position = new PointLatLng(40.7158587326396, 31.5250968933105);
+            anasayfaHarita.MapProvider = GMap.NET.MapProviders.GMapProviders.OpenStreetMap;
+            GMaps.Instance.Mode = AccessMode.ServerAndCache;
+            anasayfaHarita.Position = new GMap.NET.PointLatLng(40.7166, 31.5247);
             anasayfaHarita.MinZoom = 1;
-            anasayfaHarita.MaxZoom = 24;
-            anasayfaHarita.Zoom = 18;
+            anasayfaHarita.MaxZoom = 20;
+            anasayfaHarita.Zoom = 15;
 
             markersOverlay = new GMapOverlay("markers");
             anasayfaHarita.Overlays.Add(markersOverlay);
 
-            Bitmap customIcon = new Bitmap("C:\\Users\\ASUS\\Source\\Repos\\EnesTalhaCelik\\VolansYerIstasyonu\\VolansYerIstasyonu\\images\\rocket.png"); // Use the path to your custom icon
-            Bitmap resizedIcon = ResizeImage(customIcon,25,25); // Resize to desired dimensions
+            //Bitmap customIcon = new Bitmap("C:\\Users\\ASUS\\Source\\Repos\\EnesTalhaCelik\\VolansYerIstasyonu\\VolansYerIstasyonu\\images\\rocket.png"); // Use the path to your custom icon
+            //Bitmap resizedIcon = ResizeImage(customIcon,25,25); // Resize to desired dimensions
 
             // Create marker with the resized icon
-            gpsMarker = new GMarkerGoogle(new PointLatLng(40.7350, 31.6060), resizedIcon);
+            gpsMarker = new GMarkerGoogle(new PointLatLng(40.7350, 31.6060), GMarkerGoogleType.blue);
             markersOverlay.Markers.Add(gpsMarker);
             positions = new List<PointLatLng>();
         }
@@ -171,12 +171,12 @@ namespace VolansYerIstasyonu.UserControls
 
         private void InitializeMap()
         {
-            anasayfaHarita.MapProvider = GMap.NET.MapProviders.GoogleMapProvider.Instance;
+            anasayfaHarita.MapProvider = GMap.NET.MapProviders.GMapProviders.OpenStreetMap;
             GMap.NET.GMaps.Instance.Mode = GMap.NET.AccessMode.ServerOnly;
-            anasayfaHarita.Position = new GMap.NET.PointLatLng(40.7350, 31.6060); // Bolu, Türkiye
-            anasayfaHarita.MinZoom = 2;
-            anasayfaHarita.MaxZoom = 18;
-            anasayfaHarita.Zoom = 5;
+            anasayfaHarita.Position = new GMap.NET.PointLatLng(40.716582514101354, 31.52471117735377); // Bolu, Türkiye
+            anasayfaHarita.MinZoom = 1;
+            anasayfaHarita.MaxZoom = 20;
+            anasayfaHarita.Zoom = 15;
 
 
             overlay = new GMapOverlay("markers");
@@ -429,8 +429,8 @@ namespace VolansYerIstasyonu.UserControls
             this.anasayfaHarita.Location = new System.Drawing.Point(529, 0);
             this.anasayfaHarita.Margin = new System.Windows.Forms.Padding(4);
             this.anasayfaHarita.MarkersEnabled = true;
-            this.anasayfaHarita.MaxZoom = 2;
-            this.anasayfaHarita.MinZoom = 2;
+            this.anasayfaHarita.MaxZoom = 20;
+            this.anasayfaHarita.MinZoom = 1;
             this.anasayfaHarita.MouseWheelZoomEnabled = true;
             this.anasayfaHarita.MouseWheelZoomType = GMap.NET.MouseWheelZoomType.MousePositionAndCenter;
             this.anasayfaHarita.Name = "anasayfaHarita";
@@ -443,7 +443,7 @@ namespace VolansYerIstasyonu.UserControls
             this.anasayfaHarita.ShowTileGridLines = false;
             this.anasayfaHarita.Size = new System.Drawing.Size(785, 641);
             this.anasayfaHarita.TabIndex = 0;
-            this.anasayfaHarita.Zoom = 0D;
+            this.anasayfaHarita.Zoom = 15;
             this.anasayfaHarita.Load += new System.EventHandler(this.anasayfaHarita_Load);
             this.anasayfaHarita.Scroll += new System.Windows.Forms.ScrollEventHandler(this.senkronHaritaCursorPozisyon);
             this.anasayfaHarita.Leave += new System.EventHandler(this.anasayfaHarita_Load);
