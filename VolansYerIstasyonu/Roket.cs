@@ -29,10 +29,10 @@ namespace VolansYerIstasyonu
         private byte crcAnaAv;
         private byte paketSayacAnaAv;
 
-        private float roketEnlem =   40.716131152f;
+        private float roketEnlem = 40.716582514101354f;
         private float roketGpsIrtifa = 3000;
         private float basincIrtifa = 2999;
-        private float roketBoylam = 31.524978876f;
+        private float roketBoylam = 31.52471117735377f;
         private float roketNem, roketSicaklik, roketBasinc;
 
         private byte gorevYukuPaketSayac;
