@@ -49,11 +49,11 @@ namespace VolansGUI
 
             // Renk þemasýný deðiþtirme
             materialSkinManager.ColorScheme = new ColorScheme(
-                ColorTranslator.FromHtml("#212121"), // action bar, deðiþken olmayan labellar.
-                ColorTranslator.FromHtml("#171717"), // durum çubuðu.
+                ColorTranslator.FromHtml("#ffffff"), // action bar, deðiþken olmayan labellar.
+                ColorTranslator.FromHtml("#f0f0f0"), // durum çubuðu.
                 ColorTranslator.FromHtml("#0f0f0f"), // tabpage arkaplan rengi.
                 ColorTranslator.FromHtml("#ffffff"), // tabpage yazýlarý, butonalar, deðiþken labellar.
-                TextShade.WHITE
+                TextShade.BLACK
             );
         }
 
