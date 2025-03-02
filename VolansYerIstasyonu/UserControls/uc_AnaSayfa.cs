@@ -20,6 +20,7 @@ using System.Data.Entity;
 using TeknofestVeriler;
 using GMap.NET.WindowsPresentation;
 using GMapRoute = GMap.NET.WindowsForms.GMapRoute;
+using VolansYerIstasyonu.DrawMode;
 
 
 
@@ -266,7 +267,7 @@ namespace VolansYerIstasyonu.UserControls
             UpdateMap(ana_av_x, ana_av_y, yedek_av_x, yedek_av_y, gorev_yuku_x, gorev_yuku_y, durum);*/
         }
 
-        
+
 
         private void UpdateMapIsaret(PointLatLng point)
         {
@@ -274,29 +275,44 @@ namespace VolansYerIstasyonu.UserControls
             {
                 anasayfaHarita.Invoke(new MethodInvoker(delegate
                 {
-                    gpsMarker.Position = point;
-                    anasayfaHarita.Position = point; // Optional: Center the map on the new position
-
-                    positions.Add(point);
-
-                    // Draw the route
-                    DrawRoute();
-                    
+                    ProcessNewPoint(point);
                 }));
             }
             else
             {
-                gpsMarker.Position = point;
-                anasayfaHarita.Position = point; // Optional: Center the map on the new position
-
-                positions.Add(point);
-
-                // Draw the route
-                DrawRoute();
-                
+                ProcessNewPoint(point);
             }
         }
-            
+
+        private void ProcessNewPoint(PointLatLng point)
+        {
+            gpsMarker.Position = point;
+            anasayfaHarita.Position = point; // Haritayı yeni noktaya merkezle
+
+            positions.Add(point);
+
+            // Çizgiyi sadece son iki nokta arasında çiz
+            if (positions.Count > 1)
+            {
+                var lastTwoPoints = new List<PointLatLng>
+        {
+            positions[positions.Count - 2], // Önceki nokta
+            positions[positions.Count - 1]  // Şu anki nokta
+        };
+
+                routesOverlay.Routes.Clear(); // Önceki tüm çizgileri kaldır
+                new DrawMode_Straight().Draw(routesOverlay, lastTwoPoints);
+            }
+
+            // Alan taraması (3. noktadan itibaren başlar)
+            if (positions.Count >= 3)
+            {
+                new DrawMode_Area().Draw(routesOverlay, positions);
+            }
+
+            anasayfaHarita.Refresh();
+        }
+
 
         private double GetRandomCoordinate(double min, double max)
         {
