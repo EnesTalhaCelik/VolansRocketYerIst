@@ -379,5 +379,10 @@ namespace VolansGUI
                 plotView11.Visible = false;
             }
         }
+
+        private void dataGridView2_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }
