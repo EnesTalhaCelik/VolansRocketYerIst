@@ -117,4 +117,14 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="logSeriPort.Text" xml:space="preserve">
+    <value>Property Of Volans Roket Takımı 2026
+Göktuğların yaptığı modern UI lı olanda çeşitli hatalar var.
+kod çok karmaşık onu düzenlemekle uğraşamam.
+bundan ötürü yenisi gelene eski y.i yi kullanıyoruz
+canımsınız.
+
+
+</value>
+  </data>
 </root>

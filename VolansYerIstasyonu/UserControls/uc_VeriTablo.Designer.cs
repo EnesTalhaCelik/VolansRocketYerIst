@@ -40,6 +40,7 @@
             this.tbl_gorevYuku = new System.Windows.Forms.DataGridView();
             this.rbtn_anaAviyonik = new System.Windows.Forms.RadioButton();
             this.label_veritabaniSec = new System.Windows.Forms.Label();
+            this.rbtn_testler = new System.Windows.Forms.RadioButton();
             ((System.ComponentModel.ISupportInitialize)(this.tbl_anaAviyonik)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbl_yedekAviyonik)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbl_gorevYuku)).BeginInit();
@@ -189,10 +190,21 @@
             this.label_veritabaniSec.Text = "Veritabanı Seçiniz";
             this.label_veritabaniSec.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
+            // rbtn_testler
+            // 
+            this.rbtn_testler.AutoSize = true;
+            this.rbtn_testler.Location = new System.Drawing.Point(1041, 168);
+            this.rbtn_testler.Name = "rbtn_testler";
+            this.rbtn_testler.Size = new System.Drawing.Size(70, 20);
+            this.rbtn_testler.TabIndex = 14;
+            this.rbtn_testler.Text = "Testler";
+            this.rbtn_testler.UseVisualStyleBackColor = true;
+            // 
             // uc_VeriTablo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.rbtn_testler);
             this.Controls.Add(this.label_veritabaniSec);
             this.Controls.Add(this.rbtn_anaAviyonik);
             this.Controls.Add(this.tbl_gorevYuku);
@@ -229,5 +241,6 @@
         private System.Windows.Forms.DataGridView tbl_gorevYuku;
         private System.Windows.Forms.RadioButton rbtn_anaAviyonik;
         private System.Windows.Forms.Label label_veritabaniSec;
+        private System.Windows.Forms.RadioButton rbtn_testler;
     }
 }

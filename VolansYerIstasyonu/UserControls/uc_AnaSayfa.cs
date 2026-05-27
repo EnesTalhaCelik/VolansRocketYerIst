@@ -52,12 +52,11 @@ namespace VolansYerIstasyonu.UserControls
         private bool isUcusTimerRunning = false;
         int paketSayac = 0;
         private List<PointLatLng> positions;
-        
+
         public uc_AnaSayfa()
         {
             InitializeComponent();
             InitializeMap();
-            //uc_PortAyarlari.loraSerialPort.DataReceived += loraSerialPort_DataReceived; //subscription test
 
             anasayfaHarita.MapProvider = GMap.NET.MapProviders.GMapProviders.OpenStreetMap;
             GMaps.Instance.Mode = AccessMode.ServerAndCache;
@@ -69,13 +68,224 @@ namespace VolansYerIstasyonu.UserControls
             markersOverlay = new GMapOverlay("markers");
             anasayfaHarita.Overlays.Add(markersOverlay);
 
-            //Bitmap customIcon = new Bitmap("C:\\Users\\ASUS\\Source\\Repos\\EnesTalhaCelik\\VolansYerIstasyonu\\VolansYerIstasyonu\\images\\rocket.png"); // Use the path to your custom icon
-            //Bitmap resizedIcon = ResizeImage(customIcon,25,25); // Resize to desired dimensions
-
-            // Create marker with the resized icon
             gpsMarker = new GMarkerGoogle(new PointLatLng(40.7350, 31.6060), GMarkerGoogleType.blue);
             markersOverlay.Markers.Add(gpsMarker);
             positions = new List<PointLatLng>();
+
+            // =============================================================
+            // YENİ - LoRa parser event'lerine abone ol
+            // =============================================================
+            LoRaPaketCozumleyici.BasincTestiVerisiAlindi += OnBasincTestiVerisiAlindi;
+            LoRaPaketCozumleyici.HaberlesmeTestiVerisiAlindi += OnHaberlesmeTestiVerisiAlindi;
+            LoRaPaketCozumleyici.JiroskopTestiVerisiAlindi += OnJiroskopTestiVerisiAlindi;
+            LoRaPaketCozumleyici.AyrilmaAlgoritmaTestiVerisiAlindi += OnAyrilmaAlgoritmaTestiVerisiAlindi;
+
+            this.Disposed += (s, e) =>
+            {
+                LoRaPaketCozumleyici.BasincTestiVerisiAlindi -= OnBasincTestiVerisiAlindi;
+                LoRaPaketCozumleyici.HaberlesmeTestiVerisiAlindi -= OnHaberlesmeTestiVerisiAlindi;
+                LoRaPaketCozumleyici.JiroskopTestiVerisiAlindi -= OnJiroskopTestiVerisiAlindi;
+                LoRaPaketCozumleyici.AyrilmaAlgoritmaTestiVerisiAlindi -= OnAyrilmaAlgoritmaTestiVerisiAlindi;
+            };
+        }
+
+        private void OnBasincTestiVerisiAlindi(BasincTestiVerisi veri)
+        {
+            if (this.InvokeRequired)
+            {
+                try
+                {
+                    this.BeginInvoke(new Action<BasincTestiVerisi>(OnBasincTestiVerisiAlindi), veri);
+                }
+                catch (ObjectDisposedException) { }
+                return;
+            }
+
+            Basinc_dgr.Text = veri.Basinc.ToString("F2");
+            sicaklik_dgr.Text = veri.Sicaklik.ToString("F2");
+            nem_dgr.Text = veri.Nem.ToString("F2");
+            lbl_bsncIrtıfa_dgr.Text = veri.GoreceliIrtifa.ToString("F2");
+            lbl_paketSayac_dgr.Text = veri.PaketSayaci.ToString();
+
+            basincTetiklendiMi.Text = veri.AyrilmaDurumu
+                ? "Basınç İle Ayrılma Tetiklendi"
+                : "Basınç İle Ayrılma Tetiklenmedi";
+
+            basincTetiklendiMi.ForeColor = veri.AyrilmaDurumu
+                ? System.Drawing.Color.Red
+                : System.Drawing.Color.Black;
+        }
+
+
+        private void OnHaberlesmeTestiVerisiAlindi(HaberlesmeTestiVerisi veri)
+        {
+            if (this.InvokeRequired)
+            {
+                try
+                {
+                    this.BeginInvoke(new Action<HaberlesmeTestiVerisi>(OnHaberlesmeTestiVerisiAlindi), veri);
+                }
+                catch (ObjectDisposedException) { }
+                return;
+            }
+
+            // ----- Telemetri label'ları -----
+            Basinc_dgr.Text = veri.Basinc.ToString("F2");
+            sicaklik_dgr.Text = veri.Sicaklik.ToString("F2");
+            lbl_paketSayac_dgr.Text = veri.PaketSayaci.ToString();
+
+            // GPS değerleri - F6 = 6 ondalık, yaklaşık 0.1 m hassasiyet
+            roketEnlem.Text = veri.GpsEnlem.ToString("F6");
+            roketBoylam.Text = veri.GpsBoylam.ToString("F6");
+            roketGPSIrtifa.Text = veri.GpsIrtifa.ToString("F2");
+
+            // ----- Statik Roket nesnesini de güncelle (diğer kontroller için) -----
+            Roket.RoketEnlem = (float)veri.GpsEnlem;
+            Roket.RoketBoylam = (float)veri.GpsBoylam;
+            Roket.RoketGpsIrtifa = veri.GpsIrtifa;
+
+            // ----- Harita marker güncelle + yol çizgisi -----
+            // GPS koordinatı geçerli mi? (0,0 = "GPS henüz fix almadı" sinyali)
+            if (veri.GpsEnlem != 0.0 && veri.GpsBoylam != 0.0)
+            {
+                var yeniNokta = new PointLatLng(veri.GpsEnlem, veri.GpsBoylam);
+                HaberlesmeTestiHaritayiGuncelle(yeniNokta);
+            }
+        }
+
+        private void HaberlesmeTestiHaritayiGuncelle(PointLatLng yeniNokta)
+        {
+            gpsMarker.Position = yeniNokta;
+            anasayfaHarita.Position = yeniNokta;
+
+            positions.Add(yeniNokta);
+
+            // Gradient'in doğru hesaplanması için tüm segmentler her seferinde
+            // yeniden çizilir. DrawMode_GradientLine zaten routesOverlay.Routes'u
+            // önce temizliyor; bizim Clear çağırmamıza gerek yok.
+            if (positions.Count >= 2)
+            {
+                new DrawMode_GradientLine
+                {
+                    BaslangicRengi = System.Drawing.Color.Red,
+                    SonRengi = System.Drawing.Color.Blue,
+                    CizgiKalinlik = 3f
+                }.Draw(routesOverlay, positions);
+            }
+
+            // 3. noktadan itibaren alan taraması (poligon)
+            if (positions.Count >= 3)
+            {
+                new DrawMode_Area().Draw(routesOverlay, positions);
+            }
+
+            anasayfaHarita.Refresh();
+        }
+
+        private void OnJiroskopTestiVerisiAlindi(JiroskopTestiVerisi veri)
+        {
+            if (this.InvokeRequired)
+            {
+                try
+                {
+                    this.BeginInvoke(new Action<JiroskopTestiVerisi>(OnJiroskopTestiVerisiAlindi), veri);
+                }
+                catch (ObjectDisposedException) { }
+                return;
+            }
+
+            // ----- Jiroskop ham verileri (°/s) -----
+            JiroskopX_dgr.Text = veri.JiroskopX.ToString("F2");
+            JiroskopY_dgr.Text = veri.JiroskopY.ToString("F2");
+            JiroskopZ_dgr.Text = veri.JiroskopZ.ToString("F2");
+
+            // ----- Hesaplanmış açı (yer normali ile, °) -----
+            // Mevcut "Açı" değer label'ı şu an "label32" adıyla designer'da.
+            // Tutarlılık için designer'da bunu Aci_dgr olarak rename etmenizi
+            // öneririm. Şimdilik label32 adıyla kullanıyorum.
+            label32.Text = veri.Aci.ToString("F2");
+
+            // ----- Paket sayacı (diğer testlerle ortak) -----
+            lbl_paketSayac_dgr.Text = veri.PaketSayaci.ToString();
+
+            // ----- Eğim ile ayrılma tetikleme durumu -----
+            aciTetiklendiMi.Text = veri.EgimTetiklendi
+                ? "Açı İle Ayrılma Tetiklendi"
+                : "Açı İle Ayrılma Tetiklenmedi";
+
+            aciTetiklendiMi.ForeColor = veri.EgimTetiklendi
+                ? System.Drawing.Color.Red
+                : System.Drawing.Color.Black;
+        }
+
+
+        private void OnAyrilmaAlgoritmaTestiVerisiAlindi(AyrilmaAlgoritmaTestiVerisi veri)
+        {
+            if (this.InvokeRequired)
+            {
+                try
+                {
+                    this.BeginInvoke(new Action<AyrilmaAlgoritmaTestiVerisi>(OnAyrilmaAlgoritmaTestiVerisiAlindi), veri);
+                }
+                catch (ObjectDisposedException) { }
+                return;
+            }
+
+            // ----- BME280 verileri -----
+            Basinc_dgr.Text = veri.Basinc.ToString("F2");
+            sicaklik_dgr.Text = veri.Sicaklik.ToString("F2");
+            nem_dgr.Text = veri.Nem.ToString("F2");
+            lbl_bsncIrtıfa_dgr.Text = veri.Irtifa.ToString("F2");
+
+            // ----- Jiroskop ham verileri (°/s) -----
+            JiroskopX_dgr.Text = veri.JiroskopX.ToString("F2");
+            JiroskopY_dgr.Text = veri.JiroskopY.ToString("F2");
+            JiroskopZ_dgr.Text = veri.JiroskopZ.ToString("F2");
+
+            // ----- Hesaplanmış açı (°) -----
+            label32.Text = veri.Aci.ToString("F2");
+
+            // ----- Paket sayacı -----
+            lbl_paketSayac_dgr.Text = veri.PaketSayaci.ToString();
+
+            // ----- Basınç koşulu (irtifa kaybı eşik geçildi mi?) -----
+            basincTetiklendiMi.Text = veri.BasincKosulu
+                ? "Basınç İle Ayrılma Tetiklendi"
+                : "Basınç İle Ayrılma Tetiklenmedi";
+            basincTetiklendiMi.ForeColor = veri.BasincKosulu
+                ? System.Drawing.Color.Red
+                : System.Drawing.Color.Black;
+
+            // ----- Eğim koşulu (açı eşik geçildi mi?) -----
+            aciTetiklendiMi.Text = veri.EgimKosulu
+                ? "Açı İle Ayrılma Tetiklendi"
+                : "Açı İle Ayrılma Tetiklenmedi";
+            aciTetiklendiMi.ForeColor = veri.EgimKosulu
+                ? System.Drawing.Color.Red
+                : System.Drawing.Color.Black;
+
+            // ----- Genel ayrılma durumu: form başlığı uyarısı -----
+            // Parent form'a ulaş; UserControl tek başına çalışırken FindForm() null dönebilir.
+            var parentForm = this.FindForm();
+            if (parentForm != null)
+            {
+                // Mevcut başlık metnini saklayıp uyarı eklemek/kaldırmak yerine
+                // sabit bir patern kullanıyoruz. İlk ayrılma tetiklendiğinde
+                // başlığa uyarı eklenir; tetiklenmediği durumlarda temizlenir.
+                const string uyariMetni = "  ⚠  AYRILMA TETİKLENDİ  ⚠";
+                string mevcutBaslik = parentForm.Text ?? string.Empty;
+
+                if (veri.AyrilmaDurumu)
+                {
+                    if (!mevcutBaslik.Contains(uyariMetni))
+                        parentForm.Text = mevcutBaslik + uyariMetni;
+                }
+                else
+                {
+                    if (mevcutBaslik.Contains(uyariMetni))
+                        parentForm.Text = mevcutBaslik.Replace(uyariMetni, "");
+                }
+            }
         }
 
         private void InitializeUcusTimer()
@@ -172,7 +382,7 @@ namespace VolansYerIstasyonu.UserControls
 
         private void InitializeMap()
         {
-            anasayfaHarita.MapProvider = GMap.NET.MapProviders.GMapProviders.OpenStreetMap;
+            anasayfaHarita.MapProvider = GMap.NET.MapProviders.GoogleMapProvider.Instance;
             GMap.NET.GMaps.Instance.Mode = GMap.NET.AccessMode.ServerOnly;
             anasayfaHarita.Position = new GMap.NET.PointLatLng(40.716582514101354, 31.52471117735377); // Bolu, Türkiye
             anasayfaHarita.MinZoom = 1;
@@ -360,7 +570,7 @@ namespace VolansYerIstasyonu.UserControls
             this.anasayfaHarita = new GMap.NET.WindowsForms.GMapControl();
             this.gboxVeriler = new System.Windows.Forms.GroupBox();
             this.gecenSure = new System.Windows.Forms.Label();
-            this.aciTetiklendiMİ = new System.Windows.Forms.Label();
+            this.aciTetiklendiMi = new System.Windows.Forms.Label();
             this.lbl_gecenSure = new System.Windows.Forms.Label();
             this.basincTetiklendiMi = new System.Windows.Forms.Label();
             this.chartGeiger = new System.Windows.Forms.DataVisualization.Charting.Chart();
@@ -373,7 +583,7 @@ namespace VolansYerIstasyonu.UserControls
             this.label32 = new System.Windows.Forms.Label();
             this.label30 = new System.Windows.Forms.Label();
             this.gYukuBoylam = new System.Windows.Forms.Label();
-            this.JiroskopZ = new System.Windows.Forms.Label();
+            this.JiroskopZ_dgr = new System.Windows.Forms.Label();
             this.label31 = new System.Windows.Forms.Label();
             this.roketBoylam = new System.Windows.Forms.Label();
             this.label28 = new System.Windows.Forms.Label();
@@ -382,7 +592,7 @@ namespace VolansYerIstasyonu.UserControls
             this.label5 = new System.Windows.Forms.Label();
             this.label26 = new System.Windows.Forms.Label();
             this.gYukuEnlem = new System.Windows.Forms.Label();
-            this.JiroskopY = new System.Windows.Forms.Label();
+            this.JiroskopY_dgr = new System.Windows.Forms.Label();
             this.roketEnlem = new System.Windows.Forms.Label();
             this.label24 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
@@ -390,7 +600,7 @@ namespace VolansYerIstasyonu.UserControls
             this.label3 = new System.Windows.Forms.Label();
             this.label22 = new System.Windows.Forms.Label();
             this.gYukuGPSIrtifa = new System.Windows.Forms.Label();
-            this.JiroskopX = new System.Windows.Forms.Label();
+            this.JiroskopX_dgr = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
@@ -398,19 +608,19 @@ namespace VolansYerIstasyonu.UserControls
             this.label1 = new System.Windows.Forms.Label();
             this.lbl_bsncIrtıfa_dgr = new System.Windows.Forms.Label();
             this.lbl_bsncIrtifa = new System.Windows.Forms.Label();
-            this.label36 = new System.Windows.Forms.Label();
+            this.lbl_durum = new System.Windows.Forms.Label();
             this.lbl_haritaC_boylam_dgr = new System.Windows.Forms.Label();
             this.lbl_haritaC_enlem_dgr = new System.Windows.Forms.Label();
-            this.Basinc = new System.Windows.Forms.Label();
+            this.Basinc_dgr = new System.Windows.Forms.Label();
             this.label42 = new System.Windows.Forms.Label();
-            this.label51 = new System.Windows.Forms.Label();
+            this.nem_dgr = new System.Windows.Forms.Label();
             this.label40 = new System.Windows.Forms.Label();
-            this.label50 = new System.Windows.Forms.Label();
+            this.sicaklik_dgr = new System.Windows.Forms.Label();
             this.label38 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.roketHizY = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.label34 = new System.Windows.Forms.Label();
+            this.lbl_crc = new System.Windows.Forms.Label();
             this.label41 = new System.Windows.Forms.Label();
             this.label39 = new System.Windows.Forms.Label();
             this.lbl_paketSayac_dgr = new System.Windows.Forms.Label();
@@ -459,7 +669,7 @@ namespace VolansYerIstasyonu.UserControls
             this.anasayfaHarita.ShowTileGridLines = false;
             this.anasayfaHarita.Size = new System.Drawing.Size(785, 641);
             this.anasayfaHarita.TabIndex = 0;
-            this.anasayfaHarita.Zoom = 15;
+            this.anasayfaHarita.Zoom = 15D;
             this.anasayfaHarita.Load += new System.EventHandler(this.anasayfaHarita_Load);
             this.anasayfaHarita.Scroll += new System.Windows.Forms.ScrollEventHandler(this.senkronHaritaCursorPozisyon);
             this.anasayfaHarita.Leave += new System.EventHandler(this.anasayfaHarita_Load);
@@ -468,7 +678,7 @@ namespace VolansYerIstasyonu.UserControls
             // gboxVeriler
             // 
             this.gboxVeriler.Controls.Add(this.gecenSure);
-            this.gboxVeriler.Controls.Add(this.aciTetiklendiMİ);
+            this.gboxVeriler.Controls.Add(this.aciTetiklendiMi);
             this.gboxVeriler.Controls.Add(this.lbl_gecenSure);
             this.gboxVeriler.Controls.Add(this.basincTetiklendiMi);
             this.gboxVeriler.Controls.Add(this.chartGeiger);
@@ -481,7 +691,7 @@ namespace VolansYerIstasyonu.UserControls
             this.gboxVeriler.Controls.Add(this.label32);
             this.gboxVeriler.Controls.Add(this.label30);
             this.gboxVeriler.Controls.Add(this.gYukuBoylam);
-            this.gboxVeriler.Controls.Add(this.JiroskopZ);
+            this.gboxVeriler.Controls.Add(this.JiroskopZ_dgr);
             this.gboxVeriler.Controls.Add(this.label31);
             this.gboxVeriler.Controls.Add(this.roketBoylam);
             this.gboxVeriler.Controls.Add(this.label28);
@@ -490,7 +700,7 @@ namespace VolansYerIstasyonu.UserControls
             this.gboxVeriler.Controls.Add(this.label5);
             this.gboxVeriler.Controls.Add(this.label26);
             this.gboxVeriler.Controls.Add(this.gYukuEnlem);
-            this.gboxVeriler.Controls.Add(this.JiroskopY);
+            this.gboxVeriler.Controls.Add(this.JiroskopY_dgr);
             this.gboxVeriler.Controls.Add(this.roketEnlem);
             this.gboxVeriler.Controls.Add(this.label24);
             this.gboxVeriler.Controls.Add(this.label15);
@@ -498,7 +708,7 @@ namespace VolansYerIstasyonu.UserControls
             this.gboxVeriler.Controls.Add(this.label3);
             this.gboxVeriler.Controls.Add(this.label22);
             this.gboxVeriler.Controls.Add(this.gYukuGPSIrtifa);
-            this.gboxVeriler.Controls.Add(this.JiroskopX);
+            this.gboxVeriler.Controls.Add(this.JiroskopX_dgr);
             this.gboxVeriler.Controls.Add(this.label20);
             this.gboxVeriler.Controls.Add(this.label19);
             this.gboxVeriler.Controls.Add(this.label13);
@@ -506,19 +716,19 @@ namespace VolansYerIstasyonu.UserControls
             this.gboxVeriler.Controls.Add(this.label1);
             this.gboxVeriler.Controls.Add(this.lbl_bsncIrtıfa_dgr);
             this.gboxVeriler.Controls.Add(this.lbl_bsncIrtifa);
-            this.gboxVeriler.Controls.Add(this.label36);
+            this.gboxVeriler.Controls.Add(this.lbl_durum);
             this.gboxVeriler.Controls.Add(this.lbl_haritaC_boylam_dgr);
             this.gboxVeriler.Controls.Add(this.lbl_haritaC_enlem_dgr);
-            this.gboxVeriler.Controls.Add(this.Basinc);
+            this.gboxVeriler.Controls.Add(this.Basinc_dgr);
             this.gboxVeriler.Controls.Add(this.label42);
-            this.gboxVeriler.Controls.Add(this.label51);
+            this.gboxVeriler.Controls.Add(this.nem_dgr);
             this.gboxVeriler.Controls.Add(this.label40);
-            this.gboxVeriler.Controls.Add(this.label50);
+            this.gboxVeriler.Controls.Add(this.sicaklik_dgr);
             this.gboxVeriler.Controls.Add(this.label38);
             this.gboxVeriler.Controls.Add(this.label12);
             this.gboxVeriler.Controls.Add(this.roketHizY);
             this.gboxVeriler.Controls.Add(this.label8);
-            this.gboxVeriler.Controls.Add(this.label34);
+            this.gboxVeriler.Controls.Add(this.lbl_crc);
             this.gboxVeriler.Controls.Add(this.label41);
             this.gboxVeriler.Controls.Add(this.label39);
             this.gboxVeriler.Controls.Add(this.lbl_paketSayac_dgr);
@@ -551,16 +761,16 @@ namespace VolansYerIstasyonu.UserControls
             this.gecenSure.TabIndex = 7;
             this.gecenSure.Text = "0";
             // 
-            // aciTetiklendiMİ
+            // aciTetiklendiMi
             // 
-            this.aciTetiklendiMİ.AutoSize = true;
-            this.aciTetiklendiMİ.Location = new System.Drawing.Point(248, 454);
-            this.aciTetiklendiMİ.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.aciTetiklendiMİ.Name = "aciTetiklendiMİ";
-            this.aciTetiklendiMİ.Size = new System.Drawing.Size(172, 16);
-            this.aciTetiklendiMİ.TabIndex = 13;
-            this.aciTetiklendiMİ.Text = "Açı İle Ayrılma Tetiklenmedi";
-            this.aciTetiklendiMİ.Click += new System.EventHandler(this.aciTetiklendiMİ_Click);
+            this.aciTetiklendiMi.AutoSize = true;
+            this.aciTetiklendiMi.Location = new System.Drawing.Point(248, 454);
+            this.aciTetiklendiMi.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.aciTetiklendiMi.Name = "aciTetiklendiMi";
+            this.aciTetiklendiMi.Size = new System.Drawing.Size(172, 16);
+            this.aciTetiklendiMi.TabIndex = 13;
+            this.aciTetiklendiMi.Text = "Açı İle Ayrılma Tetiklenmedi";
+            this.aciTetiklendiMi.Click += new System.EventHandler(this.aciTetiklendiMİ_Click);
             // 
             // lbl_gecenSure
             // 
@@ -692,15 +902,15 @@ namespace VolansYerIstasyonu.UserControls
             this.gYukuBoylam.TabIndex = 3;
             this.gYukuBoylam.Text = "0";
             // 
-            // JiroskopZ
+            // JiroskopZ_dgr
             // 
-            this.JiroskopZ.AutoSize = true;
-            this.JiroskopZ.Location = new System.Drawing.Point(187, 506);
-            this.JiroskopZ.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.JiroskopZ.Name = "JiroskopZ";
-            this.JiroskopZ.Size = new System.Drawing.Size(14, 16);
-            this.JiroskopZ.TabIndex = 3;
-            this.JiroskopZ.Text = "0";
+            this.JiroskopZ_dgr.AutoSize = true;
+            this.JiroskopZ_dgr.Location = new System.Drawing.Point(187, 506);
+            this.JiroskopZ_dgr.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.JiroskopZ_dgr.Name = "JiroskopZ_dgr";
+            this.JiroskopZ_dgr.Size = new System.Drawing.Size(14, 16);
+            this.JiroskopZ_dgr.TabIndex = 3;
+            this.JiroskopZ_dgr.Text = "0";
             // 
             // label31
             // 
@@ -782,15 +992,15 @@ namespace VolansYerIstasyonu.UserControls
             this.gYukuEnlem.TabIndex = 3;
             this.gYukuEnlem.Text = "0";
             // 
-            // JiroskopY
+            // JiroskopY_dgr
             // 
-            this.JiroskopY.AutoSize = true;
-            this.JiroskopY.Location = new System.Drawing.Point(187, 480);
-            this.JiroskopY.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.JiroskopY.Name = "JiroskopY";
-            this.JiroskopY.Size = new System.Drawing.Size(14, 16);
-            this.JiroskopY.TabIndex = 3;
-            this.JiroskopY.Text = "0";
+            this.JiroskopY_dgr.AutoSize = true;
+            this.JiroskopY_dgr.Location = new System.Drawing.Point(187, 480);
+            this.JiroskopY_dgr.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.JiroskopY_dgr.Name = "JiroskopY_dgr";
+            this.JiroskopY_dgr.Size = new System.Drawing.Size(14, 16);
+            this.JiroskopY_dgr.TabIndex = 3;
+            this.JiroskopY_dgr.Text = "0";
             // 
             // roketEnlem
             // 
@@ -862,15 +1072,15 @@ namespace VolansYerIstasyonu.UserControls
             this.gYukuGPSIrtifa.TabIndex = 3;
             this.gYukuGPSIrtifa.Text = "0";
             // 
-            // JiroskopX
+            // JiroskopX_dgr
             // 
-            this.JiroskopX.AutoSize = true;
-            this.JiroskopX.Location = new System.Drawing.Point(187, 454);
-            this.JiroskopX.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.JiroskopX.Name = "JiroskopX";
-            this.JiroskopX.Size = new System.Drawing.Size(14, 16);
-            this.JiroskopX.TabIndex = 3;
-            this.JiroskopX.Text = "0";
+            this.JiroskopX_dgr.AutoSize = true;
+            this.JiroskopX_dgr.Location = new System.Drawing.Point(187, 454);
+            this.JiroskopX_dgr.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.JiroskopX_dgr.Name = "JiroskopX_dgr";
+            this.JiroskopX_dgr.Size = new System.Drawing.Size(14, 16);
+            this.JiroskopX_dgr.TabIndex = 3;
+            this.JiroskopX_dgr.Text = "0";
             // 
             // label20
             // 
@@ -942,15 +1152,15 @@ namespace VolansYerIstasyonu.UserControls
             this.lbl_bsncIrtifa.TabIndex = 2;
             this.lbl_bsncIrtifa.Text = "Roket İrtifa (Basınç)";
             // 
-            // label36
+            // lbl_durum
             // 
-            this.label36.AutoSize = true;
-            this.label36.Location = new System.Drawing.Point(187, 105);
-            this.label36.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label36.Name = "label36";
-            this.label36.Size = new System.Drawing.Size(14, 16);
-            this.label36.TabIndex = 3;
-            this.label36.Text = "0";
+            this.lbl_durum.AutoSize = true;
+            this.lbl_durum.Location = new System.Drawing.Point(187, 105);
+            this.lbl_durum.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbl_durum.Name = "lbl_durum";
+            this.lbl_durum.Size = new System.Drawing.Size(14, 16);
+            this.lbl_durum.TabIndex = 3;
+            this.lbl_durum.Text = "0";
             // 
             // lbl_haritaC_boylam_dgr
             // 
@@ -973,15 +1183,15 @@ namespace VolansYerIstasyonu.UserControls
             this.lbl_haritaC_enlem_dgr.TabIndex = 3;
             this.lbl_haritaC_enlem_dgr.Text = "0";
             // 
-            // Basinc
+            // Basinc_dgr
             // 
-            this.Basinc.AutoSize = true;
-            this.Basinc.Location = new System.Drawing.Point(420, 247);
-            this.Basinc.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.Basinc.Name = "Basinc";
-            this.Basinc.Size = new System.Drawing.Size(14, 16);
-            this.Basinc.TabIndex = 3;
-            this.Basinc.Text = "0";
+            this.Basinc_dgr.AutoSize = true;
+            this.Basinc_dgr.Location = new System.Drawing.Point(420, 247);
+            this.Basinc_dgr.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.Basinc_dgr.Name = "Basinc_dgr";
+            this.Basinc_dgr.Size = new System.Drawing.Size(14, 16);
+            this.Basinc_dgr.TabIndex = 3;
+            this.Basinc_dgr.Text = "0";
             // 
             // label42
             // 
@@ -993,15 +1203,15 @@ namespace VolansYerIstasyonu.UserControls
             this.label42.TabIndex = 3;
             this.label42.Text = "0";
             // 
-            // label51
+            // nem_dgr
             // 
-            this.label51.AutoSize = true;
-            this.label51.Location = new System.Drawing.Point(420, 273);
-            this.label51.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label51.Name = "label51";
-            this.label51.Size = new System.Drawing.Size(14, 16);
-            this.label51.TabIndex = 3;
-            this.label51.Text = "0";
+            this.nem_dgr.AutoSize = true;
+            this.nem_dgr.Location = new System.Drawing.Point(420, 273);
+            this.nem_dgr.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.nem_dgr.Name = "nem_dgr";
+            this.nem_dgr.Size = new System.Drawing.Size(14, 16);
+            this.nem_dgr.TabIndex = 3;
+            this.nem_dgr.Text = "0";
             // 
             // label40
             // 
@@ -1013,15 +1223,15 @@ namespace VolansYerIstasyonu.UserControls
             this.label40.TabIndex = 3;
             this.label40.Text = "0";
             // 
-            // label50
+            // sicaklik_dgr
             // 
-            this.label50.AutoSize = true;
-            this.label50.Location = new System.Drawing.Point(420, 299);
-            this.label50.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label50.Name = "label50";
-            this.label50.Size = new System.Drawing.Size(14, 16);
-            this.label50.TabIndex = 3;
-            this.label50.Text = "0";
+            this.sicaklik_dgr.AutoSize = true;
+            this.sicaklik_dgr.Location = new System.Drawing.Point(420, 299);
+            this.sicaklik_dgr.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.sicaklik_dgr.Name = "sicaklik_dgr";
+            this.sicaklik_dgr.Size = new System.Drawing.Size(14, 16);
+            this.sicaklik_dgr.TabIndex = 3;
+            this.sicaklik_dgr.Text = "0";
             // 
             // label38
             // 
@@ -1063,15 +1273,15 @@ namespace VolansYerIstasyonu.UserControls
             this.label8.TabIndex = 3;
             this.label8.Text = "0";
             // 
-            // label34
+            // lbl_crc
             // 
-            this.label34.AutoSize = true;
-            this.label34.Location = new System.Drawing.Point(187, 58);
-            this.label34.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label34.Name = "label34";
-            this.label34.Size = new System.Drawing.Size(14, 16);
-            this.label34.TabIndex = 3;
-            this.label34.Text = "0";
+            this.lbl_crc.AutoSize = true;
+            this.lbl_crc.Location = new System.Drawing.Point(187, 58);
+            this.lbl_crc.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbl_crc.Name = "lbl_crc";
+            this.lbl_crc.Size = new System.Drawing.Size(14, 16);
+            this.lbl_crc.TabIndex = 3;
+            this.lbl_crc.Text = "0";
             // 
             // label41
             // 

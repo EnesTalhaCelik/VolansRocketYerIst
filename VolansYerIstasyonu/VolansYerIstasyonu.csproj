@@ -175,13 +175,17 @@
     <Compile Include="DrawMode\DrawMode_Area.cs" />
     <Compile Include="DrawMode\DrawMode_Straight.cs" />
     <Compile Include="DrawMode\IDrawMode.cs" />
+    <Compile Include="DrawMode_GradientLine.cs" />
     <Compile Include="geciciLoraSinifi.cs" />
     <Compile Include="Haberlesme.cs" />
+    <Compile Include="LoRaPaketCozumleyici.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Roket.cs" />
+    <Compile Include="TestTipi.cs" />
     <Compile Include="UcusSim.cs" />
     <Compile Include="HaritaIslemleri.cs" />
+    <Compile Include="UcusVeriYoneticisi.cs" />
     <Compile Include="UserControls\uc_AnalizTablo.cs">
       <SubType>UserControl</SubType>
     </Compile>

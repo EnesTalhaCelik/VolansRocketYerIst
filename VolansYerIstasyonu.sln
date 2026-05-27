@@ -15,6 +15,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CommTest", "CommTest\CommTe
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VolansGUI", "VolansGUI\VolansGUI.csproj", "{5FECD623-B13F-4D71-BB74-A4AD463673AB}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VolansCommunication", "VolansCommunication\VolansCommunication.csproj", "{A7D70E54-8796-45E2-BF64-EF78353720F7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,6 +47,10 @@ Global
 		{5FECD623-B13F-4D71-BB74-A4AD463673AB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5FECD623-B13F-4D71-BB74-A4AD463673AB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5FECD623-B13F-4D71-BB74-A4AD463673AB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A7D70E54-8796-45E2-BF64-EF78353720F7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A7D70E54-8796-45E2-BF64-EF78353720F7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A7D70E54-8796-45E2-BF64-EF78353720F7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A7D70E54-8796-45E2-BF64-EF78353720F7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

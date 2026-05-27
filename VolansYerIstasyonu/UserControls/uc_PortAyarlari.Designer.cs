@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(uc_PortAyarlari));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btnLoraTstVeriGondr = new System.Windows.Forms.Button();
             this.label11 = new System.Windows.Forms.Label();
@@ -287,6 +288,7 @@
             this.groupBox2.Size = new System.Drawing.Size(469, 423);
             this.groupBox2.TabIndex = 0;
             this.groupBox2.TabStop = false;
+            this.groupBox2.Enter += new System.EventHandler(this.groupBox2_Enter);
             // 
             // label12
             // 
@@ -295,9 +297,9 @@
             this.label12.Location = new System.Drawing.Point(37, 20);
             this.label12.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(162, 20);
+            this.label12.Size = new System.Drawing.Size(279, 20);
             this.label12.TabIndex = 6;
-            this.label12.Text = "HYI Port Ayarları";
+            this.label12.Text = "Test Port Ayarları ( Dokunma )";
             // 
             // btnHYIBaglan
             // 
@@ -816,7 +818,7 @@
             this.logSeriPort.ScrollBars = System.Windows.Forms.ScrollBars.Both;
             this.logSeriPort.Size = new System.Drawing.Size(376, 659);
             this.logSeriPort.TabIndex = 2;
-            this.logSeriPort.Text = "Property Of Volans Roket Takımı 2024";
+            this.logSeriPort.Text = resources.GetString("logSeriPort.Text");
             this.logSeriPort.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // uc_PortAyarlari

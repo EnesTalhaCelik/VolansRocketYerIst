@@ -102,24 +102,26 @@ namespace VolansYerIstasyonu.UserControls
 
         private void loraSerialPort_DataReceived(object sender, SerialDataReceivedEventArgs e)
         {
-
-
-
             SerialPort serialPort = (SerialPort)sender;
 
-
-            //string[] responseContainer = receivedData.Split('/');
             try
             {
-                string receivedData = serialPort.ReadLine();
-               
+                // ReadExisting tampondaki tüm veriyi anında okur, bloklamaz.
+                // Parser kendi buffer'ı ile partial satırları birleştirir.
+                string receivedData = serialPort.ReadExisting();
+
+                if (!string.IsNullOrEmpty(receivedData))
+                {
+                    LoRaPaketCozumleyici.GelenVeriyiIsle(receivedData);
+                }
             }
             catch (Exception ex)
             {
-                
-                MessageBox.Show($" bir hata meydana geldi: {ex.Message}", "Fuck this shit!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                // Worker thread'deyiz; MessageBox kullanmıyoruz çünkü uçuş sırasında
+                // veri akışını bloklar. Hatalar Visual Studio Output penceresinde
+                // ("Debug" çıktısı) görünür.
+                System.Diagnostics.Debug.WriteLine("[LoRa] Veri okuma hatasi: " + ex.Message);
             }
-            
         }
 
         private void HYISerialPort_DataReceived(object sender, SerialDataReceivedEventArgs e)
@@ -415,6 +417,11 @@ namespace VolansYerIstasyonu.UserControls
         }
 
         private void uc_PortAyarlari_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void groupBox2_Enter(object sender, EventArgs e)
         {
 
         }
