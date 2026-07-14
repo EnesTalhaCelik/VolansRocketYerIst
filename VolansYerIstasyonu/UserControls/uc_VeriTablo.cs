@@ -651,8 +651,9 @@ namespace VolansYerIstasyonu.UserControls
         }
 
         public static void haberlesmeTestiVeriEkle(
-            uint paketSayaci, uint arduinoMs, float sicaklik, float basinc,
-            double gpsEnlem, double gpsBoylam, float gpsIrtifa)
+    uint paketSayaci, uint arduinoMs,
+    float gyroX, float gyroY, float gyroZ,
+    float roll, float pitch, float toplamAci, bool ledOn)
         {
             string connectionString = haberlesmeTestiDatabaseHazirla(false);
             if (string.IsNullOrEmpty(connectionString))
@@ -668,20 +669,24 @@ namespace VolansYerIstasyonu.UserControls
                 {
                     connection.Open();
                     string insertQuery = $@"
-                        INSERT INTO [{tanim.TabloAdi}]
-                            (paket_sayaci, arduino_ms, sicaklik, basinc,
-                             gps_enlem, gps_boylam, gps_irtifa, zaman)
-                        VALUES
-                            (@paket_sayaci, @arduino_ms, @sicaklik, @basinc,
-                             @gps_enlem, @gps_boylam, @gps_irtifa, @zaman)";
+                INSERT INTO [{tanim.TabloAdi}]
+                    (paket_sayaci, arduino_ms,
+                     gyro_x, gyro_y, gyro_z,
+                     roll, pitch, toplam_aci, led_on, zaman)
+                VALUES
+                    (@paket_sayaci, @arduino_ms,
+                     @gyro_x, @gyro_y, @gyro_z,
+                     @roll, @pitch, @toplam_aci, @led_on, @zaman)";
                     var cmd = new SQLiteCommand(insertQuery, connection);
                     cmd.Parameters.AddWithValue("@paket_sayaci", paketSayaci);
                     cmd.Parameters.AddWithValue("@arduino_ms", arduinoMs);
-                    cmd.Parameters.AddWithValue("@sicaklik", sicaklik);
-                    cmd.Parameters.AddWithValue("@basinc", basinc);
-                    cmd.Parameters.AddWithValue("@gps_enlem", gpsEnlem);
-                    cmd.Parameters.AddWithValue("@gps_boylam", gpsBoylam);
-                    cmd.Parameters.AddWithValue("@gps_irtifa", gpsIrtifa);
+                    cmd.Parameters.AddWithValue("@gyro_x", gyroX);
+                    cmd.Parameters.AddWithValue("@gyro_y", gyroY);
+                    cmd.Parameters.AddWithValue("@gyro_z", gyroZ);
+                    cmd.Parameters.AddWithValue("@roll", roll);
+                    cmd.Parameters.AddWithValue("@pitch", pitch);
+                    cmd.Parameters.AddWithValue("@toplam_aci", toplamAci);
+                    cmd.Parameters.AddWithValue("@led_on", ledOn ? 1 : 0);
                     cmd.Parameters.AddWithValue("@zaman", DateTime.Now);
                     cmd.ExecuteNonQuery();
                 }

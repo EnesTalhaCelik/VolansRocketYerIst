@@ -1,17 +1,17 @@
 using System.Collections.Generic;
 using System.IO;
 
-namespace VolansYerIstasyonu
+namespace VolansGUI.Telemetry
 {
     /// <summary>
     /// LoRa paketlerinin başına eklenen test ID byte'ı.
     /// Arduino'nun gönderdiği CSV satırının ilk alanı bu değerle eşleşir.
-    /// 
+    ///
     /// YENİ TEST EKLEMEK İÇİN:
     ///   1. Burada yeni bir enum değeri ekleyin (sıradaki uint8 değeri).
     ///   2. TestTanimlari.Tanimlar dictionary'sine yeni bir satır ekleyin.
-    ///   3. uc_VeriTablo.cs içinde {testAdi}DatabaseHazirla() ve
-    ///      {testAdi}VeriEkle() metotlarını yazın (basincTesti örneğini taklit edin).
+    ///   3. VeriTabani içinde {testAdi}DatabaseHazirla() ve {testAdi}VeriEkle()
+    ///      metotlarını yazın (basincTesti örneğini taklit edin).
     ///   4. LoRaPaketCozumleyici.IslePaket() switch'ine case ekleyin.
     /// </summary>
     public enum TestTipi : byte
@@ -21,14 +21,9 @@ namespace VolansYerIstasyonu
         HaberlesmeTesti = 0x02,
         JiroskopTesti = 0x03,
         AyrilmaAlgoritmaTesti = 0x04,
-        // GELECEKTE EKLENECEK ÖRNEKLER:
-        // IrtifaTesti          = 0x05,
-        // TamUcus              = 0x06,
     }
 
-    /// <summary>
-    /// Tek bir test tipinin metadata'sı.
-    /// </summary>
+    /// <summary>Tek bir test tipinin metadata'sı.</summary>
     public class TestTipiTanimi
     {
         /// <summary>Dosya adının başlangıcı, örn. "Test-Basinc"</summary>
@@ -82,14 +77,6 @@ namespace VolansYerIstasyonu
                     Aciklama      = "Ayrılma Algoritma Testi"
                 }
             },
-            // {
-            //     TestTipi.AciTesti, new TestTipiTanimi
-            //     {
-            //         DosyaAdiOnEki = "Test-Aci",
-            //         TabloAdi      = "AciTestiTablosu",
-            //         Aciklama      = "Açı Testi"
-            //     }
-            // },
         };
 
         /// <summary>
@@ -107,18 +94,11 @@ namespace VolansYerIstasyonu
             return TestTipi.Bilinmeyen;
         }
 
-        /// <summary>
-        /// Test verisi dosyalarını bulmak için kullanılacak glob pattern'i.
-        /// "Test-*.db" gibi - tüm test türlerini kapsar.
-        /// </summary>
+        /// <summary>Test verisi dosyalarını bulmak için glob pattern'i ("Test-*.db").</summary>
         public const string TumTestDosyalariPattern = "Test-*.db";
     }
 
-    /// <summary>
-    /// Basınç testi paketinden çözümlenmiş tek bir veri kaydı.
-    /// LoRaPaketCozumleyici, parse ettiği her başarılı basınç testi paketi
-    /// için bir instance üretir ve event ile yayınlar.
-    /// </summary>
+    /// <summary>Basınç testi paketinden çözümlenmiş tek bir veri kaydı.</summary>
     public class BasincTestiVerisi
     {
         public uint PaketSayaci { get; set; }
@@ -133,7 +113,7 @@ namespace VolansYerIstasyonu
 
     /// <summary>
     /// Haberleşme testi paketinden çözümlenmiş tek bir veri kaydı.
-    /// GPS, sıcaklık ve basınç verilerini içerir.
+    /// Jiroskop ham verileri + roll/pitch + aviyonik LED geri bildirimi.
     /// </summary>
     public class HaberlesmeTestiVerisi
     {
@@ -148,11 +128,7 @@ namespace VolansYerIstasyonu
         public bool LedOn { get; set; }   // Aviyoniğin LED durumu (yer istasyonu komutuyla)
     }
 
-    /// <summary>
-    /// Jiroskop testi paketinden çözümlenmiş tek bir veri kaydı.
-    /// Jiroskop ham verileri (açısal hız, °/s) + hesaplanmış yer normali açısı +
-    /// eğim eşiği ile ayrılma tetikleme durumunu içerir.
-    /// </summary>
+    /// <summary>Jiroskop testi paketinden çözümlenmiş tek bir veri kaydı.</summary>
     public class JiroskopTestiVerisi
     {
         public uint PaketSayaci { get; set; }
@@ -166,29 +142,20 @@ namespace VolansYerIstasyonu
 
     /// <summary>
     /// Ayrılma Algoritma testi paketinden çözümlenmiş tek bir veri kaydı.
-    /// 
-    /// BME280 + jiroskop verilerini bir arada içerir ve "iki kritere bağlı"
-    /// ayrılma algoritmasının test edilmesini sağlar:
-    /// - BasincKosulu: irtifa kaybı eşiği geçildi mi
-    /// - EgimKosulu: açı eşiği geçildi mi
-    /// - AyrilmaDurumu: ESP32'deki algoritmanın nihai kararı (genelde
-    ///   iki koşulun AND'i, ama daha karmaşık olabilir)
+    /// BME280 + jiroskop verilerini bir arada içerir (iki-kriterli ayrılma).
     /// </summary>
     public class AyrilmaAlgoritmaTestiVerisi
     {
         public uint PaketSayaci { get; set; }
         public uint ArduinoMs { get; set; }
-        // BME280
         public float Sicaklik { get; set; }  // °C
         public float Basinc { get; set; }  // hPa
         public float Nem { get; set; }  // %
         public float Irtifa { get; set; }  // m (göreceli)
-        // Jiroskop + hesaplanmış açı
         public float JiroskopX { get; set; }  // °/s
         public float JiroskopY { get; set; }  // °/s
         public float JiroskopZ { get; set; }  // °/s
         public float Aci { get; set; }  // °
-        // Karar flag'leri
         public bool BasincKosulu { get; set; }
         public bool EgimKosulu { get; set; }
         public bool AyrilmaDurumu { get; set; }

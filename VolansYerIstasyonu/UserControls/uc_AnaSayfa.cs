@@ -129,28 +129,25 @@ namespace VolansYerIstasyonu.UserControls
                 return;
             }
 
-            // ----- Telemetri label'ları -----
-            Basinc_dgr.Text = veri.Basinc.ToString("F2");
-            sicaklik_dgr.Text = veri.Sicaklik.ToString("F2");
+            // Jiroskop label'ları
+            JiroskopX_dgr.Text = veri.GyroX.ToString("F2");
+            JiroskopY_dgr.Text = veri.GyroY.ToString("F2");
+            JiroskopZ_dgr.Text = veri.GyroZ.ToString("F2");
+
+            // Açı label'ı (label32 = Aci_dgr)
+            label32.Text = veri.ToplamAci.ToString("F2");
+
+            // Paket sayacı
             lbl_paketSayac_dgr.Text = veri.PaketSayaci.ToString();
 
-            // GPS değerleri - F6 = 6 ondalık, yaklaşık 0.1 m hassasiyet
-            roketEnlem.Text = veri.GpsEnlem.ToString("F6");
-            roketBoylam.Text = veri.GpsBoylam.ToString("F6");
-            roketGPSIrtifa.Text = veri.GpsIrtifa.ToString("F2");
-
-            // ----- Statik Roket nesnesini de güncelle (diğer kontroller için) -----
-            Roket.RoketEnlem = (float)veri.GpsEnlem;
-            Roket.RoketBoylam = (float)veri.GpsBoylam;
-            Roket.RoketGpsIrtifa = veri.GpsIrtifa;
-
-            // ----- Harita marker güncelle + yol çizgisi -----
-            // GPS koordinatı geçerli mi? (0,0 = "GPS henüz fix almadı" sinyali)
-            if (veri.GpsEnlem != 0.0 && veri.GpsBoylam != 0.0)
-            {
-                var yeniNokta = new PointLatLng(veri.GpsEnlem, veri.GpsBoylam);
-                HaberlesmeTestiHaritayiGuncelle(yeniNokta);
-            }
+            // LED durumu - aviyoniğin geri bildirimi
+            // Bu, butona basıldıktan sonra aviyoniğin "anladım" sinyalidir
+            aciTetiklendiMi.Text = veri.LedOn
+                ? "Aviyonik LED: AÇIK"
+                : "Aviyonik LED: KAPALI";
+            aciTetiklendiMi.ForeColor = veri.LedOn
+                ? System.Drawing.Color.Green
+                : System.Drawing.Color.Black;
         }
 
         private void HaberlesmeTestiHaritayiGuncelle(PointLatLng yeniNokta)

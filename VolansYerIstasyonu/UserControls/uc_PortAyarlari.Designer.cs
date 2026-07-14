@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(uc_PortAyarlari));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btnLoraTstVeriGondr = new System.Windows.Forms.Button();
             this.label11 = new System.Windows.Forms.Label();
@@ -130,7 +129,7 @@
             this.btnLoraTstVeriGondr.Name = "btnLoraTstVeriGondr";
             this.btnLoraTstVeriGondr.Size = new System.Drawing.Size(151, 28);
             this.btnLoraTstVeriGondr.TabIndex = 7;
-            this.btnLoraTstVeriGondr.Text = "Test Verisi Gönder";
+            this.btnLoraTstVeriGondr.Text = "Led Testi";
             this.btnLoraTstVeriGondr.UseVisualStyleBackColor = true;
             this.btnLoraTstVeriGondr.Click += new System.EventHandler(this.btnLoraTstVeriGondr_Click);
             // 
@@ -818,7 +817,6 @@
             this.logSeriPort.ScrollBars = System.Windows.Forms.ScrollBars.Both;
             this.logSeriPort.Size = new System.Drawing.Size(376, 659);
             this.logSeriPort.TabIndex = 2;
-            this.logSeriPort.Text = resources.GetString("logSeriPort.Text");
             this.logSeriPort.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // uc_PortAyarlari

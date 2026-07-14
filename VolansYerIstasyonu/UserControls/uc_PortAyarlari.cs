@@ -31,7 +31,10 @@ namespace VolansYerIstasyonu.UserControls
         static System.IO.Ports.Parity[] pairityTypes = { Parity.None, Parity.Odd, Parity.Even, Parity.Mark, Parity.Space };
 
         static public SerialPort loraSerialPort = new SerialPort();
-        static public SerialPort HYISerialPort = new SerialPort(); 
+        static public SerialPort HYISerialPort = new SerialPort();
+
+        private bool loraTestLedActive = false;
+
         public uc_PortAyarlari()
         {
             InitializeComponent();
@@ -390,15 +393,46 @@ namespace VolansYerIstasyonu.UserControls
         {
 
 
+            // Hedef aviyonik modülü adresi (RF Setting'de yapılmış olmalı)
+            const byte AVIONIK_ADDR_H = 0x00;
+            const byte AVIONIK_ADDR_L = 0x02;     // Aviyonik adres: 0x0000
+            const byte CHANNEL = 0x17;     // Kanal 23
+
+            if (loraSerialPort == null || !loraSerialPort.IsOpen)
+            {
+                MessageBox.Show("LoRa portu açık değil.");
+                return;
+            }
+
             try
             {
-                byte[] bytestosend = { 0x0, 0x01, 0x17, 0x76, 0x6F, 0x6C, 0x61, 0x6E, 0x73 };
-                loraSerialPort.Write(bytestosend, 0, bytestosend.Length);
-            }
-             catch (Exception ex)
-            {
-                MessageBox.Show($"Bir Hata Meydana Geldi!: {ex.Message}", "Hata!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                // Toggle - led/buzzer durumunu çevir
+                loraTestLedActive = !loraTestLedActive;
+                byte komut = loraTestLedActive ? (byte)'L' : (byte)'l';
 
+                // Fixed mode paket: [ADDH][ADDL][CHAN][KOMUT]
+                byte[] paket = new byte[]
+                {
+            AVIONIK_ADDR_H,
+            AVIONIK_ADDR_L,
+            CHANNEL,
+            komut
+                };
+
+                loraSerialPort.Write(paket, 0, paket.Length);
+
+                // Butonun text'ini güncelle (görsel geri bildirim)
+                btnLoraTstVeriGondr.Text = loraTestLedActive
+                    ? "LED Kapat (Aviyoniğe)"
+                    : "LED Yak (Aviyoniğe)";
+
+                System.Diagnostics.Debug.WriteLine(
+                    $"[LoRa-CMD] Gönderildi: '{(char)komut}' -> aviyonik LED " +
+                    (loraTestLedActive ? "AÇIK" : "KAPALI"));
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("LoRa komut gönderim hatası: " + ex.Message);
             }
         }
 

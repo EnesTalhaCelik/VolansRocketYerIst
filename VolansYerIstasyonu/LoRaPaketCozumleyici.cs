@@ -236,10 +236,10 @@ namespace VolansYerIstasyonu
         // =====================================================================
         private static void HaberlesmeTestiPaketiniIsle(string[] alanlar)
         {
-            if (alanlar.Length < 8)
+            if (alanlar.Length < 10)
             {
                 HataliPaket++;
-                Debug.WriteLine($"[LoRa] Haberlesme testi: eksik alan ({alanlar.Length}/8)");
+                Debug.WriteLine($"[LoRa] Haberlesme testi: eksik alan ({alanlar.Length}/10)");
                 return;
             }
 
@@ -247,27 +247,32 @@ namespace VolansYerIstasyonu
 
             if (!uint.TryParse(alanlar[1], NumberStyles.Integer, culture, out uint paketSayaci)) { HataliPaket++; return; }
             if (!uint.TryParse(alanlar[2], NumberStyles.Integer, culture, out uint arduinoMs)) { HataliPaket++; return; }
-            if (!float.TryParse(alanlar[3], NumberStyles.Float, culture, out float sicaklik)) { HataliPaket++; return; }
-            if (!float.TryParse(alanlar[4], NumberStyles.Float, culture, out float basinc)) { HataliPaket++; return; }
-            if (!double.TryParse(alanlar[5], NumberStyles.Float, culture, out double gpsEnlem)) { HataliPaket++; return; }
-            if (!double.TryParse(alanlar[6], NumberStyles.Float, culture, out double gpsBoylam)) { HataliPaket++; return; }
-            if (!float.TryParse(alanlar[7], NumberStyles.Float, culture, out float gpsIrtifa)) { HataliPaket++; return; }
+            if (!float.TryParse(alanlar[3], NumberStyles.Float, culture, out float gyroX)) { HataliPaket++; return; }
+            if (!float.TryParse(alanlar[4], NumberStyles.Float, culture, out float gyroY)) { HataliPaket++; return; }
+            if (!float.TryParse(alanlar[5], NumberStyles.Float, culture, out float gyroZ)) { HataliPaket++; return; }
+            if (!float.TryParse(alanlar[6], NumberStyles.Float, culture, out float roll)) { HataliPaket++; return; }
+            if (!float.TryParse(alanlar[7], NumberStyles.Float, culture, out float pitch)) { HataliPaket++; return; }
+            if (!float.TryParse(alanlar[8], NumberStyles.Float, culture, out float toplamAci)) { HataliPaket++; return; }
+            if (!int.TryParse(alanlar[9], NumberStyles.Integer, culture, out int ledRaw)) { HataliPaket++; return; }
 
-            // 1) DB'ye yaz
+            bool ledOn = ledRaw != 0;
+
+            // DB'ye yaz
             uc_VeriTablo.haberlesmeTestiVeriEkle(
-                paketSayaci, arduinoMs, sicaklik, basinc,
-                gpsEnlem, gpsBoylam, gpsIrtifa);
+                paketSayaci, arduinoMs, gyroX, gyroY, gyroZ, roll, pitch, toplamAci, ledOn);
 
-            // 2) UI subscriber'lara haber ver
+            // UI subscriber'lara haber ver
             var veri = new HaberlesmeTestiVerisi
             {
                 PaketSayaci = paketSayaci,
                 ArduinoMs = arduinoMs,
-                Sicaklik = sicaklik,
-                Basinc = basinc,
-                GpsEnlem = gpsEnlem,
-                GpsBoylam = gpsBoylam,
-                GpsIrtifa = gpsIrtifa
+                GyroX = gyroX,
+                GyroY = gyroY,
+                GyroZ = gyroZ,
+                Roll = roll,
+                Pitch = pitch,
+                ToplamAci = toplamAci,
+                LedOn = ledOn
             };
             try
             {
@@ -326,6 +331,7 @@ namespace VolansYerIstasyonu
                 paketSayaci, arduinoMs, jiroskopX, jiroskopY, jiroskopZ, aci, egimTetiklendi);
 
             // 2) UI subscriber'lara haber ver
+
             var veri = new JiroskopTestiVerisi
             {
                 PaketSayaci = paketSayaci,

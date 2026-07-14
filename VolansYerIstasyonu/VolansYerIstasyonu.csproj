@@ -6,7 +6,7 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{A2B85A40-D30B-403F-BED8-BA626F755E00}</ProjectGuid>
-    <OutputType>Exe</OutputType>
+    <OutputType>WinExe</OutputType>
     <RootNamespace>VolansYerIstasyonu</RootNamespace>
     <AssemblyName>VolansYerIstasyonu</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
@@ -204,12 +204,6 @@
     <Compile Include="UserControls\uc_PortAyarlari.Designer.cs">
       <DependentUpon>uc_PortAyarlari.cs</DependentUpon>
     </Compile>
-    <Compile Include="UserControls\uc_RoketInstance.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="UserControls\uc_RoketInstance.Designer.cs">
-      <DependentUpon>uc_RoketInstance.cs</DependentUpon>
-    </Compile>
     <Compile Include="UserControls\uc_VerilerinGrafikleri.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -246,9 +240,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\uc_PortAyarlari.resx">
       <DependentUpon>uc_PortAyarlari.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UserControls\uc_RoketInstance.resx">
-      <DependentUpon>uc_RoketInstance.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\uc_VerilerinGrafikleri.resx">
       <DependentUpon>uc_VerilerinGrafikleri.cs</DependentUpon>
